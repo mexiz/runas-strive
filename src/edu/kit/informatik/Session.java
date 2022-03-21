@@ -1,33 +1,29 @@
 package edu.kit.informatik;
 
 import java.util.List;
-import java.util.Scanner;
 
-import javax.xml.namespace.QName;
-
-import edu.kit.informatik.cards.monster.model.Monster;
-import edu.kit.informatik.cards.monster.monster.Spider;
-import edu.kit.informatik.cards.runa.abilities.defence.RunaFocus;
-import edu.kit.informatik.cards.runa.abilities.defence.RunaParry;
-import edu.kit.informatik.cards.runa.abilities.defence.RunaReflect;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaFire;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaIce;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaLightning;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaWater;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaPierce;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaSlash;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaSwing;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaThrust;
-import edu.kit.informatik.cards.runa.model.Runa;
-import edu.kit.informatik.cards.runa.model.RunaAbilities;
+import edu.kit.informatik.abilities.runa.defence.RunaFocus;
+import edu.kit.informatik.abilities.runa.defence.RunaParry;
+import edu.kit.informatik.abilities.runa.defence.RunaReflect;
+import edu.kit.informatik.abilities.runa.magic.RunaFire;
+import edu.kit.informatik.abilities.runa.magic.RunaIce;
+import edu.kit.informatik.abilities.runa.magic.RunaLightning;
+import edu.kit.informatik.abilities.runa.magic.RunaWater;
+import edu.kit.informatik.abilities.runa.phys.RunaPierce;
+import edu.kit.informatik.abilities.runa.phys.RunaSlash;
+import edu.kit.informatik.abilities.runa.phys.RunaSwing;
+import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.hero.Mage;
 import edu.kit.informatik.hero.Paladin;
 import edu.kit.informatik.hero.Warrior;
+import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.monster.firstlevel.Spider;
 
 public class Session {
 
-    static List<RunaAbilities> runaCards = List.of(new RunaFire(1),
+    static List<Ability> runaCards = List.of(new RunaFire(1),
             new RunaIce(1),
             new RunaLightning(1),
             new RunaParry(1),
@@ -45,7 +41,7 @@ public class Session {
 
     public static void main(String[] args) {
         Runa runa = new Runa(hero.get(0));
-        RunaAbilities run = new RunaFire(1);
+        Ability run = new RunaFire(1);
         Monster spider = new Spider();
 
         run.execute(1, runa, spider);

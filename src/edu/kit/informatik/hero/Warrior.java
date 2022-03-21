@@ -2,19 +2,19 @@ package edu.kit.informatik.hero;
 
 import java.util.List;
 
-import edu.kit.informatik.cards.runa.abilities.defence.RunaParry;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaThrust;
-import edu.kit.informatik.cards.runa.model.RunaAbilities;
+import edu.kit.informatik.abilities.runa.defence.RunaParry;
+import edu.kit.informatik.abilities.runa.phys.RunaThrust;
+import edu.kit.informatik.model.Ability;
 
 public class Warrior implements HeroClass {
 
     private static final String HERO_CLASS_NAME = "Warrior";
 
-    List<RunaAbilities> abilities = List.of(new RunaThrust(1),
+    List<Ability> abilities = List.of(new RunaThrust(1),
             new RunaParry(1));
 
     @Override
-    public List<RunaAbilities> getAbilities() {
+    public List<Ability> getAbilities() {
         return abilities;
     }
 

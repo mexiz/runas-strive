@@ -4,30 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
-import edu.kit.informatik.cards.monster.monster.Spider;
-import edu.kit.informatik.cards.runa.abilities.defence.RunaParry;
-import edu.kit.informatik.cards.runa.abilities.defence.RunaReflect;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaFire;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaIce;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaLightning;
-import edu.kit.informatik.cards.runa.abilities.magic.RunaWater;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaPierce;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaSlash;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaSwing;
-import edu.kit.informatik.cards.runa.abilities.phys.RunaThrust;
-import edu.kit.informatik.cards.runa.model.Runa;
+import edu.kit.informatik.Runa;
+import edu.kit.informatik.abilities.runa.defence.RunaParry;
+import edu.kit.informatik.abilities.runa.defence.RunaReflect;
+import edu.kit.informatik.abilities.runa.magic.RunaFire;
+import edu.kit.informatik.abilities.runa.magic.RunaIce;
+import edu.kit.informatik.abilities.runa.magic.RunaLightning;
+import edu.kit.informatik.abilities.runa.magic.RunaWater;
+import edu.kit.informatik.abilities.runa.phys.RunaPierce;
+import edu.kit.informatik.abilities.runa.phys.RunaSlash;
+import edu.kit.informatik.abilities.runa.phys.RunaSwing;
+import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.hero.Mage;
+import edu.kit.informatik.monster.firstlevel.Spider;
 
 public class AbilitiyValueTest {
 
     @ParameterizedTest
-    @CsvSource({
-            "1, 1, 5",
-            "2, 10, 18",
-            "3, 20, 32",
-    })
+    @CsvFileSource(resources = "/resources/test/Slash.csv")
     public void slashTest(int level, int dice, int out) {
         RunaSlash obj;
         obj = new RunaSlash(level);
@@ -35,11 +30,7 @@ public class AbilitiyValueTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "1, 1, 6",
-            "2, 10, 20",
-            "3, 20, 35",
-    })
+    @CsvFileSource(resources = "/resources/test/Swing.csv")
     public void swingTest(int level, int dice, int out) {
         RunaSwing obj;
         obj = new RunaSwing(level);
@@ -47,11 +38,7 @@ public class AbilitiyValueTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "1, 1, 7",
-            "2, 10, 30",
-            "3, 20,50",
-    })
+    @CsvFileSource(resources = "/resources/test/Thrust.csv")
     public void thrustTest(int level, int dice, int out) {
         RunaThrust obj;
         obj = new RunaThrust(level);
@@ -59,28 +46,13 @@ public class AbilitiyValueTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-        "1,9620,9632",
-        "2,14943,14967",
-        "3,64069,64105",
-        "4,97851,97899",
-        "5,66452,66512",
-        "6,94872,94944",
-        "7,43019,43103",
-        "8,60464,60560",
-        "9,59036,59144",
-        "10,17797,17917",
-        "11,97375,97507",
-        "12,41097,41241",
-        "13,17181,17337",
-        "14,22218,22386",
-        "15,36281,36461"
-    })
+    @CsvFileSource(resources = "/resources/test/Pierce.csv")
     public void pierceTest(int level, int dice, int out) {
         RunaPierce obj;
         obj = new RunaPierce(level);
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Parry.csv")
     public void parryTest(int level, int dice, int out) {
@@ -97,6 +69,7 @@ public class AbilitiyValueTest {
         obj = new RunaReflect(level);
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Water.csv")
     public void waterTest(int level, int dice, int out) {
@@ -116,6 +89,7 @@ public class AbilitiyValueTest {
         obj = new RunaIce(level);
         assertEquals(out, obj.execute(dice, runa, new Spider()));
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Fire.csv")
     public void fireTest(int level, int dice, int out) {
