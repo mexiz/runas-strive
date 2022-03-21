@@ -20,7 +20,7 @@ public class Runa {
     }
 
     public void executeAbility(int dice, Monster monster) {
-        currenAbilities.attack(dice, this, monster);
+        currenAbilities.execute(dice, this, monster);
     }
 
     public int defend(int damage, boolean breakFocus, AttackType type) {

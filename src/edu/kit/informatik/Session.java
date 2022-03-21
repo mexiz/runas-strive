@@ -7,7 +7,7 @@ import javax.xml.namespace.QName;
 
 import edu.kit.informatik.cards.monster.model.Monster;
 import edu.kit.informatik.cards.monster.monster.Spider;
-import edu.kit.informatik.cards.runa.abilities.RunaFocus;
+import edu.kit.informatik.cards.runa.abilities.defence.RunaFocus;
 import edu.kit.informatik.cards.runa.abilities.defence.RunaParry;
 import edu.kit.informatik.cards.runa.abilities.defence.RunaReflect;
 import edu.kit.informatik.cards.runa.abilities.magic.RunaFire;
@@ -48,10 +48,8 @@ public class Session {
         RunaAbilities run = new RunaFire(1);
         Monster spider = new Spider();
 
-        run.attack(1, runa, spider);
-
-        spider.attack(1, false, runa, spider);
-
+        run.execute(1, runa, spider);
+        
         System.out.println(runa.getHealth());
         System.out.println(spider.getHealth());
     }

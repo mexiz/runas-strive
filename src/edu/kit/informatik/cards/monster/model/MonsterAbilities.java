@@ -6,10 +6,10 @@ import edu.kit.informatik.cards.runa.model.Runa;
 
 public interface MonsterAbilities {
 
-        abstract CardType getCardType();
+        int execute(int dice, Runa runa, Monster monster);
 
-        abstract AttackType getAttackType();
+        CardType getCardType();
 
-        abstract void attack(int dice, boolean breakFocus, Runa runa, Monster monster);
+        AttackType getAttackType();
 
 }

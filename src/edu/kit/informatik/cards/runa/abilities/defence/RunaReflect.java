@@ -26,10 +26,10 @@ public class RunaReflect implements RunaAbilities {
     public RunaReflect(int level) {
         this.level = level;
     }
-    @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        // TODO Auto-generated method stub
 
+    @Override
+    public int execute(int dice, Runa runa, Monster monster) {
+        return (-10) * level;
     }
 
     @Override
@@ -41,4 +41,5 @@ public class RunaReflect implements RunaAbilities {
     public AttackType getAttackType() {
         return attackType;
     }
+
 }

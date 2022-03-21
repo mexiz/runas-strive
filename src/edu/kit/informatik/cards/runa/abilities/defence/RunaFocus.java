@@ -1,4 +1,4 @@
-package edu.kit.informatik.cards.runa.abilities;
+package edu.kit.informatik.cards.runa.abilities.defence;
 
 import edu.kit.informatik.cards.model.AttackType;
 import edu.kit.informatik.cards.model.CardType;
@@ -20,9 +20,9 @@ public class RunaFocus implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
+    public int execute(int dice, Runa runa, Monster monster) {
         // TODO Auto-generated method stub
-
+        return 0;
     }
 
     @Override

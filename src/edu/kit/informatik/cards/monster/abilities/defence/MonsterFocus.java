@@ -1,4 +1,4 @@
-package edu.kit.informatik.cards.monster.abilities;
+package edu.kit.informatik.cards.monster.abilities.defence;
 
 import edu.kit.informatik.cards.model.AttackType;
 import edu.kit.informatik.cards.model.CardType;
@@ -10,6 +10,7 @@ public class MonsterFocus implements MonsterAbilities {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
+    private static final boolean BREAK_FOCUS = false;
 
     private int level;
 
@@ -18,9 +19,8 @@ public class MonsterFocus implements MonsterAbilities {
     }
 
     @Override
-    public void attack(int dice, boolean breakFocus, Runa runa, Monster monster) {
-        // TODO Auto-generated method stub
-
+    public int execute(int dice, Runa runa, Monster monster) {
+        return 1;
     }
 
     @Override

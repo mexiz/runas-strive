@@ -25,11 +25,10 @@ public class RunaSwing implements RunaAbilities {
     public RunaSwing(int level) {
         this.level = level;
     }
-
+    
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        int damage = (5 * this.level) + dice;
-        monster.defend(attackType, BREAK_FOCUS , damage);
+    public int execute(int dice, Runa runa, Monster monster) {
+        return (5 * this.level) + dice;
     }
 
     @Override

@@ -2,14 +2,11 @@ package edu.kit.informatik.cards.monster.monster;
 
 import java.util.List;
 
-import edu.kit.informatik.cards.model.AttackType;
-import edu.kit.informatik.cards.model.CardType;
 import edu.kit.informatik.cards.monster.abilities.defence.MonsterBlock;
 import edu.kit.informatik.cards.monster.abilities.phys.MonsterScratch;
 import edu.kit.informatik.cards.monster.model.Monster;
 import edu.kit.informatik.cards.monster.model.MonsterAbilities;
 import edu.kit.informatik.cards.monster.model.MonsterType;
-import edu.kit.informatik.cards.runa.model.Runa;
 
 public class Spider implements Monster {
 
@@ -17,6 +14,7 @@ public class Spider implements Monster {
 
     int health = 15;
     int countAbility = 0;
+    int focusPoint = 0;
 
     List<MonsterAbilities> abilities = List.of(new MonsterScratch(1),
             new MonsterBlock(1));
@@ -25,18 +23,6 @@ public class Spider implements Monster {
 
     public Spider() {
         currentAbility = abilities.get(countAbility);
-    }
-
-    @Override
-    public void attack(int dice, boolean breakFocus, Runa runa, Monster monster) {
-        if (currentAbility.getCardType().equals(CardType.OFFENSIVE)) {
-            currentAbility.attack(dice, breakFocus, runa, monster);
-        }
-    }
-
-    @Override
-    public void defend(AttackType type, boolean breakFocus, int damage) {
-        health -= damage;
     }
 
     public int getHealth() {
@@ -50,6 +36,16 @@ public class Spider implements Monster {
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
+    }
+
+    @Override
+    public int getFocusPoints() {
+        return focusPoint;
+    }
+
+    @Override
+    public void setFocusPoints(int focusPoint) {
+        this.focusPoint = focusPoint;
     }
 
 }

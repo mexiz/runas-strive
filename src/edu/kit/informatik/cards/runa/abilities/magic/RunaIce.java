@@ -28,14 +28,19 @@ public class RunaIce implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        int damage = (2 * this.level) + 4; 
+    public int execute(int dice, Runa runa, Monster monster) {
+
+        if (runa.getFocus() < 1) {
+            return 0;
+        }
+        int damage = (2 * this.level) + 4;
         damage *= runa.getFocus();
         damage += 2;
-        if(monster.getMonsterType().equals(MonsterType.WASSER)){
+        if (monster.getMonsterType().equals(MonsterType.WASSER)) {
             damage += 2 * this.level;
         }
-        monster.defend(attackType, BREAK_FOCUS ,damage);
+        runa.setFocus(runa.getFocus() - 1);
+        return damage;
     }
 
     @Override

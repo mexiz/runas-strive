@@ -17,8 +17,9 @@ import edu.kit.informatik.cards.runa.model.Runa;
 
 public class MonsterDeflect implements MonsterAbilities {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
+    private static final AttackType attackType = AttackType.MAGIC;
+    private static final CardType cardType = CardType.DEFENSIV;
+    private static final boolean BREAK_FOCUS = false;
 
     private int level;
 
@@ -27,9 +28,8 @@ public class MonsterDeflect implements MonsterAbilities {
     }
 
     @Override
-    public void attack(int dice, boolean breakFocus, Runa runa, Monster monster) {
-        // TODO Auto-generated method stub
-
+    public int execute(int dice, Runa runa, Monster monster) {
+        return (11 * level) + 2;
     }
 
     @Override

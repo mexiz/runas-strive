@@ -29,13 +29,19 @@ public class RunaFire implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        int damage = (2 * this.level) + 5;  
+    public int execute(int dice, Runa runa, Monster monster) {
+        if (runa.getFocus() < 1) {
+            return 0;
+        }
+
+        int damage = (2 * this.level) + 5;
         damage *= runa.getFocus();
-        if(monster.getMonsterType().equals(MonsterType.EIS)){
+        if (monster.getMonsterType().equals(MonsterType.EIS)) {
             damage += 2 * this.level;
         }
-        monster.defend(attackType, BREAK_FOCUS ,damage);
+
+        runa.setFocus(runa.getFocus() - 1);
+        return damage;
     }
 
     @Override

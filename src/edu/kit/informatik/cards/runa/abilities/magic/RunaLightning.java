@@ -28,15 +28,21 @@ public class RunaLightning implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        int damage = (2 * this.level) + 5; 
+    public int execute(int dice, Runa runa, Monster monster) {
+
+        if (runa.getFocus() < 1) {
+            return 0;
+        }
+        int damage = (2 * this.level) + 5;
         damage *= runa.getFocus();
         damage += 2;
-        if(monster.getMonsterType().equals(MonsterType.FEUER)){
+        if (monster.getMonsterType().equals(MonsterType.FEUER)) {
             damage += 2 * this.level;
         }
-        monster.defend(attackType, BREAK_FOCUS ,damage);
+        runa.setFocus(runa.getFocus() - 1);
+        return damage;
     }
+
     @Override
     public CardType getCardType() {
         return cardType;

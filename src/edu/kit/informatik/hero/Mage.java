@@ -2,7 +2,7 @@ package edu.kit.informatik.hero;
 
 import java.util.List;
 
-import edu.kit.informatik.cards.runa.abilities.RunaFocus;
+import edu.kit.informatik.cards.runa.abilities.defence.RunaFocus;
 import edu.kit.informatik.cards.runa.abilities.magic.RunaWater;
 import edu.kit.informatik.cards.runa.model.RunaAbilities;
 

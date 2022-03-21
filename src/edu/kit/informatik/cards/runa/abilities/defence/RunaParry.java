@@ -28,8 +28,8 @@ public class RunaParry implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        // TODO Auto-generated method stub
+    public int execute(int dice, Runa runa, Monster monster) {
+        return (-7) * level;
     }
 
     @Override
@@ -41,6 +41,5 @@ public class RunaParry implements RunaAbilities {
     public AttackType getAttackType() {
         return attackType;
     }
-
 
 }

@@ -15,14 +15,14 @@ import edu.kit.informatik.cards.monster.model.Monster;
 public interface RunaAbilities {
 
     /**
-     * Die Angriffsmethode
+     * Den Wert von der Fähigkeit
      * 
      * @param dice    die Würfelzahl
      * @param runa    das Objekt des Angreifers
      * @param monster das Objekt des Opfers
      */
 
-    void attack(int dice, Runa runa, Monster monster);
+    int execute(int dice, Runa runa, Monster monster);
 
     /**
      * Gibt den Typ der Karte zurück

@@ -10,6 +10,7 @@ public class MonsterFire implements MonsterAbilities {
 
     private static final AttackType attackType = AttackType.MAGIC;
     private static final CardType cardType = CardType.OFFENSIVE;
+    private static final boolean BREAK_FOCUS = false;
 
     private int level;
 
@@ -18,9 +19,15 @@ public class MonsterFire implements MonsterAbilities {
     }
 
     @Override
-    public void attack(int dice, boolean breakFocus, Runa runa, Monster monster) {
-        // TODO Auto-generated method stub
+    public int execute(int dice, Runa runa, Monster monster) {
+        if (monster.getFocusPoints() > level - 1) {
 
+            int damage = 12 * level;
+            damage += 2;
+            monster.setFocusPoints(monster.getFocusPoints() - level);
+            return damage;
+        }
+        return 0;
     }
 
     @Override

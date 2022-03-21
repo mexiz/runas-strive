@@ -27,12 +27,12 @@ public class RunaThrust implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
+    public int execute(int dice, Runa runa, Monster monster) {
         int damage = (6 * this.level) + dice;
         if (dice > 5) {
             damage += (4 * this.level);
         }
-        monster.defend(attackType, BREAK_FOCUS, damage);
+        return damage;
     }
 
     @Override

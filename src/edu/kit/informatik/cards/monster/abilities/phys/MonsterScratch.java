@@ -13,16 +13,14 @@ public class MonsterScratch implements MonsterAbilities {
     private static final boolean BREAK_FOCUS = true;
 
     private int level;
-    
+
     public MonsterScratch(int level) {
         this.level = level;
     }
 
-
     @Override
-    public void attack(int dice, boolean breakFocus, Runa runa, Monster monster) {
-        int damage = 5 * level;
-        runa.defend(damage, BREAK_FOCUS, attackType);
+    public int execute(int dice, Runa runa, Monster monster) {
+        return  5 * level;
     }
 
     @Override

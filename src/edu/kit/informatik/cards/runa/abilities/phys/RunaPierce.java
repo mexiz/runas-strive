@@ -27,12 +27,12 @@ public class RunaPierce implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
+    public int execute(int dice, Runa runa, Monster monster) {
         int damage = (7 * this.level) + dice;
         if (dice > 5) {
             damage += (5 * this.level);
         }
-        monster.defend(attackType, BREAK_FOCUS, damage);
+        return damage;
     }
 
     @Override

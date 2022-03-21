@@ -26,9 +26,8 @@ public class RunaSlash implements RunaAbilities {
     }
 
     @Override
-    public void attack(int dice, Runa runa, Monster monster) {
-        int damage = (4 * this.level) + dice;
-        monster.defend(attackType, BREAK_FOCUS , damage);
+    public int execute(int dice, Runa runa, Monster monster) {
+        return (4 * this.level) + dice;
     }
 
     @Override
