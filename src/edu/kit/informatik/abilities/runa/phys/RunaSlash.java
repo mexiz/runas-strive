@@ -14,11 +14,12 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaSlash implements Ability {
+public class RunaSlash extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = true;
+    private static final String name = "Slash";
     private int level;
 
     public RunaSlash(int level) {
@@ -40,4 +41,9 @@ public class RunaSlash implements Ability {
         return attackType;
     }
 
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
+    }
 }

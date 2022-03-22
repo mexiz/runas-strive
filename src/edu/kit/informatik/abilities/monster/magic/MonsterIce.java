@@ -9,11 +9,12 @@ import edu.kit.informatik.model.Monster;
 /**
  * MonsterIce
  */
-public class MonsterIce implements Ability {
+public class MonsterIce extends Ability {
 
     private static final AttackType attackType = AttackType.MAGIC;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Ice";
 
     private int level;
 
@@ -40,6 +41,11 @@ public class MonsterIce implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

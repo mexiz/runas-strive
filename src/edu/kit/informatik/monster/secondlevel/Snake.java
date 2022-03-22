@@ -15,7 +15,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class Snake implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.EIS;
-
+    private static final String name = "Snake";
     private int health = 31;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -25,7 +25,10 @@ public class Snake implements Monster {
             new MonsterIce(2));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

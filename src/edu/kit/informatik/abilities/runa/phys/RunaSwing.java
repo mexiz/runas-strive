@@ -15,11 +15,12 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaSwing implements Ability {
+public class RunaSwing extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = true;
+    private static final String name = "Swing";
     private int level;
 
     public RunaSwing(int level) {
@@ -40,5 +41,8 @@ public class RunaSwing implements Ability {
     public AttackType getAttackType() {
         return attackType;
     }
-
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
+    }
 }

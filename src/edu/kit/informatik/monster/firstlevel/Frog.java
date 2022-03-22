@@ -12,6 +12,8 @@ public class Frog implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.WASSER;
 
+    private static final String name = "Frog";
+
     private int health = 16;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -64,5 +66,10 @@ public class Frog implements Monster {
             countAbility = 0;
         }
         currentAbility = abilities.get(countAbility);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

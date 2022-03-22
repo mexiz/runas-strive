@@ -14,6 +14,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class Ghost implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.EIS;
+    private static final String name = "Ghost";
 
     private int health = 15;
     private int countAbility = 0;
@@ -67,5 +68,10 @@ public class Ghost implements Monster {
             countAbility = 0;
         }
         currentAbility = abilities.get(countAbility);
+    }
+    
+    @Override
+    public String getName() {
+        return name;
     }
 }

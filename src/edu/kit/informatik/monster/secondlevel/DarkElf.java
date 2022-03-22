@@ -16,7 +16,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class DarkElf implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
-
+    private static final String name = "Dark Elf";
     private int health = 34;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -26,7 +26,10 @@ public class DarkElf implements Monster {
             new MonsterLightning(1));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

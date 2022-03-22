@@ -13,7 +13,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class Gorgon implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.FEUER;
-
+    private static final String name = "Gorgon";
     private int health = 13;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -22,7 +22,10 @@ public class Gorgon implements Monster {
             new MonsterFire(1));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

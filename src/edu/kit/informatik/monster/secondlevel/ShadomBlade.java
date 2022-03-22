@@ -15,7 +15,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class ShadomBlade implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.BLITZ;
-
+    private static final String name = "Frog";
     private int health = 27;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -25,7 +25,10 @@ public class ShadomBlade implements Monster {
             new MonsterLightning(2));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

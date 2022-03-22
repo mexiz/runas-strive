@@ -16,11 +16,12 @@ import edu.kit.informatik.monster.MonsterType;
  * 
  */
 
-public class RunaFire implements Ability {
+public class RunaFire extends Ability {
 
     private static final AttackType attackType = AttackType.MAGIC;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Fire";
 
     private int level;
 
@@ -52,6 +53,11 @@ public class RunaFire implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

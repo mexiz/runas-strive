@@ -16,11 +16,12 @@ import edu.kit.informatik.monster.MonsterType;
  * 
  */
 
-public class RunaIce implements Ability {
+public class RunaIce extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Ice";
     private int level;
 
     public RunaIce(int level) {
@@ -51,6 +52,11 @@ public class RunaIce implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

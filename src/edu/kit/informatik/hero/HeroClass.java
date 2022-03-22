@@ -4,9 +4,9 @@ import java.util.List;
 
 import edu.kit.informatik.model.Ability;
 
-public interface HeroClass {
+public abstract class HeroClass {
 
-    List<Ability> getAbilities();
+    public abstract List<Ability> getAbilities();
 
-    String getHeroName();
+    public abstract String getHeroName();
 }

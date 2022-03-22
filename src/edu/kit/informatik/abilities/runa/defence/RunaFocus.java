@@ -8,11 +8,12 @@ import edu.kit.informatik.model.Ability;
 
 //TODO
 
-public class RunaFocus implements Ability {
+public class RunaFocus extends Ability {
 
     private static final AttackType attackType = AttackType.MAGIC;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Focus";
     private int level;
 
     public RunaFocus(int level) {
@@ -33,6 +34,11 @@ public class RunaFocus implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

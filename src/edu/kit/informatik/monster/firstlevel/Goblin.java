@@ -14,7 +14,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class Goblin implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
-
+    private static final String name = "Goblin";
     private int health = 12;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -23,7 +23,10 @@ public class Goblin implements Monster {
             new MonsterDeflect(1));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

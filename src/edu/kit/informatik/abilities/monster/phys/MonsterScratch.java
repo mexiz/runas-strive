@@ -6,11 +6,12 @@ import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
-public class MonsterScratch implements Ability {
+public class MonsterScratch extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = true;
+    private static final String name = "Scratch";
 
     private int level;
 
@@ -31,6 +32,11 @@ public class MonsterScratch implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

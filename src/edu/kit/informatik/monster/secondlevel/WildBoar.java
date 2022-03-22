@@ -14,7 +14,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class WildBoar implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.EIS;
-
+    private static final String name = "WildBoar";
     private int health = 27;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -24,7 +24,10 @@ public class WildBoar implements Monster {
             new MonsterScratch(2));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

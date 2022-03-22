@@ -15,11 +15,12 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaReflect implements Ability {
+public class RunaReflect extends Ability {
 
     private static final AttackType attackType = AttackType.MAGIC;
     private static final CardType cardType = CardType.DEFENSIV;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Reflect";
 
     private int level;
 
@@ -40,6 +41,10 @@ public class RunaReflect implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

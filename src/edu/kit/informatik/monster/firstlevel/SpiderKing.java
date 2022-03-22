@@ -14,7 +14,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class SpiderKing implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
-
+    private static final String name = "Spider King";
     private int health = 50;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -25,7 +25,10 @@ public class SpiderKing implements Monster {
             new MonsterLightning(1));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

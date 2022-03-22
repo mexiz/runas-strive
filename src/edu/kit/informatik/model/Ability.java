@@ -10,7 +10,19 @@ import edu.kit.informatik.Runa;
  * @version 1.0.0
  */
 
-public interface Ability {
+public abstract class Ability {
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && getClass() == obj.getClass())
+            return true;
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
     /**
      * Den Wert von der Fähigkeit
@@ -20,7 +32,7 @@ public interface Ability {
      * @param monster das Objekt des Opfers
      */
 
-    int execute(int dice, Runa runa, Monster monster);
+    public abstract int execute(int dice, Runa runa, Monster monster);
 
     /**
      * Gibt den Typ der Karte zurück
@@ -28,13 +40,20 @@ public interface Ability {
      * @return den Kartentype(Offensive, Defensiv)
      */
 
-    CardType getCardType();
+    public abstract CardType getCardType();
 
     /**
      * Gibt den Angriffstypen zurück
      * 
      * @return den Angriffstypen (physisch oder magisch)
      */
-    AttackType getAttackType();
+    public abstract AttackType getAttackType();
+
+    /**
+     * gibt den Namen der Fähigkeit zurück
+     * 
+     * @return den Name der Fähigkeit (physisch oder magisch)
+     */
+    public abstract String getName();
 
 }

@@ -16,11 +16,12 @@ import edu.kit.informatik.monster.MonsterType;
  * 
  */
 
-public class RunaWater implements Ability {
+public class RunaWater extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Water";
     private int level;
 
     public RunaWater(int level) {
@@ -48,6 +49,11 @@ public class RunaWater implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

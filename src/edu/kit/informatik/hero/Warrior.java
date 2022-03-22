@@ -6,7 +6,7 @@ import edu.kit.informatik.abilities.runa.defence.RunaParry;
 import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.model.Ability;
 
-public class Warrior implements HeroClass {
+public class Warrior extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Warrior";
 

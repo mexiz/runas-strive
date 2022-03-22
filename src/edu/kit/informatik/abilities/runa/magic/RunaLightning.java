@@ -16,11 +16,12 @@ import edu.kit.informatik.monster.MonsterType;
  * 
  */
 
-public class RunaLightning implements Ability {
+public class RunaLightning extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Lightning";
     private int level;
 
     public RunaLightning(int level) {
@@ -51,6 +52,11 @@ public class RunaLightning implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

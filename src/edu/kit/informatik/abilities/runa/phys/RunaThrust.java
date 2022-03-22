@@ -15,11 +15,12 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaThrust implements Ability {
+public class RunaThrust extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.OFFENSIVE;
     private static final boolean BREAK_FOCUS = false;
+    private static final String name = "Thrust";
     private int level;
 
     public RunaThrust(int level) {
@@ -45,4 +46,8 @@ public class RunaThrust implements Ability {
         return attackType;
     }
 
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
+    }
 }

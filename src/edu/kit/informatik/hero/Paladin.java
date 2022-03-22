@@ -6,7 +6,7 @@ import edu.kit.informatik.abilities.runa.defence.RunaReflect;
 import edu.kit.informatik.abilities.runa.phys.RunaSlash;
 import edu.kit.informatik.model.Ability;
 
-public class Paladin implements HeroClass {
+public class Paladin extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Paladin";
 

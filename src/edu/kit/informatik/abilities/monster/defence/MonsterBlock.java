@@ -15,11 +15,13 @@ import edu.kit.informatik.model.Monster;
  * 
  */
 
-public class MonsterBlock implements Ability {
+public class MonsterBlock extends Ability {
 
     private static final AttackType attackType = AttackType.PHYS;
     private static final CardType cardType = CardType.DEFENSIV;
     private static final boolean BREAK_FOCUS = false;
+
+    private static final String name = "Block";
 
     private int level;
 
@@ -40,6 +42,11 @@ public class MonsterBlock implements Ability {
     @Override
     public AttackType getAttackType() {
         return attackType;
+    }
+
+    @Override
+    public String getName() {
+        return name + "(" + level + ")";
     }
 
 }

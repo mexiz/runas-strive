@@ -6,7 +6,7 @@ import edu.kit.informatik.abilities.runa.defence.RunaFocus;
 import edu.kit.informatik.abilities.runa.magic.RunaWater;
 import edu.kit.informatik.model.Ability;
 
-public class Mage implements HeroClass {
+public class Mage extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Mage";
 

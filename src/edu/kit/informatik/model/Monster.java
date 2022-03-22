@@ -20,4 +20,6 @@ public interface Monster {
 
     public abstract void setHealth(int health);
 
+    public abstract String getName();
+
 }

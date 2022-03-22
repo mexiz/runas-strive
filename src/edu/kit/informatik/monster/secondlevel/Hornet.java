@@ -12,7 +12,7 @@ import edu.kit.informatik.monster.MonsterType;
 public class Hornet implements Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.FEUER;
-
+    private static final String name = "Hornet";
     private int health = 32;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -23,7 +23,10 @@ public class Hornet implements Monster {
             new MonsterFire(2));
 
     private Ability currentAbility = abilities.get(countAbility);
-
+    @Override
+    public String getName() {
+        return name;
+    }
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
