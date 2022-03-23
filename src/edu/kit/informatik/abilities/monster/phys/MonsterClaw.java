@@ -17,36 +17,17 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterClaw extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = true;
-    private static final String name = "Claw";
-
-    private int level;
-
     public MonsterClaw(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(true);
+        super.setName("Claw");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (6 * level);
-
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
+        return (6 * super.getLevel());
     }
 
 }

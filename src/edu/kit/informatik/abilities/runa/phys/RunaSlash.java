@@ -16,34 +16,16 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaSlash extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = true;
-    private static final String name = "Slash";
-    private int level;
-
     public RunaSlash(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(true);
+        super.setName("Slash");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (4 * this.level) + dice;
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
+        return (4 * super.getLevel()) + dice;
     }
 }

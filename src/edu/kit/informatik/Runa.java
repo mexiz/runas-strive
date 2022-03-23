@@ -2,27 +2,50 @@ package edu.kit.informatik;
 
 import java.util.List;
 
+import edu.kit.informatik.abilities.EmptyAbility;
 import edu.kit.informatik.hero.HeroClass;
-import edu.kit.informatik.model.AttackType;
-import edu.kit.informatik.model.CardType;
-import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.hero.Mage;
+import edu.kit.informatik.hero.Paladin;
+import edu.kit.informatik.hero.Warrior;
 import edu.kit.informatik.model.Ability;
 
 public class Runa {
 
-    List<Ability> abilities;
+    private List<Ability> abilities;
+    private HeroClass hero;
 
-    Ability choosedAbilities;
+    private int health = 50;
+    private int focus = 1;
 
-    int health = 50;
-    int focus = 1;
+    private Ability currentAbility;
 
     public Runa(HeroClass runaClass) {
         this.abilities = runaClass.getAbilities();
+        this.currentAbility = new EmptyAbility();
     }
 
-    public void test(Ability abilities) {
-        choosedAbilities = abilities;
+    public Ability getCurrentAbility() {
+        return currentAbility;
+    }
+
+    public void setCurrentAbility(Ability ability) {
+        this.currentAbility = ability;
+    }
+
+    public boolean dead() {
+        return this.getHealth() < 0;
+    }
+
+    public HeroClass getHeroClass() {
+        return hero;
+    }
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setHeroClass(HeroClass hero) {
+        this.hero = hero;
     }
 
     public int getHealth() {

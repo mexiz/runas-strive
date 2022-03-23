@@ -8,7 +8,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class Mushroomlin implements Monster {
+public class Mushroomlin extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String name = "Mushroomlin";
@@ -45,7 +45,7 @@ public class Mushroomlin implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -55,7 +55,7 @@ public class Mushroomlin implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

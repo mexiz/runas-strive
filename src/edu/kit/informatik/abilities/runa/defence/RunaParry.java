@@ -17,34 +17,16 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaParry extends Ability {
 
-    private static final AttackType attackType = AttackType.MAGIC;
-    private static final CardType cardType = CardType.DEFENSIV;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Parry";
-
-    private int level;
-
     public RunaParry(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.DEFENSIV);
+        super.setBreakFocus(false);
+        super.setName("Parry");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (-7) * level;
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-    
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
+        return (-7) * super.getLevel();
     }
 }

@@ -13,7 +13,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class DarkElf implements Monster {
+public class DarkElf extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String name = "Dark Elf";
@@ -26,6 +26,7 @@ public class DarkElf implements Monster {
             new MonsterLightning(1));
 
     private Ability currentAbility = abilities.get(countAbility);
+
     @Override
     public String getName() {
         return name;
@@ -51,7 +52,7 @@ public class DarkElf implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -61,7 +62,7 @@ public class DarkElf implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

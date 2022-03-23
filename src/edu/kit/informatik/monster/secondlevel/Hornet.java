@@ -9,7 +9,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class Hornet implements Monster {
+public class Hornet extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.FEUER;
     private static final String name = "Hornet";
@@ -48,7 +48,7 @@ public class Hornet implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -58,7 +58,7 @@ public class Hornet implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

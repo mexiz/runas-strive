@@ -18,46 +18,22 @@ import edu.kit.informatik.monster.MonsterType;
 
 public class RunaFire extends Ability {
 
-    private static final AttackType attackType = AttackType.MAGIC;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Fire";
-
-    private int level;
-
     public RunaFire(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.MAGIC);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Fire");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        if (runa.getFocus() < 1) {
-            return 0;
-        }
-
-        int damage = (2 * this.level) + 5;
+        int damage = (2 * super.getLevel()) + 5;
         damage *= runa.getFocus();
         if (monster.getMonsterType().equals(MonsterType.EIS)) {
-            damage += 2 * this.level;
+            damage += 2 * super.getLevel();
         }
-
-        runa.setFocus(runa.getFocus() - 1);
         return damage;
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
     }
 
 }

@@ -18,42 +18,20 @@ import edu.kit.informatik.monster.MonsterType;
 
 public class RunaWater extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Water";
-    private int level;
-
     public RunaWater(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Water");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        if (runa.getFocus() < 1) {
-            return 0;
-        }
-        int damage = (2 * this.level + 4) * runa.getFocus();
+        int damage = (2 * super.getLevel() + 4) * runa.getFocus();
         if (monster.getMonsterType().equals(MonsterType.BLITZ)) {
-            damage += 2 * this.level;
+            damage += 2 * super.getLevel();
         }
-        runa.setFocus(runa.getFocus() - 1);
         return damage;
     }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
-    }
-
 }

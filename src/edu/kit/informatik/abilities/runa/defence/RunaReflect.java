@@ -17,34 +17,17 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaReflect extends Ability {
 
-    private static final AttackType attackType = AttackType.MAGIC;
-    private static final CardType cardType = CardType.DEFENSIV;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Reflect";
-
-    private int level;
-
     public RunaReflect(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.MAGIC);
+        super.setCardType(CardType.DEFENSIV);
+        super.setBreakFocus(false);
+        super.setName("Reflect");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (-10) * level;
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
+        return (-10) * super.getLevel();
     }
 
 }

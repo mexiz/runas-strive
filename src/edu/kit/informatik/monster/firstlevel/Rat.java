@@ -10,7 +10,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class Rat implements Monster {
+public class Rat extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String name = "Rat";
@@ -22,10 +22,12 @@ public class Rat implements Monster {
             new MonsterClaw(1));
 
     private Ability currentAbility = abilities.get(countAbility);
+
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
@@ -47,7 +49,7 @@ public class Rat implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -57,7 +59,7 @@ public class Rat implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

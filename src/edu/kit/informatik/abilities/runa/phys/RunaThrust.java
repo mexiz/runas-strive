@@ -17,37 +17,20 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaThrust extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Thrust";
-    private int level;
-
     public RunaThrust(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Thrust");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (6 * this.level) + dice;
+        int damage = (6 * super.getLevel()) + dice;
         if (dice > 5) {
-            damage += (4 * this.level);
+            damage += (4 * super.getLevel());
         }
         return damage;
-    }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
     }
 }

@@ -9,35 +9,16 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterFocus extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Focus";
-
-    private int level;
-
     public MonsterFocus(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.NONE);
+        super.setCardType(CardType.FOCUS);
+        super.setBreakFocus(false);
+        super.setName("Focus");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return 1;
+        return super.getLevel();
     }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
-    }
-
 }

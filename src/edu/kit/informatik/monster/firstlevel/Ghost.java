@@ -11,7 +11,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class Ghost implements Monster {
+public class Ghost extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.EIS;
     private static final String name = "Ghost";
@@ -46,7 +46,7 @@ public class Ghost implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -56,7 +56,7 @@ public class Ghost implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

@@ -17,38 +17,20 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaPierce extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Pierce";
-    private int level;
-
     public RunaPierce(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Pierce");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (7 * this.level) + dice;
+        int damage = (7 * super.getLevel()) + dice;
         if (dice > 5) {
-            damage += (5 * this.level);
+            damage += (5 * super.getLevel());
         }
         return damage;
     }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
-    }
-
 }

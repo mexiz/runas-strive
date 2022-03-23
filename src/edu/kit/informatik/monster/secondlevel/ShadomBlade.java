@@ -12,7 +12,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class ShadomBlade implements Monster {
+public class ShadomBlade extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.BLITZ;
     private static final String name = "Frog";
@@ -50,7 +50,7 @@ public class ShadomBlade implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 
@@ -60,7 +60,7 @@ public class ShadomBlade implements Monster {
     }
 
     @Override
-    public void setAbility(Ability abilities) {
+    public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
 
     }

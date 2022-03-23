@@ -17,35 +17,16 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterBite extends Ability {
 
-    private static final AttackType attackType = AttackType.PHYS;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Bite";
-
-    private int level;
-
     public MonsterBite(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.PHYS);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Bite");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return 10 * level;
+        return 10 * super.getLevel();
     }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
-    }
-
 }

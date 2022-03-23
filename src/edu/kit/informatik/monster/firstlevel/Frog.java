@@ -8,7 +8,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.monster.MonsterType;
 
-public class Frog implements Monster {
+public class Frog extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.WASSER;
 
@@ -44,19 +44,19 @@ public class Frog implements Monster {
     }
 
     @Override
-    public Ability getAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
+    }
+
+    @Override
+    public void setCurrentAbility(Ability abilities) {
+        this.currentAbility = abilities;
+
     }
 
     @Override
     public void setHealth(int health) {
         this.health = health;
-    }
-
-    @Override
-    public void setAbility(Ability abilities) {
-        this.currentAbility = abilities;
-
     }
 
     @Override

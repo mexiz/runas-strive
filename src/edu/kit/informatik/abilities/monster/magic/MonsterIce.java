@@ -11,41 +11,22 @@ import edu.kit.informatik.model.Monster;
  */
 public class MonsterIce extends Ability {
 
-    private static final AttackType attackType = AttackType.MAGIC;
-    private static final CardType cardType = CardType.OFFENSIVE;
-    private static final boolean BREAK_FOCUS = false;
-    private static final String name = "Ice";
-
-    private int level;
-
     public MonsterIce(int level) {
-        this.level = level;
+        super.setLevel(level);
+        super.setAttackType(AttackType.MAGIC);
+        super.setCardType(CardType.OFFENSIVE);
+        super.setBreakFocus(false);
+        super.setName("Ice");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        if (monster.getFocusPoints() > level - 1) {
-            int damage = 10 * level;
+        if (monster.getFocusPoints() > super.getLevel() - 1) {
+            int damage = 10 * super.getLevel();
             damage += 2;
-            monster.setFocusPoints(monster.getFocusPoints() - level);
+            monster.setFocusPoints(monster.getFocusPoints() - super.getLevel());
             return damage;
         }
         return 0;
     }
-
-    @Override
-    public CardType getCardType() {
-        return cardType;
-    }
-
-    @Override
-    public AttackType getAttackType() {
-        return attackType;
-    }
-
-    @Override
-    public String getName() {
-        return name + "(" + level + ")";
-    }
-
 }
