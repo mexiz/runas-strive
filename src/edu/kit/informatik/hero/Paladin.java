@@ -1,5 +1,6 @@
 package edu.kit.informatik.hero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.informatik.abilities.runa.defence.RunaReflect;
@@ -10,8 +11,8 @@ public class Paladin extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Paladin";
 
-    List<Ability> abilities = List.of(new RunaSlash(1),
-            new RunaReflect(1));
+    private List<Ability> abilities = new ArrayList<>(List.of(new RunaSlash(1),
+            new RunaReflect(1)));
 
     @Override
     public List<Ability> getAbilities() {

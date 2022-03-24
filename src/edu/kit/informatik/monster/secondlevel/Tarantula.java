@@ -3,13 +3,11 @@ package edu.kit.informatik.monster.secondlevel;
 import java.util.List;
 
 import edu.kit.informatik.abilities.monster.defence.MonsterBlock;
-import edu.kit.informatik.abilities.monster.defence.MonsterDeflect;
 import edu.kit.informatik.abilities.monster.phys.MonsterBite;
-import edu.kit.informatik.abilities.monster.phys.MonsterClaw;
 import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
+import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.MonsterType;
-import edu.kit.informatik.model.Ability;
 
 public class Tarantula extends Monster {
 

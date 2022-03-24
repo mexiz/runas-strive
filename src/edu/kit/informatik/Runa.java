@@ -1,5 +1,6 @@
 package edu.kit.informatik;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.informatik.abilities.EmptyAbility;
@@ -14,15 +15,27 @@ public class Runa {
     private List<Ability> abilities;
     private HeroClass hero;
 
+    private int dice;
+
     private int health = 50;
     private int focus = 1;
 
     private Ability currentAbility;
 
     public Runa(HeroClass runaClass) {
+        dice = 4;
         this.hero = runaClass;
+        this.abilities = new ArrayList<>();
         this.abilities = runaClass.getAbilities();
         this.currentAbility = new EmptyAbility();
+    }
+
+    public int getDice() {
+        return dice;
+    }
+
+    public void setDice(int dice) {
+        this.dice = dice;
     }
 
     public Ability getCurrentAbility() {
@@ -43,6 +56,10 @@ public class Runa {
 
     public List<Ability> getAbilities() {
         return abilities;
+    }
+
+    public void addAbility(Ability ability){
+        this.abilities.add(ability);
     }
 
     public void setHeroClass(HeroClass hero) {

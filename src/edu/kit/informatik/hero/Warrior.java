@@ -1,5 +1,6 @@
 package edu.kit.informatik.hero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.informatik.abilities.runa.defence.RunaParry;
@@ -10,8 +11,8 @@ public class Warrior extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Warrior";
 
-    List<Ability> abilities = List.of(new RunaThrust(1),
-            new RunaParry(1));
+    private List<Ability> abilities = new ArrayList<>(List.of(new RunaThrust(1),
+            new RunaParry(1)));
 
     @Override
     public List<Ability> getAbilities() {

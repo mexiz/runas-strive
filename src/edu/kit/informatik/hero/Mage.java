@@ -1,5 +1,6 @@
 package edu.kit.informatik.hero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.informatik.abilities.runa.defence.RunaFocus;
@@ -10,8 +11,8 @@ public class Mage extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Mage";
 
-    List<Ability> abilities = List.of(new RunaFocus(1),
-            new RunaWater(1));
+    private List<Ability> abilities = new ArrayList<>(List.of(new RunaFocus(1),
+            new RunaWater(1)));
 
     @Override
     public List<Ability> getAbilities() {
