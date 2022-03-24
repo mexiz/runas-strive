@@ -4,8 +4,8 @@ import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 /**
  * 

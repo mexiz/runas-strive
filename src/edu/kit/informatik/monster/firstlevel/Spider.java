@@ -8,8 +8,8 @@ import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 
 public class Spider extends Monster {
 

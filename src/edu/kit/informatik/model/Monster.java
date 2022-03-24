@@ -1,7 +1,6 @@
 package edu.kit.informatik.model;
 
 import edu.kit.informatik.abilities.EmptyAbility;
-import edu.kit.informatik.monster.MonsterType;
 
 public abstract class Monster {
 

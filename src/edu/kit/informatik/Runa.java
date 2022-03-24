@@ -20,6 +20,7 @@ public class Runa {
     private Ability currentAbility;
 
     public Runa(HeroClass runaClass) {
+        this.hero = runaClass;
         this.abilities = runaClass.getAbilities();
         this.currentAbility = new EmptyAbility();
     }

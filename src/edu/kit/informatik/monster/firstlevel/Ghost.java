@@ -2,14 +2,11 @@ package edu.kit.informatik.monster.firstlevel;
 
 import java.util.List;
 
-import edu.kit.informatik.abilities.monster.defence.MonsterBlock;
-import edu.kit.informatik.abilities.monster.defence.MonsterDeflect;
 import edu.kit.informatik.abilities.monster.defence.MonsterFocus;
 import edu.kit.informatik.abilities.monster.magic.MonsterIce;
-import edu.kit.informatik.abilities.monster.phys.MonsterClaw;
-import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
+import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 
 public class Ghost extends Monster {
 

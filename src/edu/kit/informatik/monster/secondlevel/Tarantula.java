@@ -8,8 +8,8 @@ import edu.kit.informatik.abilities.monster.phys.MonsterBite;
 import edu.kit.informatik.abilities.monster.phys.MonsterClaw;
 import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 public class Tarantula extends Monster {
 

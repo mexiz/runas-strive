@@ -9,8 +9,8 @@ import edu.kit.informatik.abilities.monster.magic.MonsterLightning;
 import edu.kit.informatik.abilities.monster.phys.MonsterBite;
 import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 public class MegaSaurus extends Monster {
 

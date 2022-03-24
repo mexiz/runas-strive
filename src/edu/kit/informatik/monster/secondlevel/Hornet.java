@@ -6,8 +6,8 @@ import edu.kit.informatik.abilities.monster.defence.MonsterFocus;
 import edu.kit.informatik.abilities.monster.magic.MonsterFire;
 import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 public class Hornet extends Monster {
 

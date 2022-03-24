@@ -5,8 +5,8 @@ import java.util.List;
 import edu.kit.informatik.abilities.monster.defence.MonsterDeflect;
 import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 public class Mushroomlin extends Monster {
 

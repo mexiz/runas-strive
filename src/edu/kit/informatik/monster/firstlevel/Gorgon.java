@@ -7,8 +7,8 @@ import edu.kit.informatik.abilities.monster.magic.MonsterFire;
 import edu.kit.informatik.abilities.monster.magic.MonsterLightning;
 import edu.kit.informatik.abilities.monster.magic.MonsterWater;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.monster.MonsterType;
 
 public class Gorgon extends Monster {
 
