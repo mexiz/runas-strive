@@ -93,7 +93,6 @@ public class Frog extends Monster {
         if (countAbility > abilities.size() - 1) {
             countAbility = 0;
         }
-        super.setPrevAbility(currentAbility);
         currentAbility = abilities.get(countAbility);
     }
 

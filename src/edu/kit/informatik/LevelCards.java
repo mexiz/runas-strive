@@ -76,8 +76,7 @@ public class LevelCards {
         Collections.shuffle(runaAbility, new Random(seed[0]));
     }
 
-    
-    /** 
+    /**
      * @return List<Monster>
      */
     public List<Monster> pullBoss() {
@@ -86,8 +85,7 @@ public class LevelCards {
         return bossList;
     }
 
-    
-    /** 
+    /**
      * @param count
      * @return List<Monster>
      */
@@ -100,8 +98,7 @@ public class LevelCards {
         return returnList;
     }
 
-    
-    /** 
+    /**
      * @param count
      * @return List<Ability>
      */
@@ -114,25 +111,25 @@ public class LevelCards {
         return returnList;
     }
 
-    
-    /** 
+    /**
      * @param level
      * @param removeAbility
      * @return List<Ability>
      */
     public List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
         List<Ability> ability;
-        ability = new ArrayList<>(List.of(new RunaFire(level),
-                new RunaIce(level),
-                new RunaLightning(level),
-                new RunaParry(level),
-                new RunaPierce(level),
-                new RunaReflect(level),
-                new RunaSlash(level),
+        ability = new ArrayList<>(List.of(new RunaSlash(level),
                 new RunaSwing(level),
                 new RunaThrust(level),
+                new RunaPierce(level),
+                new RunaParry(level),
+                new RunaFocus(level),
+                new RunaReflect(level),
                 new RunaWater(level),
-                new RunaFocus(level)));
+                new RunaIce(level),
+                new RunaFire(level),
+                new RunaLightning(level)
+        ));
         ability.removeAll(removeAbility);
         return ability;
     }

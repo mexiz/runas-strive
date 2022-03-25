@@ -64,7 +64,7 @@ public class Runa {
     /**
      * @return Ability
      */
-    public Ability getPrevAbility() {
+    public Ability getCurrentAbility() {
         return currentAbility;
     }
 

@@ -62,7 +62,9 @@ public class RewardPhase implements GamePhase {
             test.add(game.getRuna().getAbilities().get(remove[i] - 1));
         }
         game.getRuna().getAbilities().removeAll(test);
-        input.printHeal(remove.length * 10);
+        int heal = remove.length * 10;
+        game.getRuna().setHealth(game.getRuna().getHealth() + heal);
+        input.printHeal(heal);
         game.setGamePhase(new StageChangePhase(game, input));
         game.nextGamePhase();
     }

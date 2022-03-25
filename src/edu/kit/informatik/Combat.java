@@ -31,8 +31,8 @@ public class Combat {
      * 
      */
     public void handleFokus(Ability ability) {
-        if (runa.getPrevAbility().getCardType().equals(CardType.FOCUS)) {
-            runa.setFocus(runa.getFocus() + runa.getPrevAbility().execute(0, runa, null));
+        if (runa.getCurrentAbility().getCardType().equals(CardType.FOCUS)) {
+            runa.setFocus(runa.getFocus() + runa.getCurrentAbility().execute(0, runa, null));
         }
         runa.setCurrentAbility(ability);
     }
@@ -48,13 +48,13 @@ public class Combat {
             enemies.get(target).setPrevAbility(new EmptyAbility());
         }
         int damage = 0;
-
         Monster monster = enemies.get(target);
         damage = ability.execute(dice, runa, monster);
         if (ability.getAttackType().equals(AttackType.MAGIC) && runa.getFocus() > 1) {
             runa.setFocus(runa.getFocus() - 1);
         }
         CardType prevMonsterCardType = monster.getPrevAbility().getCardType();
+
         if (prevMonsterCardType.equals(CardType.DEFENSIV)
                 && monster.getPrevAbility().getAttackType().equals(ability.getAttackType())) {
             damage += monster.getPrevAbility().execute(0, null, null);
@@ -63,7 +63,6 @@ public class Combat {
             monster.setHealth(monster.getHealth() - damage);
         }
         return damage;
-
     }
 
     /**
@@ -73,48 +72,40 @@ public class Combat {
     public int attackFromMonster(int monsterInList) {
         Monster monster = enemies.get(monsterInList);
 
-        // Fokuspunkte berechnen und alte Defensekarte löschen
-        switch (monster.getPrevAbility().getCardType()) {
-            case FOCUS:
-                int focuspoints = monster.getPrevAbility().execute(0, null, null);
-                monster.setFocusPoints(monster.getFocusPoints() + focuspoints);
-                break;
-            case DEFENSIV:
-                // monster.setPrevAbility(new EmptyAbility());
-                break;
-            default:
-                break;
+        if (monster.getPrevAbility().getCardType().equals(CardType.FOCUS)) {
+            int focuspoints = monster.getPrevAbility().execute(0, null, null);
+            monster.setFocusPoints(monster.getFocusPoints() + focuspoints);
         }
 
-        // While da immer ein Ability in Monster ist die keine Fokuspunkte benötigt
         while (!monster.isAffordable()) {
             monster.changeAbility();
         }
 
-        // Brechen von Runas Fokuskarte
-        if (monster.getCurrentAbility().isBreakFocus()
-                && runa.getPrevAbility().getCardType().equals(CardType.FOCUS)) {
+        Ability currentAbility = monster.getCurrentAbility();
+
+        monster.setPrevAbility(currentAbility);
+
+        int damage = 0;
+        if (currentAbility.getCardType().equals(CardType.OFFENSIVE)) {
+            if (currentAbility.getAttackType().equals(AttackType.MAGIC)) {
+                monster.setFocusPoints(monster.getFocusPoints() - currentAbility.getLevel());
+            }
+            damage = currentAbility.execute(0, runa, monster);
+            if (runa.getCurrentAbility().getCardType().equals(CardType.DEFENSIV)
+                    && currentAbility.getAttackType().equals(runa.getCurrentAbility().getAttackType())) {
+                damage += runa.getCurrentAbility().execute(0, null, null);
+            }
+        }
+
+        if (currentAbility.isBreakFocus() && runa.getCurrentAbility().getCardType().equals(CardType.FOCUS)) {
             runa.setCurrentAbility(new EmptyAbility());
         }
 
-        // Schadensberechnung
-        int damage = 0;
-        if (monster.getCurrentAbility().getCardType().equals(CardType.OFFENSIVE)) {
-            if (monster.getCurrentAbility().getAttackType().equals(AttackType.MAGIC)) {
-                monster.setFocusPoints(monster.getFocusPoints() - monster.getCurrentAbility().getLevel());
-            }
-            damage = monster.getCurrentAbility().execute(0, runa, monster);
-            if (runa.getPrevAbility().getCardType().equals(CardType.DEFENSIV)) {
-                if (monster.getCurrentAbility().getAttackType().equals(runa.getPrevAbility().getAttackType())) {
-                    damage += runa.getPrevAbility().execute(0, null, null);
-                }
-            }
-        }
         if (damage > 0) {
             runa.setHealth(runa.getHealth() - damage);
         }
-
         return damage;
+
     }
 
     /**
