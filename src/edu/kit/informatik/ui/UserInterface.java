@@ -52,7 +52,7 @@ public class UserInterface extends UserOutput {
      */
     private int getUserInput(Message message, int numberRangeStart, int numberRangeEnd) {
         String output = String.format(message.toString(), numberRangeStart, numberRangeEnd);
-        while (true) {
+        while (!quit) {
             print(output);
             String strgInput = scanner.nextLine();
             if (strgInput.matches("quit")) {
@@ -67,6 +67,7 @@ public class UserInterface extends UserOutput {
                 }
             }
         }
+        return 0;
     }
 
     /**
@@ -82,7 +83,7 @@ public class UserInterface extends UserOutput {
      */
     public int[] getNumbersSeparated(Message message, int min, int max, int start, int end) {
         String output = String.format(message.toString(), start, end);
-        do {
+        while (!quit) {
             print(output);
             String seedString = scanner.nextLine();
             if (seedString.matches("quit")) {
@@ -101,7 +102,8 @@ public class UserInterface extends UserOutput {
             if (min == 0 && splited.length == 1 && splited[0].matches("")) {
                 return new int[0];
             }
-        } while (true);
+        }
+        return new int[0];
     }
 
     /**

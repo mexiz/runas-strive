@@ -31,9 +31,9 @@ public class CombatPhase implements GamePhase {
 
     @Override
     public void start() {
-        input.printStatus(combat.getEnemies(), game.getRuna().getHealth(), game.getRuna().getFocus(), game.getRuna().getDice());
+        input.printStatus(combat.getEnemies(), game.getRuna().getHealth(), game.getRuna().getFocus(),
+                game.getRuna().getDice());
 
-        // AUSWAHL RUNA ATTAACK
         int index = input.selectRunasAbility(game.getRuna().getAbilities());
         if (input.quit()) {
             return;
@@ -41,44 +41,57 @@ public class CombatPhase implements GamePhase {
         Ability choosedAbility = game.getRuna().getAbilities().get(index - 1);
         combat.handleFokus(choosedAbility);
 
-        if(!choosedAbility.getCardType().equals(CardType.OFFENSIVE)){
+        if (!choosedAbility.getCardType().equals(CardType.OFFENSIVE)) {
             input.printUsedAbility("Runa", choosedAbility);
         }
-        // RUNA
-        if (choosedAbility.getCardType().equals(CardType.OFFENSIVE)) {
-            // target
-            int runaAttackTarget = 0;
-            if (combat.getEnemies().size() != 1) {
-                runaAttackTarget = input.selectTarget(combat.getEnemies()) - 1;
-            }
-            if (input.quit()) {
-                return;
-            }
-            // uses
-            input.printUsedAbility("Runa", choosedAbility);
-            // dice
-            int dice = input.getDice(1, game.getRuna().getDice());
-            if (input.quit()) {
-                return;
-            }
-            // execute
-            int damageMonster = combat.runaAttacks(choosedAbility, runaAttackTarget, dice);
-
-            Monster runaEnemie = combat.getEnemies().get(runaAttackTarget);
-            input.printDamge(runaEnemie.getName(), damageMonster, choosedAbility.getAttackType());
-            if (runaEnemie.dead()) {
-                input.printDies(runaEnemie.getName());
-                combat.getEnemies().remove(runaAttackTarget);
-            }
+        if (choosedAbility.getCardType().equals(CardType.OFFENSIVE) && !executeRuna(choosedAbility)) {
+            return;
+        }
+        if (!executeMonster()) {
+            return;
         }
 
+        if (combat.finished()) {
+            game.setGamePhase(new RewardPhase(game, input));
+        }
 
+        game.nextGamePhase();
 
-        // MONSTER
+    }
+
+    private boolean executeRuna(Ability choosedAbility) {
+        // target
+        int runaAttackTarget = 0;
+        if (combat.getEnemies().size() != 1) {
+            runaAttackTarget = input.selectTarget(combat.getEnemies()) - 1;
+        }
+        if (input.quit()) {
+            return false;
+        }
+        // uses
+        input.printUsedAbility("Runa", choosedAbility);
+        // dice
+        int dice = input.getDice(1, game.getRuna().getDice());
+        if (input.quit()) {
+            return false;
+        }
+        // execute
+        int damageMonster = combat.runaAttacks(choosedAbility, runaAttackTarget, dice);
+
+        Monster runaEnemie = combat.getEnemies().get(runaAttackTarget);
+        input.printDamge(runaEnemie.getName(), damageMonster, choosedAbility.getAttackType());
+        if (runaEnemie.dead()) {
+            input.printDies(runaEnemie.getName());
+            combat.getEnemies().remove(runaAttackTarget);
+        }
+        return true;
+    }
+
+    private boolean executeMonster() {
         for (int i = 0; i < combat.getEnemies().size(); i++) {
             int damageToRuna = combat.attackFromMonster(i);
             if (input.quit()) {
-                return;
+                return false;
             }
             input.printUsedAbility(combat.getEnemies().get(i).getName(),
                     combat.getEnemies().get(i).getCurrentAbility());
@@ -87,20 +100,7 @@ public class CombatPhase implements GamePhase {
             }
             combat.getEnemies().get(i).changeAbility();
         }
-
-
-
-
-
-        if (combat.finished()) {
-            game.setGamePhase(new RewardPhase(game, input));
-        }
-
-
-
-
-        game.nextGamePhase();
-
+        return true;
     }
 
 }
