@@ -19,17 +19,13 @@ import edu.kit.informatik.model.Ability;
 public class RunaWater extends Ability {
 
     public RunaWater(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Water");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Water");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
         int damage = (2 * super.getLevel() + 4) * runa.getFocus();
-        if (monster.getMonsterType().equals(MonsterType.BLITZ)) {
+        if (monster.getMonsterType().equals(MonsterType.LIGHTNING)) {
             damage += 2 * super.getLevel();
         }
         return damage;

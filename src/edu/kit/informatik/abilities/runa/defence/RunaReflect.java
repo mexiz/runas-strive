@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaReflect extends Ability {
 
     public RunaReflect(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.DEFENSIV);
-        super.setBreakFocus(false);
-        super.setName("Reflect");
+        super.init(level, AttackType.MAGIC, CardType.DEFENSIV, false, "Reflect");
     }
 
     @Override

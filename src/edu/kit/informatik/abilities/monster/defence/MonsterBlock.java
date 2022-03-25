@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Monster;
 public class MonsterBlock extends Ability {
 
     public MonsterBlock(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.DEFENSIV);
-        super.setName("Block");
-        super.setBreakFocus(false);
+        super.init(level, AttackType.PHYS, CardType.DEFENSIV, false, "Block");
     }
 
     @Override

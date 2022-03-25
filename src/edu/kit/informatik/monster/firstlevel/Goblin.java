@@ -23,40 +23,72 @@ public class Goblin extends Monster {
             new MonsterDeflect(1));
 
     private Ability currentAbility = abilities.get(countAbility);
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getName() {
         return name;
     }
+    
+    /** 
+     * @return MonsterType
+     */
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int getFocusPoints() {
         return focusPoint;
     }
 
+    
+    /** 
+     * @param focusPoint
+     */
     @Override
     public void setFocusPoints(int focusPoint) {
         this.focusPoint = focusPoint;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int getHealth() {
         return health;
     }
 
+    
+    /** 
+     * @return Ability
+     */
     @Override
     public Ability getCurrentAbility() {
         return currentAbility;
     }
 
+    
+    /** 
+     * @param health
+     */
     @Override
     public void setHealth(int health) {
         this.health = health;
     }
 
+    
+    /** 
+     * @param abilities
+     */
     @Override
     public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;

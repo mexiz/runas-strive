@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Monster;
 public class MonsterClaw extends Ability {
 
     public MonsterClaw(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(true);
-        super.setName("Claw");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Claw");
     }
 
     @Override

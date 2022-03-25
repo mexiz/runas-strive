@@ -6,14 +6,19 @@ import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
+/**
+ * 
+ * Offensive Monster Fähigkeitskarte
+ * 
+ * @author uwhlp
+ * @version 1.0.0
+ * 
+ */
+
 public class MonsterFire extends Ability {
 
     public MonsterFire(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Fire");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Fire");
     }
 
     @Override

@@ -8,7 +8,16 @@ import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
 
-public class RewardPhase extends GamePhase {
+/**
+ * 
+ * Die Klasse gibt Runa ihre Belohunung
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ * 
+ */
+
+public class RewardPhase implements GamePhase {
 
     private Game game;
     private UserInterface input;
@@ -26,14 +35,16 @@ public class RewardPhase extends GamePhase {
             game.setFinished(true);
             return;
         }
-
-        int rewardNumber = input.getReward();
+        int rewardNumber = 1;
+        if (game.getRuna().isMaxDice()) {
+            rewardNumber = input.selectRewardType();
+        }
 
         if (rewardNumber == 1) {
             int countCards = game.monsterPerStage.get(game.getStage());
             List<Ability> newAbility = game.getCard().pullAbility(2 * countCards);
 
-            int[] choosed = input.getReward(newAbility, countCards);
+            int[] choosed = input.selectReward(newAbility, countCards);
             for (int i = 0; i < choosed.length; i++) {
                 Ability ability = newAbility.get(choosed[i] - 1);
                 game.getRuna().addAbility(ability);
@@ -41,15 +52,18 @@ public class RewardPhase extends GamePhase {
             }
         }
         if (rewardNumber == 2) {
-            game.getRuna().setDice(game.getRuna().getDice() + 2);
+            game.getRuna().changeDice();
+            input.print("Runa upgrades her die to a d" + game.getRuna().getDice());
         }
 
-        int[] remove = input.getHeal(game.getRuna().getHealth(), 50, game.getRuna().getAbilities());
+        int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), 50, game.getRuna().getAbilities());
         List<Ability> test = new ArrayList<>();
         for (int i = 0; i < remove.length; i++) {
             test.add(game.getRuna().getAbilities().get(remove[i] - 1));
         }
         game.getRuna().getAbilities().removeAll(test);
-        input.print("a" + remove.length);
+        input.printHeal(remove.length * 10);
+        game.setGamePhase(new StageChangePhase(game, input));
+        game.nextGamePhase();
     }
 }

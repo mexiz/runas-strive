@@ -10,7 +10,7 @@ import edu.kit.informatik.model.MonsterType;
 
 public class Ghost extends Monster {
 
-    private static final MonsterType MONSTER_TYPE = MonsterType.EIS;
+    private static final MonsterType MONSTER_TYPE = MonsterType.ICE;
     private static final String name = "Ghost";
 
     private int health = 15;
@@ -22,36 +22,64 @@ public class Ghost extends Monster {
 
     private Ability currentAbility = abilities.get(countAbility);
 
+    
+    /** 
+     * @return MonsterType
+     */
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int getFocusPoints() {
         return focusPoint;
     }
 
+    
+    /** 
+     * @param focusPoint
+     */
     @Override
     public void setFocusPoints(int focusPoint) {
         this.focusPoint = focusPoint;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int getHealth() {
         return health;
     }
 
+    
+    /** 
+     * @return Ability
+     */
     @Override
     public Ability getCurrentAbility() {
         return currentAbility;
     }
 
+    
+    /** 
+     * @param health
+     */
     @Override
     public void setHealth(int health) {
         this.health = health;
     }
 
+    
+    /** 
+     * @param abilities
+     */
     @Override
     public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
@@ -67,6 +95,10 @@ public class Ghost extends Monster {
         currentAbility = abilities.get(countAbility);
     }
     
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getName() {
         return name;

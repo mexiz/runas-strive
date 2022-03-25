@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaFocus extends Ability {
 
     public RunaFocus(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.NONE);
-        super.setCardType(CardType.FOCUS);
-        super.setBreakFocus(false);
-        super.setName("Focus");
+        super.init(level, AttackType.NONE, CardType.FOCUS, false, "Focus");
     }
 
     @Override

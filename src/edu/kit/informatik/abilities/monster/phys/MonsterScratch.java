@@ -6,14 +6,19 @@ import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
+/**
+ * 
+ * Offensive Monster Fähigkeitskarte
+ * 
+ * @author uwhlp
+ * @version 1.0.0
+ * 
+ */
+
 public class MonsterScratch extends Ability {
 
     public MonsterScratch(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(true);
-        super.setName("Scratch");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Scratch");
     }
 
     @Override

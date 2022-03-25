@@ -2,19 +2,22 @@
 package edu.kit.informatik.abilities.monster.defence;
 
 import edu.kit.informatik.Runa;
+
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
+/**
+ * Fokus Fähigkeitskarte
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class MonsterFocus extends Ability {
 
     public MonsterFocus(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.NONE);
-        super.setCardType(CardType.FOCUS);
-        super.setBreakFocus(false);
-        super.setName("Focus");
+        super.init(level, AttackType.NONE, CardType.FOCUS, false, "Focus");
     }
 
     @Override

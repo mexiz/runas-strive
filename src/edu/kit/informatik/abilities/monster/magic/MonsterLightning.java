@@ -6,16 +6,20 @@ import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
+/**
+ * 
+ * Offensive Monster Fähigkeitskarte
+ * 
+ * @author uwhlp
+ * @version 1.0.0
+ * 
+ */
+
 public class MonsterLightning extends Ability {
 
     public MonsterLightning(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Lightning");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Lightning");
     }
-
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
         if (monster.getFocusPoints() > super.getLevel() - 1) {

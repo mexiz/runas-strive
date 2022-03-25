@@ -6,7 +6,16 @@ import edu.kit.informatik.LevelCards;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
 
-public class StageChangePhase extends GamePhase {
+/**
+ * 
+ * Die Klasse ändert den Raum bzw. das Level
+ * 
+ * @author uwlhp 
+ * @version 1.0.0
+ * 
+ */
+
+public class StageChangePhase implements GamePhase {
 
     private Game game;
     private UserInterface input;
@@ -23,8 +32,8 @@ public class StageChangePhase extends GamePhase {
         game.setStage(game.getStage() + 1);
 
         if (game.getLevel() >= maxLevel && game.getStage() == 4) {
-            game.setGamePhase(new GameOverPhase(game, input));
-            game.nextGamePhase();
+            // game.setGamePhase(new GameOverPhase(game, input));
+            // game.nextGamePhase();
             return;
         }
 
@@ -60,7 +69,7 @@ public class StageChangePhase extends GamePhase {
             default:
                 break;
         }
-
+        
         input.printLevel(game.getStage(), game.getLevel());
         game.nextGamePhase();
 

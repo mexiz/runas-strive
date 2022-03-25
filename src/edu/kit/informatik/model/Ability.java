@@ -8,16 +8,33 @@ import edu.kit.informatik.Runa;
  * 
  * @author uwhlp
  * @version 1.0.0
+ * 
  */
 
 public abstract class Ability {
 
     private String name;
     private int level;
-    private int health;
     private AttackType attackType;
     private CardType cardType;
     private boolean breakFocus;
+
+    /**
+     * Initialisierung der Fähigkeiten
+     * 
+     * @param level      Level der Fähikeit
+     * @param name       Name der Fähigkeit
+     * @param attackType Attacktyp der Fähigkeit
+     * @param breakFocus Ob die Fähigkeit Fokus bricht
+     * @param cardType   CardType der Fähigkeit
+     */
+    public void init(int level, AttackType attackType, CardType cardType, boolean breakFocus, String name) {
+        this.level = level;
+        this.name = name;
+        this.attackType = attackType;
+        this.breakFocus = breakFocus;
+        this.cardType = cardType;
+    }
 
     /**
      * Den Wert von der Fähigkeit
@@ -29,6 +46,10 @@ public abstract class Ability {
 
     public abstract int execute(int dice, Runa runa, Monster monster);
 
+    /**
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj != null && getClass() == obj.getClass())
@@ -36,9 +57,21 @@ public abstract class Ability {
         return super.equals(obj);
     }
 
+    /**
+     * @return int
+     */
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    /**
+     * Gibt zurück ob die Fähigkeit den Fokus bricht
+     * 
+     * @return true wenn er gebrochen wird
+     */
+    public boolean isBreakFocus() {
+        return breakFocus;
     }
 
     /**
@@ -71,15 +104,6 @@ public abstract class Ability {
     }
 
     /**
-     * Setzt den Typ der Karte      
-     * 
-     * @param cardType der Typ der Karte
-     */
-    public void setCardType(CardType cardType) {
-        this.cardType = cardType;
-    }
-
-    /**
      * Gibt den Angriffstypen zurück
      * 
      * @return den Angriffstypen (physisch oder magisch)
@@ -89,39 +113,12 @@ public abstract class Ability {
     }
 
     /**
-     * Setzt den Angriffstypen
-     * 
-     * @param attackType der Angriffstyp
-     */
-    public void setAttackType(AttackType attackType) {
-        this.attackType = attackType;
-    }
-
-    /**
      * Gibt den Namen der Fähigkeit zurück
      * 
      * @return den Name der Fähigkeit
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Setzt den Namen der Fähigkeit
-     * 
-     * @param name der Name der Fähigkeit
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Setzt ob die Fähigkeit den Fokus bricht
-     * 
-     * @param breakFocus true, wenn er ihn bricht
-     */
-    public void setBreakFocus(boolean breakFocus) {
-        this.breakFocus = breakFocus;
     }
 
 }

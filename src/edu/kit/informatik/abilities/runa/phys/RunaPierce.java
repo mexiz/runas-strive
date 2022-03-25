@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaPierce extends Ability {
 
     public RunaPierce(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Pierce");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Pierce");
     }
 
     @Override

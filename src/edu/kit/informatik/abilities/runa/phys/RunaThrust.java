@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaThrust extends Ability {
 
     public RunaThrust(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Thrust");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Thrust");
     }
 
     @Override

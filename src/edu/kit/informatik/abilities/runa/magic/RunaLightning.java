@@ -19,11 +19,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaLightning extends Ability {
 
     public RunaLightning(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Lightning");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Lightning");
     }
 
     @Override
@@ -31,7 +27,7 @@ public class RunaLightning extends Ability {
         int damage = (2 * super.getLevel()) + 5;
         damage *= runa.getFocus();
         damage += 2;
-        if (monster.getMonsterType().equals(MonsterType.FEUER)) {
+        if (monster.getMonsterType().equals(MonsterType.FIRE)) {
             damage += 2 * super.getLevel();
         }
         return damage;

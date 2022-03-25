@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaSwing extends Ability {
 
     public RunaSwing(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(true);
-        super.setName("Swing");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Swing");
     }
 
     @Override

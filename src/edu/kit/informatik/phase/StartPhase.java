@@ -6,7 +6,16 @@ import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
 
-public class StartPhase extends GamePhase {
+/**
+ * 
+ * Die Klasse wird einemal am Anfang erzeugt und ausgeführt
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ * 
+ */
+
+public class StartPhase implements GamePhase {
 
     private Game game;
     private UserInterface input;

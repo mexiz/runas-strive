@@ -18,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaParry extends Ability {
 
     public RunaParry(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.DEFENSIV);
-        super.setBreakFocus(false);
-        super.setName("Parry");
+        super.init(level, AttackType.PHYS, CardType.DEFENSIV, false, "Parry");
     }
 
     @Override

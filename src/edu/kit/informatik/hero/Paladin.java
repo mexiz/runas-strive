@@ -14,11 +14,19 @@ public class Paladin extends HeroClass {
     private List<Ability> abilities = new ArrayList<>(List.of(new RunaSlash(1),
             new RunaReflect(1)));
 
+    
+    /** 
+     * @return List<Ability>
+     */
     @Override
     public List<Ability> getAbilities() {
         return abilities;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getHeroName() {
         return HERO_CLASS_NAME;

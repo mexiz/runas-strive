@@ -1,7 +1,11 @@
 package edu.kit.informatik.ui;
 
 /**
- * OutputMessage
+ * Enum für die Kommandozeilenausgaben
+ * 
+ * @author uwhlp
+ * @version 1.0.0
+ * 
  */
 
 public enum Message {
@@ -16,23 +20,34 @@ public enum Message {
     MESSAGE_LINE_SEPERATOR("----------------------------------------"),
     MESSAGE_VERSUS("vs."),
     MESSAGE_RUNA_TARGET("Select Runa's target."),
-    MESSAGE_RUNA_ABILITY("Select card to play"),
-    MESSAGE_ABILITY_USE("%s uses %s"),
-    MESSAGE_NEW_ABILITY("Runa gets %s"),
+    COMBAT_RUNA_ABILITY("Select card to play"),
+    COMBAT_ABILITY_USE("%s uses %s"),
+    REWARD_NEW_ABILITY("Runa gets %s"),
+    REWARD_HEAL("Runa gains %d health"),
     MESSAGE_TAKE_DAMAGE("%s takes %d %s damage"),
-    MESSAGE_LEVEL("Runa enters Stage %d of Level %d"),
+    STAGE_START("Runa enters Stage %d of Level %d"),
     PICK_CARD("Pick %d card(s) as loot"),
     ENTER_NUMBER("Enter numbers [%d--%d] separated by comma:"),
-    MESSAGE_RUNA_HEALING("Runa (%d/%d HP) can discard ability cards for healing (or none)");
+    REWARD_RUNA_HEALING("Runa (%d/%d HP) can discard ability cards for healing (or none)");
+
+    private String outputMessage;
 
     private Message(final String message) {
-        this.message = message;
+        this.outputMessage = message;
     }
 
-    private String message;
+    /**
+     * Formatiert die Nachrichten
+     * 
+     * @param args die Argumente
+     * @return gibt den String mit den Argumenten zurück
+     */
+    public String formatted(Object... args) {
+        return String.format(outputMessage, args);
+    }
 
     @Override
     public String toString() {
-        return message;
+        return outputMessage;
     }
 }

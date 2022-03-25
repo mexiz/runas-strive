@@ -1,11 +1,33 @@
 package edu.kit.informatik.model;
 
-public enum MonsterType {
+/**
+ * 
+ * Enum für den Monstertyp
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 
-    BLITZ,
-    WASSER,
-    EIS,
-    FEUER,
+public enum MonsterType {
+    /**
+     * Blitz
+     */
+    LIGHTNING,
+    /**
+     * Wasser
+     */
+    WATER,
+    /**
+     * Eis
+     */
+    ICE,
+    /**
+     * Feuer
+     */
+    FIRE,
+    /**
+     * Kein Typ
+     */
     NONE;
-    
+
 }

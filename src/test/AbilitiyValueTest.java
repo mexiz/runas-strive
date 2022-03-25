@@ -21,6 +21,12 @@ import edu.kit.informatik.monster.firstlevel.Spider;
 
 public class AbilitiyValueTest {
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Slash.csv")
     public void slashTest(int level, int dice, int out) {
@@ -29,6 +35,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Swing.csv")
     public void swingTest(int level, int dice, int out) {
@@ -37,6 +49,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Thrust.csv")
     public void thrustTest(int level, int dice, int out) {
@@ -45,6 +63,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Pierce.csv")
     public void pierceTest(int level, int dice, int out) {
@@ -53,6 +77,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Parry.csv")
     public void parryTest(int level, int dice, int out) {
@@ -61,6 +91,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Reflect.csv")
     public void reflectTest(int level, int dice, int out) {
@@ -70,6 +106,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, new Runa(new Mage()), new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Water.csv")
     public void waterTest(int level, int dice, int out) {
@@ -80,6 +122,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, runa, new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Ice.csv")
     public void iceTest(int level, int dice, int out) {
@@ -90,6 +138,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, runa, new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Fire.csv")
     public void fireTest(int level, int dice, int out) {
@@ -100,6 +154,12 @@ public class AbilitiyValueTest {
         assertEquals(out, obj.execute(dice, runa, new Spider()));
     }
 
+    
+    /** 
+     * @param level
+     * @param dice
+     * @param out
+     */
     @ParameterizedTest
     @CsvFileSource(resources = "/resources/test/Lightning.csv")
     public void lightningTest(int level, int dice, int out) {

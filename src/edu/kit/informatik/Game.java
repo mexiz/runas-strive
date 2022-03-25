@@ -44,42 +44,82 @@ public class Game {
         finished = false;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isFinished() {
         return finished;
     }
 
+    
+    /** 
+     * @param finished
+     */
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getLevel() {
         return level;
     }
 
+    
+    /** 
+     * @param level
+     */
     public void setLevel(int level) {
         this.level = level;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getStage() {
         return stage;
     }
 
+    
+    /** 
+     * @param stage
+     */
     public void setStage(int stage) {
         this.stage = stage;
     }
 
+    
+    /** 
+     * @param runa
+     */
     public void setRuna(Runa runa) {
         this.runa = runa;
     }
 
+    
+    /** 
+     * @return Runa
+     */
     public Runa getRuna() {
         return runa;
     }
 
+    
+    /** 
+     * @return LevelCards
+     */
     public LevelCards getCard() {
         return levelCards;
     }
 
+    
+    /** 
+     * @param card
+     */
     public void setCard(LevelCards card) {
         this.levelCards = card;
     }
@@ -88,15 +128,27 @@ public class Game {
         gamePhase.start();
     }
 
+    
+    /** 
+     * @param gamePhase
+     */
     public void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
     }
 
+    
+    /** 
+     * @return List<HeroClass>
+     */
     // CHANGE
     public List<HeroClass> getHeroclass() {
         return heroclass;
     }
 
+    
+    /** 
+     * @param heroclass
+     */
     public void setHeroclass(List<HeroClass> heroclass) {
         Game.heroclass = heroclass;
     }

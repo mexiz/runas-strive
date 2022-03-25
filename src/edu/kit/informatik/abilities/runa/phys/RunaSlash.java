@@ -7,6 +7,7 @@ import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.Ability;
 
 /**
+ * 
  * Offensive Runa Fähigkeitskarte
  * 
  * @author uwhlp
@@ -17,11 +18,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaSlash extends Ability {
 
     public RunaSlash(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.PHYS);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(true);
-        super.setName("Slash");
+        super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Slash");
     }
 
     @Override

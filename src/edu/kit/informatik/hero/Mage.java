@@ -14,11 +14,19 @@ public class Mage extends HeroClass {
     private List<Ability> abilities = new ArrayList<>(List.of(new RunaFocus(1),
             new RunaWater(1)));
 
+    
+    /** 
+     * @return List<Ability>
+     */
     @Override
     public List<Ability> getAbilities() {
         return abilities;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getHeroName() {
         return HERO_CLASS_NAME;

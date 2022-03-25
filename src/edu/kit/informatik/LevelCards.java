@@ -76,12 +76,21 @@ public class LevelCards {
         Collections.shuffle(runaAbility, new Random(seed[0]));
     }
 
+    
+    /** 
+     * @return List<Monster>
+     */
     public List<Monster> pullBoss() {
         List<Monster> bossList = new ArrayList<>();
         bossList.add(boss);
         return bossList;
     }
 
+    
+    /** 
+     * @param count
+     * @return List<Monster>
+     */
     public List<Monster> pullMonster(int count) {
         List<Monster> returnList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -91,6 +100,11 @@ public class LevelCards {
         return returnList;
     }
 
+    
+    /** 
+     * @param count
+     * @return List<Ability>
+     */
     public List<Ability> pullAbility(int count) {
         List<Ability> returnList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
@@ -100,6 +114,12 @@ public class LevelCards {
         return returnList;
     }
 
+    
+    /** 
+     * @param level
+     * @param removeAbility
+     * @return List<Ability>
+     */
     public List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
         List<Ability> ability;
         ability = new ArrayList<>(List.of(new RunaFire(level),

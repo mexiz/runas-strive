@@ -19,11 +19,7 @@ import edu.kit.informatik.model.Ability;
 public class RunaIce extends Ability {
 
     public RunaIce(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Ice");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Ice");
     }
 
     @Override
@@ -31,7 +27,7 @@ public class RunaIce extends Ability {
         int damage = (2 * super.getLevel()) + 4;
         damage *= runa.getFocus();
         damage += 2;
-        if (monster.getMonsterType().equals(MonsterType.WASSER)) {
+        if (monster.getMonsterType().equals(MonsterType.WATER)) {
             damage += 2 * super.getLevel();
         }
         return damage;

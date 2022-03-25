@@ -19,18 +19,14 @@ import edu.kit.informatik.model.Ability;
 public class RunaFire extends Ability {
 
     public RunaFire(int level) {
-        super.setLevel(level);
-        super.setAttackType(AttackType.MAGIC);
-        super.setCardType(CardType.OFFENSIVE);
-        super.setBreakFocus(false);
-        super.setName("Fire");
+        super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Fire");
     }
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
         int damage = (2 * super.getLevel()) + 5;
         damage *= runa.getFocus();
-        if (monster.getMonsterType().equals(MonsterType.EIS)) {
+        if (monster.getMonsterType().equals(MonsterType.ICE)) {
             damage += 2 * super.getLevel();
         }
         return damage;
