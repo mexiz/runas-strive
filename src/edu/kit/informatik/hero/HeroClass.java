@@ -6,7 +6,8 @@ import edu.kit.informatik.model.Ability;
 
 public abstract class HeroClass {
 
-    public abstract List<Ability> getAbilities();
+
+    public abstract List<Ability> getAbilities(int level);
 
     public abstract String getHeroName();
 }

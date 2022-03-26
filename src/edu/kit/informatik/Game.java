@@ -1,157 +1,155 @@
 package edu.kit.informatik;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import edu.kit.informatik.hero.HeroClass;
-import edu.kit.informatik.hero.Mage;
-import edu.kit.informatik.hero.Paladin;
-import edu.kit.informatik.hero.Warrior;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.phase.StartPhase;
 import edu.kit.informatik.ui.UserInterface;
 
+/**
+ * Das Spiel
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
+
 public class Game {
 
-    private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
-            new Mage(),
-            new Paladin()));
-
-    public Map<Integer, Integer> monsterPerStage = new HashMap<>();
+    private GameData data;
 
     private GamePhase gamePhase;
 
     private Runa runa;
 
-    private LevelCards levelCards;
+    private Level levelCards;
 
-    private int level;
-    private int stage;
+    private int currentLevel;
+    private int currentStage;
 
     private boolean finished;
 
     public Game() {
-        monsterPerStage.put(1, 1);
-        monsterPerStage.put(2, 2);
-        monsterPerStage.put(3, 2);
-        monsterPerStage.put(4, 1);
-
+        data = new GameData();
         this.gamePhase = new StartPhase(this, new UserInterface());
-        this.level = 1;
-        this.stage = 0;
+        this.currentLevel = 1;
+        this.currentStage = 0;
         finished = false;
     }
 
-    
-    /** 
-     * @return boolean
+    public GameData getData() {
+        return data;
+    }
+
+    /**
+     * Abfrage ob das Spiel zuende ist
+     * 
+     * @return boolean true wenn das Spiel zuende ist
      */
     public boolean isFinished() {
         return finished;
     }
 
-    
-    /** 
-     * @param finished
+    /**
+     * Setzt das Spiel
+     * 
+     * @param finished true wenn beendet
      */
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
 
-    
-    /** 
-     * @return int
+    /**
+     * Getter für das Spiellevel
+     * 
+     * @return int das Level
      */
     public int getLevel() {
-        return level;
+        return currentLevel;
     }
 
-    
-    /** 
-     * @param level
+    /**
+     * Setzt das Level des Spiels
+     * 
+     * @param level das Spiellevel
      */
     public void setLevel(int level) {
-        this.level = level;
+        this.currentLevel = level;
     }
 
-    
-    /** 
-     * @return int
+    /**
+     * Getter für die Raumnummer
+     * 
+     * @return int die Raumnummer
      */
     public int getStage() {
-        return stage;
+        return currentStage;
     }
 
-    
-    /** 
-     * @param stage
+    /**
+     * Setzt den Raum des Spiels
+     * 
+     * @param stage der Raum des Spiels
      */
     public void setStage(int stage) {
-        this.stage = stage;
+        this.currentStage = stage;
     }
 
-    
-    /** 
-     * @param runa
+    /**
+     * Setzt Runa
+     * 
+     * @param runa Runa
      */
     public void setRuna(Runa runa) {
         this.runa = runa;
     }
 
-    
-    /** 
-     * @return Runa
+    /**
+     * Getter für Runa
+     * 
+     * 
+     * @return Runa Runa
      */
     public Runa getRuna() {
         return runa;
     }
 
-    
-    /** 
-     * @return LevelCards
+    /**
+     * Die Karten des Spieles
+     * 
+     * @return LevelCards die Karten des Spieles
      */
-    public LevelCards getCard() {
+    public Level getCard() {
         return levelCards;
     }
 
-    
-    /** 
-     * @param card
+    /**
+     * Setzt die Karten des Spieles
+     * 
+     * @param card die Karte des Spieles
      */
-    public void setCard(LevelCards card) {
+    public void setCard(Level card) {
         this.levelCards = card;
     }
 
-    public void nextGamePhase() {
-        gamePhase.start();
+    /**
+     * Führt die nächste Phase des Spiels aus
+     * 
+     * @return true wenn das Spiel eine nächste Phase hat
+     */
+    public boolean nextGamePhase() {
+        if (gamePhase != null) {
+            gamePhase.start();
+            return true;
+        }
+        return false;
+
     }
 
-    
-    /** 
-     * @param gamePhase
+    /**
+     * Setzt die Spielphase
+     * 
+     * @param gamePhase die Spielphase
      */
     public void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
     }
-
-    
-    /** 
-     * @return List<HeroClass>
-     */
-    // CHANGE
-    public List<HeroClass> getHeroclass() {
-        return heroclass;
-    }
-
-    
-    /** 
-     * @param heroclass
-     */
-    public void setHeroclass(List<HeroClass> heroclass) {
-        Game.heroclass = heroclass;
-    }
-    // -
 
 }

@@ -44,7 +44,8 @@ public abstract class Monster {
      *         Karte
      */
     public boolean isAffordable() {
-        if (this.getCurrentAbility().getAttackType().equals(AttackType.MAGIC)) {
+        if (this.getCurrentAbility().getAttackType().equals(AttackType.MAGIC)
+                && this.getCurrentAbility().getCardType().equals(CardType.OFFENSIVE)) {
             return (this.getFocusPoints() >= this.getCurrentAbility().getLevel());
         }
         return true;

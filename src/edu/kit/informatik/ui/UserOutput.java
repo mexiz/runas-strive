@@ -41,7 +41,7 @@ public class UserOutput {
      * 
      * @param target Name vom Gegner
      * @param damage Schaden
-     * @param type Art des Angriffs
+     * @param type   Art des Angriffs
      */
     public void printDamge(String target, int damage, AttackType type) {
         String typ = "";
@@ -56,7 +56,7 @@ public class UserOutput {
     /**
      * Gibt die benutzte Fähigkeit aus
      * 
-     * @param target Name vom Gegner
+     * @param target  Name vom Gegner
      * @param ability die Fähigkeit
      */
     public void printUsedAbility(String target, Ability ability) {
@@ -64,8 +64,7 @@ public class UserOutput {
         print(Message.COMBAT_ABILITY_USE.formatted(target, message));
     }
 
-    
-    /** 
+    /**
      * Gibt die neue Fähigkeit aus
      * 
      * @param ability die Fähigkeit
@@ -74,13 +73,16 @@ public class UserOutput {
         print(Message.REWARD_NEW_ABILITY.formatted(ability.getName() + "(" + ability.getLevel() + ")"));
     }
 
-    
-    /** 
+    public void printFocusPoint(String name, int points) {
+        print(Message.FOCUSPOINT.formatted(name, points));
+    }
+
+    /**
      * Gibt den Status(Anfang jedes Kampfes)
      * 
-     * @param enemies die Gegner
+     * @param enemies    die Gegner
      * @param runahealth Runas Leben
-     * @param runaFocus Runas Fokuspunkte
+     * @param runaFocus  Runas Fokuspunkte
      */
     public void printStatus(List<Monster> enemies, int runahealth, int runaFocus, int runaMaxFocus) {
         print(Message.MESSAGE_LINE_SEPERATOR.toString());
@@ -98,8 +100,8 @@ public class UserOutput {
      * Gibt Runa aus
      * 
      * @param health
-     * @param maxhealth Runas Leben
-     * @param focusPoint Runas Fokuspunkte
+     * @param maxhealth     Runas Leben
+     * @param focusPoint    Runas Fokuspunkte
      * @param maxfocusPoint Runas maximale Fokuspunkte
      */
     public void printRuna(int health, int maxhealth, int focusPoint, int maxfocusPoint) {
@@ -107,37 +109,41 @@ public class UserOutput {
     }
 
     /**
+     * Gibt den Monster aus
      * 
-     * @param name
-     * @param ability
-     * @param health
-     * @param focusPoint
+     * @param name       der Name des Monsters
+     * @param ability    die Fähigkeit
+     * @param health     Anzahl an Leben
+     * @param focusPoint die Fokuspuntke
      */
     public void printMonster(String name, Ability ability, int health, int focusPoint) {
-        print(name + "(" + health + " HP, " + focusPoint + " FP): attempts " + ability.getName() + "("
+        print(name + " (" + health + " HP, " + focusPoint + " FP): attempts " + ability.getName() + "("
                 + ability.getLevel() + ")" + " next");
     }
 
     /**
+     * Gibt den Raum und das Level aus
      * 
-     * @param stage
-     * @param level
+     * @param stage der Raum
+     * @param level das Level
      */
     public void printLevel(int stage, int level) {
         print(Message.STAGE_START.formatted(stage, level));
     }
 
     /**
+     * Gibt aus den gestorbenen Charakter aus
      * 
-     * @param name
+     * @param name der Name des Charakters
      */
     public void printDies(String name) {
         print(name + " dies");
     }
 
     /**
+     * Gibt den Heilungswert aus
      * 
-     * @param health
+     * @param health Wert der Heilung
      */
 
     public void printHeal(int health) {

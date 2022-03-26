@@ -3,6 +3,7 @@ package edu.kit.informatik.phase;
 import edu.kit.informatik.Combat;
 import edu.kit.informatik.Game;
 import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.model.Monster;
@@ -36,29 +37,41 @@ public class CombatPhase implements GamePhase {
 
         int index = input.selectRunasAbility(game.getRuna().getAbilities());
         if (input.quit()) {
+            game.setFinished(true);
             return;
         }
+
         Ability choosedAbility = game.getRuna().getAbilities().get(index - 1);
-        combat.handleFokus(choosedAbility);
+        game.getRuna().setCurrentAbility(choosedAbility);
 
         if (!choosedAbility.getCardType().equals(CardType.OFFENSIVE)) {
             input.printUsedAbility("Runa", choosedAbility);
         }
         if (choosedAbility.getCardType().equals(CardType.OFFENSIVE) && !executeRuna(choosedAbility)) {
+            game.setFinished(true);
             return;
         }
         if (!executeMonster()) {
+            game.setFinished(true);
             return;
+        }
+        int focusPoint = combat.handleFokus();
+        if (focusPoint > 0) {
+            input.printFocusPoint("Runa", focusPoint);
         }
 
         if (combat.finished()) {
             game.setGamePhase(new RewardPhase(game, input));
         }
 
-        game.nextGamePhase();
-
     }
 
+    /**
+     * Führt Runaszug aus
+     * 
+     * @param choosedAbility die gewählte Fähigkeit
+     * @return ob Runaszug ausgeführt wurde
+     */
     private boolean executeRuna(Ability choosedAbility) {
         // target
         int runaAttackTarget = 0;
@@ -71,10 +84,15 @@ public class CombatPhase implements GamePhase {
         // uses
         input.printUsedAbility("Runa", choosedAbility);
         // dice
-        int dice = input.getDice(1, game.getRuna().getDice());
-        if (input.quit()) {
-            return false;
+        int dice = 0;
+        if (choosedAbility.getAttackType().equals(AttackType.PHYS)) {
+            dice = input.getDice(1, game.getRuna().getDice());
+            if (input.quit()) {
+                game.setFinished(true);
+                return false;
+            }
         }
+
         // execute
         int damageMonster = combat.runaAttacks(choosedAbility, runaAttackTarget, dice);
 
@@ -86,11 +104,21 @@ public class CombatPhase implements GamePhase {
         }
         return true;
     }
-
+    /**
+     * Führt die Züge der Monster aus
+     *
+     * @return ob die Züge der Monster ausgeführt wurden
+     */
     private boolean executeMonster() {
         for (int i = 0; i < combat.getEnemies().size(); i++) {
+            int focus = combat.monsterFocusPoints(i);
+            if (focus > 0) {
+                input.printFocusPoint(combat.getEnemies().get(i).getName(), focus);
+            }
+
             int damageToRuna = combat.attackFromMonster(i);
             if (input.quit()) {
+                game.setFinished(true);
                 return false;
             }
             input.printUsedAbility(combat.getEnemies().get(i).getName(),

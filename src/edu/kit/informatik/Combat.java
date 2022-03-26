@@ -9,6 +9,7 @@ import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Monster;
 
 /**
+ * Die Klasse für einen Kampf
  * 
  * @author uwlhp
  * @version 1.0.0
@@ -28,20 +29,26 @@ public class Combat {
     }
 
     /**
+     * Führt die Fokusfähigkeit von Runa aus
      * 
+     * @return Wert der Fokuspunkte
      */
-    public void handleFokus(Ability ability) {
+    public int handleFokus() {
+        int focusPoint = 0;
         if (runa.getCurrentAbility().getCardType().equals(CardType.FOCUS)) {
-            runa.setFocus(runa.getFocus() + runa.getCurrentAbility().execute(0, runa, null));
+            focusPoint = runa.getCurrentAbility().execute(0, runa, null);
+            runa.setFocus(runa.getFocus() + focusPoint);
         }
-        runa.setCurrentAbility(ability);
+        return focusPoint;
     }
 
     /**
-     * @param ability
-     * @param target
-     * @param dice
-     * @return int
+     * Führt Runaszug aus
+     * 
+     * @param ability die ausgewählte Fähigkeit 
+     * @param target das Monster in der List
+     * @param dice der Würfelwert
+     * @return int Schaden von Runa auf das Monster
      */
     public int runaAttacks(Ability ability, int target, int dice) {
         if (ability.isBreakFocus() && enemies.get(target).getPrevAbility().getCardType().equals(CardType.FOCUS)) {
@@ -50,7 +57,8 @@ public class Combat {
         int damage = 0;
         Monster monster = enemies.get(target);
         damage = ability.execute(dice, runa, monster);
-        if (ability.getAttackType().equals(AttackType.MAGIC) && runa.getFocus() > 1) {
+        if (ability.getAttackType().equals(AttackType.MAGIC) && ability.getCardType().equals(CardType.OFFENSIVE)
+                && runa.getFocus() > 1) {
             runa.setFocus(runa.getFocus() - 1);
         }
         CardType prevMonsterCardType = monster.getPrevAbility().getCardType();
@@ -66,16 +74,29 @@ public class Combat {
     }
 
     /**
-     * @param monsterInList
-     * @return int
+     * Führt die Fokusfähigkeit vom Monster aus
+     * 
+     * @param monsterInList nummer vom Monster in der Liste
+     * @return die anzahl der addierten Fokuspunkte
      */
-    public int attackFromMonster(int monsterInList) {
+    public int monsterFocusPoints(int monsterInList) {
         Monster monster = enemies.get(monsterInList);
-
         if (monster.getPrevAbility().getCardType().equals(CardType.FOCUS)) {
             int focuspoints = monster.getPrevAbility().execute(0, null, null);
             monster.setFocusPoints(monster.getFocusPoints() + focuspoints);
+            return focuspoints;
         }
+        return 0;
+    }
+
+    /**
+     * Führt den Zug des Monster zu
+     * 
+     * @param monsterInList die Nummmer des Monster
+     * @return int die Anzahl des verursachten Schadens
+     */
+    public int attackFromMonster(int monsterInList) {
+        Monster monster = enemies.get(monsterInList);
 
         while (!monster.isAffordable()) {
             monster.changeAbility();
@@ -87,6 +108,7 @@ public class Combat {
 
         int damage = 0;
         if (currentAbility.getCardType().equals(CardType.OFFENSIVE)) {
+            // Fokuspunkte abfragen
             if (currentAbility.getAttackType().equals(AttackType.MAGIC)) {
                 monster.setFocusPoints(monster.getFocusPoints() - currentAbility.getLevel());
             }

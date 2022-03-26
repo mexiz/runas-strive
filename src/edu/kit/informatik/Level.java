@@ -38,46 +38,33 @@ import edu.kit.informatik.monster.secondlevel.Snake;
 import edu.kit.informatik.monster.secondlevel.Tarantula;
 import edu.kit.informatik.monster.secondlevel.WildBoar;
 
-public class LevelCards {
+/**
+ * Die Klasse kümmert sich um die Monster und die neuen Fähigkeiten des Levels 
+ *  
+ * @author uwlhp
+ * @version 1.0.0
+ */
 
-    private List<Monster> monsterLevelOne = new ArrayList<>(List.of(new Frog(),
-            new Ghost(),
-            new Gorgon(),
-            new Skeleton(),
-            new Spider(),
-            new Goblin(),
-            new Rat(),
-            new Mushroomlin()));
+public class Level {
 
-    private List<Monster> monsterLevelTwo = new ArrayList<>(List.of(new Snake(),
-            new DarkElf(),
-            new ShadomBlade(),
-            new Hornet(),
-            new Tarantula(),
-            new Bear(),
-            new Mushroomlon(),
-            new WildBoar()));
-
-    private List<Monster> bossMonster = new ArrayList<>(List.of(new SpiderKing(), new MegaSaurus()));
     private List<Monster> monsterLevel;
-    private Monster boss;
     private List<Ability> runaAbility;
+    private Monster boss;
 
-    public LevelCards(int[] seed, int level, HeroClass heroclass) {
-        List<List<Monster>> current = new ArrayList<>();
-        current.add(monsterLevelOne);
-        current.add(monsterLevelTwo);
+    public Level(int[] seed, int level, HeroClass heroClass, GameData data) {
 
-        monsterLevel = current.get(level - 1);
-        boss = bossMonster.get(level - 1);
-        runaAbility = initRunaAbiility(level, heroclass.getAbilities());
+        monsterLevel = data.getMonster(level);
+        boss = data.getBoss(level);
+        runaAbility = initRunaAbiility(level, heroClass.getAbilities(level));
 
         Collections.shuffle(monsterLevel, new Random(seed[1]));
         Collections.shuffle(runaAbility, new Random(seed[0]));
     }
 
     /**
-     * @return List<Monster>
+     * Holt sich den/die Endgegner des Levels
+     * 
+     * @return List<Monster> Liste mit den Endgegenern
      */
     public List<Monster> pullBoss() {
         List<Monster> bossList = new ArrayList<>();
@@ -86,8 +73,10 @@ public class LevelCards {
     }
 
     /**
-     * @param count
-     * @return List<Monster>
+     * Holt sich Monster aus der Liste
+     * 
+     * @param count die Anzahl der Monster
+     * @return List<Monster> Liste mit den Monstern
      */
     public List<Monster> pullMonster(int count) {
         List<Monster> returnList = new ArrayList<>();
@@ -99,8 +88,10 @@ public class LevelCards {
     }
 
     /**
-     * @param count
-     * @return List<Ability>
+     * Holt sich Fähigkeiten aus der Liste
+     * 
+     * @param count die Anzahl an Fähigkeiten
+     * @return List<Ability> die Liste mit Fähigkeiten
      */
     public List<Ability> pullAbility(int count) {
         List<Ability> returnList = new ArrayList<>();
@@ -112,11 +103,13 @@ public class LevelCards {
     }
 
     /**
-     * @param level
-     * @param removeAbility
-     * @return List<Ability>
+     * CHANGE LATER 
+     * 
+     * @param level d
+     * @param removeAbility d
+     * @return List<Ability> d
      */
-    public List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
+    private List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
         List<Ability> ability;
         ability = new ArrayList<>(List.of(new RunaSlash(level),
                 new RunaSwing(level),
@@ -128,8 +121,7 @@ public class LevelCards {
                 new RunaWater(level),
                 new RunaIce(level),
                 new RunaFire(level),
-                new RunaLightning(level)
-        ));
+                new RunaLightning(level)));
         ability.removeAll(removeAbility);
         return ability;
     }

@@ -34,29 +34,70 @@ public class RewardPhase implements GamePhase {
         if (game.getLevel() == maxLevel && game.getStage() == maxStage) {
             game.setFinished(true);
             return;
-        }
-        int rewardNumber = 1;
-        if (game.getRuna().isMaxDice()) {
-            rewardNumber = input.selectRewardType();
-        }
-
-        if (rewardNumber == 1) {
-            int countCards = game.monsterPerStage.get(game.getStage());
-            List<Ability> newAbility = game.getCard().pullAbility(2 * countCards);
-
-            int[] choosed = input.selectReward(newAbility, countCards);
-            for (int i = 0; i < choosed.length; i++) {
-                Ability ability = newAbility.get(choosed[i] - 1);
-                game.getRuna().addAbility(ability);
+        }else if (game.getStage() == 4) {
+            List<Ability> upgradeAbility = game.getRuna().getHeroClass().getAbilities(game.getLevel() + 1);
+            for (Ability ability : upgradeAbility) {
                 input.printNewAbility(ability);
+                game.getRuna().addAbility(ability);
+            }
+            heal();
+            game.setGamePhase(new ChangeStagePhase(game, input));
+            return;
+        }
+
+        int rewardNumber = 1;
+
+        if (game.getRuna().upgradeDice()) {
+            rewardNumber = input.selectRewardType();
+            if (input.quit()) {
+                game.setFinished(true);
+                return;
             }
         }
-        if (rewardNumber == 2) {
-            game.getRuna().changeDice();
-            input.print("Runa upgrades her die to a d" + game.getRuna().getDice());
+        switch (rewardNumber) {
+            case 1:
+                int countCards = game.getData().getMonsterCount(game.getStage());
+                List<Ability> newAbility = game.getCard().pullAbility(2 * countCards);
+                int[] choosed = input.selectReward(newAbility, countCards);
+                if (input.quit()) {
+                    game.setFinished(true);
+                    return;
+                }
+                for (int i = 0; i < choosed.length; i++) {
+                    Ability ability = newAbility.get(choosed[i] - 1);
+                    game.getRuna().addAbility(ability);
+                    input.printNewAbility(ability);
+                }
+                break;
+            case 2:
+                game.getRuna().changeDice();
+                input.print("Runa upgrades her die to a d" + game.getRuna().getDice());
+                break;
+            default:
+                break;
         }
 
+        
+
+        heal();
+        game.setGamePhase(new ChangeStagePhase(game, input));
+        
+    }
+
+    /**
+     * FÜhrt die Heilung aus
+     * 
+     * @return ob die Heilung ausgeführt wurde
+     */
+    private boolean heal() {
+        if (game.getRuna().getHealth() == 50) {
+            return false;
+        }
         int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), 50, game.getRuna().getAbilities());
+        if (input.quit()) {
+            game.setFinished(true);
+            return false;
+        }
         List<Ability> test = new ArrayList<>();
         for (int i = 0; i < remove.length; i++) {
             test.add(game.getRuna().getAbilities().get(remove[i] - 1));
@@ -65,7 +106,7 @@ public class RewardPhase implements GamePhase {
         int heal = remove.length * 10;
         game.getRuna().setHealth(game.getRuna().getHealth() + heal);
         input.printHeal(heal);
-        game.setGamePhase(new StageChangePhase(game, input));
-        game.nextGamePhase();
+        return true;
+
     }
 }

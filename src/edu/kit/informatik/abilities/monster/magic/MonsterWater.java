@@ -23,13 +23,9 @@ public class MonsterWater extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        if (monster.getFocusPoints() > super.getLevel() - 1) {
-            int damage = 8 * super.getLevel();
-            damage += 2;
-            monster.setFocusPoints(monster.getFocusPoints() - super.getLevel());
-            return damage;
-        }
-        return 0;
+        int damage = 8 * super.getLevel();
+        damage += 2;
+        return damage;
     }
 
 }

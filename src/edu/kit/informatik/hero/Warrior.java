@@ -11,20 +11,18 @@ public class Warrior extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Warrior";
 
-    private List<Ability> abilities = new ArrayList<>(List.of(new RunaThrust(1),
-            new RunaParry(1)));
-
-    
-    /** 
-     * @return List<Ability>
+    /**
+     * @return Lis t<Ability>
      */
     @Override
-    public List<Ability> getAbilities() {
+    public List<Ability> getAbilities(int level) {
+        List<Ability> abilities = new ArrayList<>();
+        abilities.add(new RunaThrust(level));
+        abilities.add(new RunaParry(level));
         return abilities;
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     @Override

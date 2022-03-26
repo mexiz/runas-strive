@@ -7,6 +7,12 @@ import edu.kit.informatik.abilities.EmptyAbility;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.model.Ability;
 
+/**
+ * Klasse für die Heldin Runa
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class Runa {
 
     private List<Ability> abilities;
@@ -19,11 +25,11 @@ public class Runa {
 
     private Ability currentAbility;
 
-    public Runa(HeroClass runaClass) {
+    public Runa(HeroClass runaClass, int startLevel) {
         dice = 4;
         this.hero = runaClass;
         this.abilities = new ArrayList<>();
-        this.abilities = runaClass.getAbilities();
+        this.abilities = runaClass.getAbilities(startLevel);
         this.currentAbility = new EmptyAbility();
     }
 
@@ -43,96 +49,115 @@ public class Runa {
      * 
      * @return true wenn der Würfel maximal groß ist
      */
-    public boolean isMaxDice() {
+    public boolean upgradeDice() {
         return dice < 12;
     }
 
     /**
-     * @return int
+     * Getter für den Würfel
+     * 
+     * @return int der Würfel
      */
     public int getDice() {
         return dice;
     }
 
     /**
-     * @param dice
-     */
-    public void setDice(int dice) {
-        this.dice = dice;
-    }
-
-    /**
-     * @return Ability
+     * Getter für die aktuelle Fähigkeit
+     * 
+     * @return Ability die Fähigkeit
      */
     public Ability getCurrentAbility() {
         return currentAbility;
     }
 
     /**
-     * @param ability
+     * Setter für die Fähigkeit
+     * 
+     * @param ability die Fähigkeit
      */
     public void setCurrentAbility(Ability ability) {
         this.currentAbility = ability;
     }
 
     /**
-     * @return boolean
+     * Abfrage ob Runa tot ist
+     * 
+     * @return boolean true wenn Runa tot
      */
     public boolean dead() {
         return this.getHealth() < 0;
     }
 
     /**
-     * @return HeroClass
+     * Getter für die Klasse von Runa
+     * 
+     * @return HeroClass die Klasse
      */
     public HeroClass getHeroClass() {
         return hero;
     }
 
     /**
-     * @return List<Ability>
+     * 
+     * Getter für die Liste der Fähikeiten
+     * 
+     * @return List<Ability> Liste der Fäigkeiten
      */
     public List<Ability> getAbilities() {
         return abilities;
     }
 
     /**
-     * @param ability
+     * 
+     * Fügt eine Fähigkeit hinzu
+     * 
+     * @param ability die Fähigkeit
      */
     public void addAbility(Ability ability) {
         this.abilities.add(ability);
     }
 
     /**
-     * @param hero
+     * Setter für die Klasse der Heldin
+     * 
+     * @param hero die Heldenklasse
      */
     public void setHeroClass(HeroClass hero) {
         this.hero = hero;
     }
 
     /**
-     * @return int
+     * Getter für die Leben
+     * 
+     * @return int die Leben
      */
     public int getHealth() {
         return health;
     }
 
     /**
-     * @param health
+     * Setter für die Leben
+     * 
+     * @param health die Leben
      */
     public void setHealth(int health) {
         this.health = health;
     }
 
     /**
-     * @return int
+     * Getter für die Fokuspunkte
+     * 
+     * @return int die Fokuspunkte
      */
     public int getFocus() {
         return focus;
     }
 
     /**
-     * @param focus
+     * Setter für die Fokuspunkte
+     * 
+     * @param focus die Fokuspunkte
      */
     public void setFocus(int focus) {
         this.focus = focus;

@@ -1,13 +1,23 @@
 package edu.kit.informatik;
 
+/**
+ * Die Main-Klasse
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class Session {
 
-    
-    /** 
-     * @param args
+    /**
+     * Main-Methode
+     * 
+     * @param args Argumente
      */
     public static void main(String[] args) {
         Game game = new Game();
-        game.nextGamePhase(); 
+
+        while (!game.isFinished()) {
+            game.nextGamePhase();
+        }
     }
 }

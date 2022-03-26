@@ -46,23 +46,42 @@ public abstract class Ability {
 
     public abstract int execute(int dice, Runa runa, Monster monster);
 
-    /**
-     * @param obj
-     * @return boolean
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj != null && getClass() == obj.getClass())
-            return true;
-        return super.equals(obj);
-    }
 
-    /**
-     * @return int
-     */
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((attackType == null) ? 0 : attackType.hashCode());
+        result = prime * result + (breakFocus ? 1231 : 1237);
+        result = prime * result + ((cardType == null) ? 0 : cardType.hashCode());
+        result = prime * result + level;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Ability other = (Ability) obj;
+        if (attackType != other.attackType)
+            return false;
+        if (breakFocus != other.breakFocus)
+            return false;
+        if (cardType != other.cardType)
+            return false;
+        if (level != other.level)
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
     }
 
     /**
