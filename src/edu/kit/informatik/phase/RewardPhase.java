@@ -30,7 +30,7 @@ public class RewardPhase implements GamePhase {
     /**
      * Konstruktor
      * 
-     * @param game das Spiel
+     * @param game  das Spiel
      * @param input das Inputobjekt
      */
     public RewardPhase(Game game, UserInterface input) {
@@ -101,6 +101,10 @@ public class RewardPhase implements GamePhase {
             return false;
         }
         int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), 50, game.getRuna().getAbilities());
+        if (remove.length == 0) {
+            return true;
+        }
+
         if (input.quit()) {
             game.setFinished(true);
             return false;
