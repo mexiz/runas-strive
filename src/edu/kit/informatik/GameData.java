@@ -39,14 +39,15 @@ import edu.kit.informatik.monster.secondlevel.WildBoar;
 public final class GameData {
 
     private static final GameData GAME_DATA = new GameData();
-    private final int maxHealth = 50;
-    private final int maxLevel = 2;
-    private final int maxStage = 4;
-    private final int healPerCard = 10;
 
     private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
             new Mage(),
             new Paladin()));
+
+    private final int maxHealth = 50;
+    private final int maxLevel = 2;
+    private final int maxStage = 4;
+    private final int healPerCard = 10;
 
     private List<Monster> monsterLevelOne = new ArrayList<>(List.of(new Frog(),
             new Ghost(),
