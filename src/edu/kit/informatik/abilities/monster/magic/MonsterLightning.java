@@ -23,8 +23,6 @@ public class MonsterLightning extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = 14 * super.getLevel();
-        damage += 2;
-        return damage;
+        return (14 * super.getLevel()) + 2;
     }
 }

@@ -23,9 +23,7 @@ public class MonsterWater extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = 8 * super.getLevel();
-        damage += 2;
-        return damage;
+        return (8 * super.getLevel()) + 2;
     }
 
 }

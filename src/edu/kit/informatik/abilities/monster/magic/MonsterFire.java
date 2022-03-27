@@ -23,8 +23,6 @@ public class MonsterFire extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-            int damage = 12 * super.getLevel();
-            damage += 2;
-            return damage;
+            return (12 * super.getLevel()) + 2;
     }
 }
