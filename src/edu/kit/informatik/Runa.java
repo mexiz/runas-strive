@@ -25,6 +25,12 @@ public class Runa {
 
     private Ability currentAbility;
 
+    /**
+     * Konstruktor
+     * 
+     * @param runaClass  die Klasse des Heldens
+     * @param startLevel das Startlevel
+     */
     public Runa(HeroClass runaClass, int startLevel) {
         dice = 4;
         this.hero = runaClass;
@@ -36,7 +42,6 @@ public class Runa {
     /**
      * Werten den Würfel auf
      * 
-     * @return true wenn er verändert werden kann
      */
     public void changeDice() {
         if (dice < 12) {

@@ -25,6 +25,7 @@ public abstract class Ability {
      * @param dice    die Würfelzahl
      * @param runa    das Objekt des Angreifers
      * @param monster das Objekt des Opfers
+     * @return gibt den Wert der Fähigkeit zurück
      */
 
     public abstract int execute(int dice, Runa runa, Monster monster);
