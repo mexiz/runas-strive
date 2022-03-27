@@ -7,10 +7,16 @@ import edu.kit.informatik.abilities.runa.defence.RunaReflect;
 import edu.kit.informatik.abilities.runa.phys.RunaSlash;
 import edu.kit.informatik.model.Ability;
 
+/**
+ * Die Paladinklasse
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class Paladin extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Paladin";
-    
+
     @Override
     public List<Ability> getAbilities(int level) {
         List<Ability> abilities = new ArrayList<>();

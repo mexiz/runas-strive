@@ -7,13 +7,16 @@ import edu.kit.informatik.abilities.runa.defence.RunaParry;
 import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.model.Ability;
 
+/**
+ * Die Warriorklasse
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class Warrior extends HeroClass {
 
     private static final String HERO_CLASS_NAME = "Warrior";
 
-    /**
-     * @return Lis t<Ability>
-     */
     @Override
     public List<Ability> getAbilities(int level) {
         List<Ability> abilities = new ArrayList<>();
@@ -22,9 +25,6 @@ public class Warrior extends HeroClass {
         return abilities;
     }
 
-    /**
-     * @return String
-     */
     @Override
     public String getHeroName() {
         return HERO_CLASS_NAME;
