@@ -21,6 +21,7 @@ public class ChangeStagePhase implements GamePhase {
     private Game game;
     private UserInterface input;
     private int maxLevel = 2;
+    private int MAX_STAGE = 4;
 
     private GameData data = GameData.getInstance();
 
@@ -38,9 +39,7 @@ public class ChangeStagePhase implements GamePhase {
     @Override
     public void start() {
         Combat combat;
-        game.setStage(game.getStage() + 1);
-
-        if (game.getLevel() >= maxLevel && game.getStage() == 4) {
+        if (game.getLevel() >= maxLevel && game.getStage() == data.getMaxStage()) {
             // game.setGamePhase(new GameOverPhase(game, input));
             // game.nextGamePhase();
             game.setGamePhase(null);
