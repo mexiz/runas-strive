@@ -190,6 +190,9 @@ public class UserInterface extends UserOutput {
         for (int i = 0; i < newAbilities.size(); i++) {
             print((i + 1) + ") " + newAbilities.get(i).getName() + "(" + newAbilities.get(i).getLevel() + ")");
         }
+        if (number == 1) {
+            return getNumbersSeparated(Message.MESSAGE_NUMBER, number, number, 1, newAbilities.size());
+        }
         return getNumbersSeparated(Message.ENTER_NUMBER, number, number, 1, newAbilities.size());
     }
 
