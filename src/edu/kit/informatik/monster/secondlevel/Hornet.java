@@ -20,64 +20,16 @@ public class Hornet extends Monster {
     private static final MonsterType MONSTER_TYPE = MonsterType.FIRE;
     private static final String NAME = "Hornet";
     private static final int HEALTH = 32;
-    private int health = HEALTH;
-    private int countAbility = 0;
-    private int focusPoint = 0;
 
     private List<Ability> abilities = List.of(new MonsterScratch(2),
             new MonsterFocus(2),
             new MonsterFire(1),
             new MonsterFire(2));
 
-    private Ability currentAbility = abilities.get(countAbility);
-
-    @Override
-    public String getName() {
-        return NAME;
-    }
-
-    @Override
-    public MonsterType getMonsterType() {
-        return MONSTER_TYPE;
-    }
-
-    @Override
-    public int getFocusPoints() {
-        return focusPoint;
-    }
-
-    @Override
-    public void setFocusPoints(int focusPoint) {
-        this.focusPoint = focusPoint;
-    }
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public Ability getCurrentAbility() {
-        return currentAbility;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    @Override
-    public void setCurrentAbility(Ability abilities) {
-        this.currentAbility = abilities;
-
-    }
-
-    @Override
-    public void changeAbility() {
-        countAbility++;
-        if (countAbility > abilities.size() - 1) {
-            countAbility = 0;
-        }
-        currentAbility = abilities.get(countAbility);
+    /**
+     * no
+     */
+    public Hornet() {
+        super.init(NAME, HEALTH, abilities, MONSTER_TYPE);
     }
 }
