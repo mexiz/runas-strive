@@ -2,7 +2,6 @@ package edu.kit.informatik.model.ability.runa;
 
 import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.MonsterType;
 
@@ -15,7 +14,6 @@ import edu.kit.informatik.model.MonsterType;
 public class MagicAbility extends Ability {
 
     private static final int MULTIPLIER = 2;
-    private static final AttackType ATTACK_TYPE = AttackType.MAGIC;
     private int valueOne;
     private int valueTwo;
     private MonsterType preferredMonster;
@@ -40,6 +38,34 @@ public class MagicAbility extends Ability {
             damage += MULTIPLIER * super.getLevel();
         }
         return damage + valueTwo;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((preferredMonster == null) ? 0 : preferredMonster.hashCode());
+        result = prime * result + valueOne;
+        result = prime * result + valueTwo;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        MagicAbility other = (MagicAbility) obj;
+        if (preferredMonster != other.preferredMonster)
+            return false;
+        if (valueOne != other.valueOne)
+            return false;
+        if (valueTwo != other.valueTwo)
+            return false;
+        return true;
     }
 
 }
