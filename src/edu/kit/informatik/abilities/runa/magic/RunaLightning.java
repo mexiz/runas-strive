@@ -16,8 +16,8 @@ import edu.kit.informatik.model.MonsterType;
 
 public class RunaLightning extends MagicAbility {
 
-    private static final int ABILITY_VALUE = 5;
-    private static final int ADDITION = 2;
+    private static final int VALUE_ONE = 5;
+    private static final int VALUE_TWO = 2;
 
     /**
      * Konstruktor
@@ -25,7 +25,8 @@ public class RunaLightning extends MagicAbility {
      * @param level das Level
      */
     public RunaLightning(int level) {
+        super.setValue(MonsterType.FIRE, VALUE_ONE, VALUE_TWO);
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Lightning");
-        super.setValue(MonsterType.FIRE, 5, 2);
+
     }
 }

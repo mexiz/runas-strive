@@ -16,8 +16,8 @@ import edu.kit.informatik.model.MonsterType;
 
 public class RunaIce extends MagicAbility {
 
-    private static final int ABILITY_VALUE = 2;
-    private static final int ADDITION = 4;
+    private static final int VALUE_ONE = 4;
+    private static final int VALUE_TWO = 2;
 
     /**
      * Konstruktor
@@ -25,7 +25,7 @@ public class RunaIce extends MagicAbility {
      * @param level das Level
      */
     public RunaIce(int level) {
-        super.setValue(MonsterType.WATER, 4, 2);
+        super.setValue(MonsterType.WATER, VALUE_ONE, VALUE_TWO);
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Ice");
     }
 }

@@ -16,8 +16,8 @@ import edu.kit.informatik.model.MonsterType;
 
 public class RunaFire extends MagicAbility {
 
-    private static final int ABILITY_VALUE = 2;
-    private static final int ADDITION = 5;
+    private static final int VALUE_ONE = 5;
+    private static final int VALUE_TWO = 0;
 
     /**
      * Konstruktor
@@ -25,7 +25,7 @@ public class RunaFire extends MagicAbility {
      * @param level das Level
      */
     public RunaFire(int level) {
-        super.setValue(MonsterType.ICE, 5, 0);
+        super.setValue(MonsterType.ICE, VALUE_ONE, VALUE_TWO);
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Fire");
     }
 }
