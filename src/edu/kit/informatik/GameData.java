@@ -39,10 +39,10 @@ import edu.kit.informatik.monster.secondlevel.WildBoar;
 public final class GameData {
 
     private static final GameData GAME_DATA = new GameData();
-    private static final int MAX_HEALTH = 50;
-    private static final int MAX_LEVEL = 2;
-    private static final int MAX_STAGE = 4;
-    private static final int HEAL_PER_CARD = 10;
+    private final int maxHealth = 50;
+    private final int maxLevel = 2;
+    private final int maxStage = 4;
+    private final int healPerCard = 10;
 
     private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
             new Mage(),
@@ -91,7 +91,7 @@ public final class GameData {
         monsterPerStage.put(1, 1);
         monsterPerStage.put(2, 2);
         monsterPerStage.put(3, 2);
-        monsterPerStage.put(MAX_STAGE, 1);
+        monsterPerStage.put(maxStage, 1);
     }
 
     /**
@@ -156,8 +156,8 @@ public final class GameData {
      * 
      * @return die maximale Anzahl an Leben
      */
-    public static int getMaxHealth() {
-        return MAX_HEALTH;
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     /**
@@ -165,8 +165,8 @@ public final class GameData {
      * 
      * @return das Level
      */
-    public static int getMaxLevel() {
-        return MAX_LEVEL;
+    public int getMaxLevel() {
+        return maxLevel;
     }
 
     /**
@@ -174,8 +174,8 @@ public final class GameData {
      * 
      * @return der Raum
      */
-    public static int getMaxStage() {
-        return MAX_STAGE;
+    public int getMaxStage() {
+        return maxStage;
     }
 
     /**
@@ -183,8 +183,8 @@ public final class GameData {
      * 
      * @return der Wert pro Karte
      */
-    public static int getHealPerCard() {
-        return HEAL_PER_CARD;
+    public int getHealPerCard() {
+        return healPerCard;
     }
 
 }
