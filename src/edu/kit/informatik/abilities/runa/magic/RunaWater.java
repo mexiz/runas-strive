@@ -18,6 +18,9 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaWater extends Ability {
 
+    private static final int ABILITY_VALUE = 2;
+    private static final int ADDITION = 4;
+
     /**
      * Konstruktor
      * 
@@ -29,9 +32,9 @@ public class RunaWater extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (2 * super.getLevel() + 4) * runa.getFocus();
+        int damage = (ABILITY_VALUE * super.getLevel() + ADDITION) * runa.getFocus();
         if (monster.getMonsterType().equals(MonsterType.LIGHTNING)) {
-            damage += 2 * super.getLevel();
+            damage += ABILITY_VALUE * super.getLevel();
         }
         return damage;
     }

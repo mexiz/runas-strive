@@ -17,6 +17,8 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaSwing extends Ability {
 
+    private static final int ABILITY_VALUE = 5;
+
     /**
      * Konstruktor
      * 
@@ -28,6 +30,6 @@ public class RunaSwing extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (5 * super.getLevel()) + dice;
+        return (ABILITY_VALUE * super.getLevel()) + dice;
     }
 }

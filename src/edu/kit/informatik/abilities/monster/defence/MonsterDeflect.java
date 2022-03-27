@@ -17,6 +17,10 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterDeflect extends Ability {
 
+    private static final int NEGATE = -1;
+    private static final int ABILITY_VALUE = 11;
+    private static final int ADDITION_VALUE = 2;
+
     /**
      * Konstruktor
      * 
@@ -29,7 +33,7 @@ public class MonsterDeflect extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (-1) * ((11 * super.getLevel()) + 2);
+        return NEGATE * ((ABILITY_VALUE * super.getLevel()) + ADDITION_VALUE);
     }
 
 }

@@ -1,9 +1,9 @@
 package edu.kit.informatik.abilities.monster.magic;
 
 import edu.kit.informatik.Runa;
+import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
-import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 
 /**
@@ -16,7 +16,10 @@ import edu.kit.informatik.model.Monster;
  */
 
 public class MonsterFire extends Ability {
-    
+
+    private static final int ABILITY_VALUE = 12;
+    private static final int ADDITION_VALUE = 2;
+
     /**
      * Konstruktor
      * 
@@ -28,6 +31,6 @@ public class MonsterFire extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (12 * super.getLevel()) + 2;
+        return (ABILITY_VALUE * super.getLevel()) + ADDITION_VALUE;
     }
 }

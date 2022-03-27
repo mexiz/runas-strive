@@ -16,6 +16,8 @@ import edu.kit.informatik.model.Monster;
  */
 public class MonsterFocus extends Ability {
 
+    private static final int ABILITY_VALUE = 1;
+
     /**
      * Konstruktor
      * 
@@ -27,6 +29,6 @@ public class MonsterFocus extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return super.getLevel();
+        return ABILITY_VALUE * super.getLevel();
     }
 }

@@ -17,6 +17,9 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterWater extends Ability {
 
+    private static final int ABILITY_VALUE = 8;
+    private static final int ADDITION_VALUE = 2;
+
     /**
      * Konstruktor
      * 
@@ -28,7 +31,7 @@ public class MonsterWater extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (8 * super.getLevel()) + 2;
+        return (ABILITY_VALUE * super.getLevel()) + ADDITION_VALUE;
     }
 
 }

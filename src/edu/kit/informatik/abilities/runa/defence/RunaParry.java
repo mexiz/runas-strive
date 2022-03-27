@@ -17,6 +17,8 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaParry extends Ability {
 
+    private static final int ABILITY_VALUE = -7;
+
     /**
      * Konstruktor
      * 
@@ -28,6 +30,6 @@ public class RunaParry extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (-7) * super.getLevel();
+        return ABILITY_VALUE * super.getLevel();
     }
 }

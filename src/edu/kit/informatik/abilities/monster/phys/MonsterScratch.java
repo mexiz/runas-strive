@@ -17,6 +17,8 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterScratch extends Ability {
 
+    private static final int ABILITY_VALUE = 5;
+
     /**
      * Konstruktor
      * 
@@ -28,6 +30,6 @@ public class MonsterScratch extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return 5 * super.getLevel();
+        return ABILITY_VALUE * super.getLevel();
     }
 }

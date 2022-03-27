@@ -17,6 +17,8 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterClaw extends Ability {
 
+    private static final int ABILITY_VALUE = 6;
+
     /**
      * Konstruktor
      * 
@@ -28,7 +30,7 @@ public class MonsterClaw extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        return (6 * super.getLevel());
+        return (ABILITY_VALUE * super.getLevel());
     }
 
 }

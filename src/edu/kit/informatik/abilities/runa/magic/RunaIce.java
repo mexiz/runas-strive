@@ -18,6 +18,9 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaIce extends Ability {
 
+    private static final int ABILITY_VALUE = 2;
+    private static final int ADDITION = 4;
+
     /**
      * Konstruktor
      * 
@@ -29,11 +32,11 @@ public class RunaIce extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (2 * super.getLevel()) + 4;
+        int damage = (ABILITY_VALUE * super.getLevel()) + ADDITION;
         damage *= runa.getFocus();
-        damage += 2;
+        damage += ABILITY_VALUE;
         if (monster.getMonsterType().equals(MonsterType.WATER)) {
-            damage += 2 * super.getLevel();
+            damage += ABILITY_VALUE * super.getLevel();
         }
         return damage;
     }

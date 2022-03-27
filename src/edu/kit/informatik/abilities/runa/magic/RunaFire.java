@@ -18,6 +18,9 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaFire extends Ability {
 
+    private static final int ABILITY_VALUE = 2;
+    private static final int ADDITION = 5;
+
     /**
      * Konstruktor
      * 
@@ -29,10 +32,10 @@ public class RunaFire extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (2 * super.getLevel()) + 5;
+        int damage = (ABILITY_VALUE * super.getLevel()) + ADDITION;
         damage *= runa.getFocus();
         if (monster.getMonsterType().equals(MonsterType.ICE)) {
-            damage += 2 * super.getLevel();
+            damage += ABILITY_VALUE * super.getLevel();
         }
         return damage;
     }

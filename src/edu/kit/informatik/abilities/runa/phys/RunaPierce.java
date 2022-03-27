@@ -17,6 +17,10 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaPierce extends Ability {
 
+    private static final int ABILITY_VALUE = 7;
+    private static final int DICE_LIMIT = 5;
+    private static final int ABILITY_VALUE_DICE = 5;
+
     /**
      * Konstruktor
      * 
@@ -28,9 +32,9 @@ public class RunaPierce extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (7 * super.getLevel()) + dice;
-        if (dice > 5) {
-            damage += (5 * super.getLevel());
+        int damage = (ABILITY_VALUE * super.getLevel()) + dice;
+        if (dice > DICE_LIMIT) {
+            damage += (ABILITY_VALUE_DICE * super.getLevel());
         }
         return damage;
     }
