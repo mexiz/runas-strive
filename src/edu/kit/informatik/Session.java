@@ -8,6 +8,10 @@ package edu.kit.informatik;
  */
 public class Session {
 
+    private Session(){
+        
+    }
+
     /**
      * Main-Methode
      * 
