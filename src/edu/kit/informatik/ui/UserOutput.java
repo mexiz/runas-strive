@@ -73,6 +73,12 @@ public class UserOutput {
         print(Message.REWARD_NEW_ABILITY.formatted(ability.getName() + "(" + ability.getLevel() + ")"));
     }
 
+    /**
+     * Gibt die erworbenen Fokuspunkte aus
+     * 
+     * @param name   der Name
+     * @param points die Punkte
+     */
     public void printFocusPoint(String name, int points) {
         print(Message.FOCUSPOINT.formatted(name, points));
     }
@@ -80,9 +86,10 @@ public class UserOutput {
     /**
      * Gibt den Status(Anfang jedes Kampfes)
      * 
-     * @param enemies    die Gegner
-     * @param runahealth Runas Leben
-     * @param runaFocus  Runas Fokuspunkte
+     * @param enemies      die Gegner
+     * @param runahealth   Runas Leben
+     * @param runaFocus    Runas Fokuspunkte
+     * @param runaMaxFocus die maximalen Fokuspunkte
      */
     public void printStatus(List<Monster> enemies, int runahealth, int runaFocus, int runaMaxFocus) {
         print(Message.MESSAGE_LINE_SEPERATOR.toString());
