@@ -28,12 +28,14 @@ import edu.kit.informatik.monster.secondlevel.ShadomBlade;
 import edu.kit.informatik.monster.secondlevel.Snake;
 import edu.kit.informatik.monster.secondlevel.Tarantula;
 import edu.kit.informatik.monster.secondlevel.WildBoar;
+
 /**
  * Die Klasse enthält alle Spieldaten
  * 
  * @author uwlhp
  * @version 1.0.0
  */
+
 public class GameData {
 
     private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
@@ -88,7 +90,7 @@ public class GameData {
         monsterPerStage.put(4, 1);
     }
 
-    public static GameData getInstance(){
+    public static GameData getInstance() {
         return GAME_DATA;
     }
 
@@ -130,10 +132,11 @@ public class GameData {
         }
         return 0;
     }
+
     /**
      * Getter für die Klassen der Heldinen
      * 
-     * @return die Liste der Klassen 
+     * @return die Liste der Klassen
      */
     public static List<HeroClass> getHeroclass() {
         return heroclass;
