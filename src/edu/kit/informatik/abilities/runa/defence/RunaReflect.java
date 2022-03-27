@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaReflect extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaReflect(int level) {
         super.init(level, AttackType.MAGIC, CardType.DEFENSIV, false, "Reflect");
     }

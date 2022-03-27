@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaSwing extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaSwing(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Swing");
     }

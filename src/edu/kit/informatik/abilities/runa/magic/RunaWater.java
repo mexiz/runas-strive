@@ -18,6 +18,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaWater extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaWater(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Water");
     }

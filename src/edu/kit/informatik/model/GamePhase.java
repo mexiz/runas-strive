@@ -13,6 +13,6 @@ public interface GamePhase {
     /**
      * Startet die Phase
      */
-    public void start();
+    void start();
 
 }

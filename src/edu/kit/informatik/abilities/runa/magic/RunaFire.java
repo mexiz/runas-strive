@@ -18,6 +18,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaFire extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaFire(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Fire");
     }

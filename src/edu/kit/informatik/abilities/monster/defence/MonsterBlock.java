@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterBlock extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterBlock(int level) {
         super.init(level, AttackType.PHYS, CardType.DEFENSIV, false, "Block");
     }

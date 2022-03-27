@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterScratch extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterScratch(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Scratch");
     }

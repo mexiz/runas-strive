@@ -18,6 +18,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaLightning extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaLightning(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Lightning");
     }

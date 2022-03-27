@@ -16,6 +16,11 @@ import edu.kit.informatik.model.Monster;
  */
 public class MonsterFocus extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterFocus(int level) {
         super.init(level, AttackType.NONE, CardType.FOCUS, false, "Focus");
     }

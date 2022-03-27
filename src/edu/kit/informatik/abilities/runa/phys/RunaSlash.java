@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaSlash extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaSlash(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Slash");
     }

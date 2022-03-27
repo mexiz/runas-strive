@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterDeflect extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterDeflect(int level) {
         super.init(level, AttackType.MAGIC, CardType.DEFENSIV, false, "Deflect");
 

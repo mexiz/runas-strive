@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterWater extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterWater(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Water");
     }

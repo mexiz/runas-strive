@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaThrust extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaThrust(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Thrust");
     }

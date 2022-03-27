@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaParry extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaParry(int level) {
         super.init(level, AttackType.PHYS, CardType.DEFENSIV, false, "Parry");
     }

@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterClaw extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterClaw(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Claw");
     }

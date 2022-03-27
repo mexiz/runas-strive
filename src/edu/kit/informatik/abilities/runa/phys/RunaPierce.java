@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaPierce extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaPierce(int level) {
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Pierce");
     }

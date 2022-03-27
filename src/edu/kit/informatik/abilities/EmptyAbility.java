@@ -8,7 +8,11 @@ import edu.kit.informatik.model.Monster;
 
 public class EmptyAbility extends Ability {
 
-    
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public EmptyAbility() {
         super.init(0, AttackType.NONE, CardType.NONE, false, "Empty");
     }

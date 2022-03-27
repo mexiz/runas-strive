@@ -18,6 +18,11 @@ import edu.kit.informatik.model.Ability;
 
 public class RunaIce extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaIce(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Ice");
     }

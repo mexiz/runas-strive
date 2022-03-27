@@ -16,7 +16,12 @@ import edu.kit.informatik.model.Ability;
  */
 
 public class RunaFocus extends Ability {
-
+    
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public RunaFocus(int level) {
         super.init(level, AttackType.NONE, CardType.FOCUS, false, "Focus");
     }

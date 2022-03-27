@@ -17,6 +17,11 @@ import edu.kit.informatik.model.Monster;
 
 public class MonsterLightning extends Ability {
 
+    /**
+     * Konstruktor
+     * 
+     * @param level das Level
+     */
     public MonsterLightning(int level) {
         super.init(level, AttackType.MAGIC, CardType.OFFENSIVE, false, "Lightning");
     }
