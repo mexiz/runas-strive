@@ -37,7 +37,9 @@ import edu.kit.informatik.monster.secondlevel.WildBoar;
  */
 
 public final class GameData {
-
+    
+    private static final GameData GAME_DATA = new GameData();
+    
     private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
             new Mage(),
             new Paladin()));
@@ -68,7 +70,7 @@ public final class GameData {
     private List<List<Monster>> allMonster;
     private List<Monster> bossLevel;
 
-    private static final GameData GAME_DATA = new GameData();
+    
 
     /**
      * Konstruktor
