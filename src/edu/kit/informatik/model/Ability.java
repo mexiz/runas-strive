@@ -20,6 +20,16 @@ public abstract class Ability {
     private boolean breakFocus;
 
     /**
+     * Den Wert von der Fähigkeit
+     * 
+     * @param dice    die Würfelzahl
+     * @param runa    das Objekt des Angreifers
+     * @param monster das Objekt des Opfers
+     */
+
+    public abstract int execute(int dice, Runa runa, Monster monster);
+
+    /**
      * Initialisierung der Fähigkeiten
      * 
      * @param level      Level der Fähikeit
@@ -35,17 +45,6 @@ public abstract class Ability {
         this.breakFocus = breakFocus;
         this.cardType = cardType;
     }
-
-    /**
-     * Den Wert von der Fähigkeit
-     * 
-     * @param dice    die Würfelzahl
-     * @param runa    das Objekt des Angreifers
-     * @param monster das Objekt des Opfers
-     */
-
-    public abstract int execute(int dice, Runa runa, Monster monster);
-
 
     @Override
     public int hashCode() {

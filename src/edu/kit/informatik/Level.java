@@ -19,28 +19,10 @@ import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
-import edu.kit.informatik.monster.firstlevel.Frog;
-import edu.kit.informatik.monster.firstlevel.Ghost;
-import edu.kit.informatik.monster.firstlevel.Goblin;
-import edu.kit.informatik.monster.firstlevel.Gorgon;
-import edu.kit.informatik.monster.firstlevel.Mushroomlin;
-import edu.kit.informatik.monster.firstlevel.Rat;
-import edu.kit.informatik.monster.firstlevel.Skeleton;
-import edu.kit.informatik.monster.firstlevel.Spider;
-import edu.kit.informatik.monster.firstlevel.SpiderKing;
-import edu.kit.informatik.monster.secondlevel.Bear;
-import edu.kit.informatik.monster.secondlevel.DarkElf;
-import edu.kit.informatik.monster.secondlevel.Hornet;
-import edu.kit.informatik.monster.secondlevel.MegaSaurus;
-import edu.kit.informatik.monster.secondlevel.Mushroomlon;
-import edu.kit.informatik.monster.secondlevel.ShadomBlade;
-import edu.kit.informatik.monster.secondlevel.Snake;
-import edu.kit.informatik.monster.secondlevel.Tarantula;
-import edu.kit.informatik.monster.secondlevel.WildBoar;
 
 /**
- * Die Klasse kümmert sich um die Monster und die neuen Fähigkeiten des Levels 
- *  
+ * Die Klasse kümmert sich um die Monster und die neuen Fähigkeiten des Levels
+ * 
  * @author uwlhp
  * @version 1.0.0
  */
@@ -103,9 +85,9 @@ public class Level {
     }
 
     /**
-     * CHANGE LATER 
+     * CHANGE LATER
      * 
-     * @param level d
+     * @param level         d
      * @param removeAbility d
      * @return List<Ability> d
      */
