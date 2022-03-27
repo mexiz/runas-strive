@@ -24,6 +24,12 @@ public class ChangeStagePhase implements GamePhase {
 
     private GameData data = GameData.getInstance();
 
+    /**
+     * Konstruktor
+     * 
+     * @param game  das Spiel
+     * @param input das Inputobjekt
+     */
     public ChangeStagePhase(Game game, UserInterface input) {
         this.game = game;
         this.input = input;

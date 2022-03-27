@@ -23,6 +23,12 @@ public class StartPhase implements GamePhase {
 
     private GameData data = GameData.getInstance();
 
+    /**
+     * Konstruktor
+     * 
+     * @param game  das Spiel
+     * @param input Inputobjekt
+     */
     public StartPhase(Game game, UserInterface input) {
         this.game = game;
         this.input = input;

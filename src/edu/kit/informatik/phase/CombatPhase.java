@@ -24,6 +24,13 @@ public class CombatPhase implements GamePhase {
     private UserInterface input;
     private Combat combat;
 
+    /**
+     * Konstruktor
+     * 
+     * @param game  das Spiel
+     * @param input das Inputobjekt
+     * @param combat der Kampf
+     */
     public CombatPhase(Game game, UserInterface input, Combat combat) {
         this.game = game;
         this.input = input;

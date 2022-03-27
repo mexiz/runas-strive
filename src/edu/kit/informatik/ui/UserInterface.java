@@ -187,7 +187,7 @@ public class UserInterface extends UserOutput {
         String output = String.format(Message.PICK_CARD.toString(), number);
         print(output);
         for (int i = 0; i < newAbilities.size(); i++) {
-            print((i + 1) + ") " + newAbilities.get(i).getName() + "("+ newAbilities.get(i).getLevel() + ")");
+            print((i + 1) + ") " + newAbilities.get(i).getName() + "(" + newAbilities.get(i).getLevel() + ")");
         }
         return getNumbersSeparated(Message.ENTER_NUMBER, number, number, 1, newAbilities.size());
     }
@@ -204,7 +204,7 @@ public class UserInterface extends UserOutput {
         String message = String.format(Message.REWARD_RUNA_HEALING.toString(), health, maxHealth);
         print(message);
         for (int i = 0; i < runasAbility.size(); i++) {
-            print((i + 1) + ") " + runasAbility.get(i).getName()+ "("+ runasAbility.get(i).getLevel() + ")");
+            print((i + 1) + ") " + runasAbility.get(i).getName() + "(" + runasAbility.get(i).getLevel() + ")");
         }
         return getNumbersSeparated(Message.ENTER_NUMBER, 0, runasAbility.size(), 1, runasAbility.size());
     }

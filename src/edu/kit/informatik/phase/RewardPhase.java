@@ -27,6 +27,12 @@ public class RewardPhase implements GamePhase {
 
     private GameData data = GameData.getInstance();
 
+    /**
+     * Konstruktor
+     * 
+     * @param game das Spiel
+     * @param input das Inputobjekt
+     */
     public RewardPhase(Game game, UserInterface input) {
         this.game = game;
         this.input = input;
@@ -86,7 +92,7 @@ public class RewardPhase implements GamePhase {
     }
 
     /**
-     * FÜhrt die Heilung aus
+     * Führt die Heilung aus
      * 
      * @return ob die Heilung ausgeführt wurde
      */
