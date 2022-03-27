@@ -173,7 +173,8 @@ public class UserInterface extends UserOutput {
      * @return die Zahl der Belohnung
      */
     public int selectRewardType() {
-        return getUserInput(Message.MESSAGE_REWARD, 1, 2);
+        print(Message.MESSAGE_REWARD.toString());
+        return getUserInput(Message.ENTER_NUMBER, 1, 2);
     }
 
     /**
