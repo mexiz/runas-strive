@@ -58,6 +58,12 @@ public class CombatPhase implements GamePhase {
             game.setFinished(true);
             return;
         }
+        for (int i = 0; i < combat.getEnemies().size(); i++) {
+            int focus = combat.monsterFocusPoints(i);
+            if (focus > 0) {
+                input.printFocusPoint(combat.getEnemies().get(i).getName(), focus);
+            }
+        }
         if (!executeMonster()) {
             game.setFinished(true);
             return;
@@ -118,12 +124,6 @@ public class CombatPhase implements GamePhase {
      * @return ob die Züge der Monster ausgeführt wurden
      */
     private boolean executeMonster() {
-        for (int i = 0; i < combat.getEnemies().size(); i++) {
-            int focus = combat.monsterFocusPoints(i);
-            if (focus > 0) {
-                input.printFocusPoint(combat.getEnemies().get(i).getName(), focus);
-            }
-        }
 
         for (int i = 0; i < combat.getEnemies().size(); i++) {
 
@@ -136,6 +136,11 @@ public class CombatPhase implements GamePhase {
                     combat.getEnemies().get(i).getCurrentAbility());
             if (damageToRuna > 0) {
                 input.printDamge("Runa", damageToRuna, combat.getEnemies().get(i).getCurrentAbility().getAttackType());
+            }
+            if (game.getRuna().dead()) {
+                input.printDies("Runa");
+                game.setCard(null);
+                return false;
             }
             combat.getEnemies().get(i).changeAbility();
         }
