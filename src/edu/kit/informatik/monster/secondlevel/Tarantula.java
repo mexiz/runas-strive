@@ -19,7 +19,8 @@ public class Tarantula extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "Tarantula";
-    private int health = 33;
+    private static final int HEALTH = 33;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

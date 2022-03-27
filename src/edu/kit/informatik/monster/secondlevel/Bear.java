@@ -19,7 +19,8 @@ public class Bear extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "Bear";
-    private int health = 40;
+    private static final int HEALTH = 40;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

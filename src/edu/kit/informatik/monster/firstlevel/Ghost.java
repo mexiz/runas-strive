@@ -20,7 +20,8 @@ public class Ghost extends Monster {
     private static final MonsterType MONSTER_TYPE = MonsterType.ICE;
     private static final String NAME = "Ghost";
 
-    private int health = 15;
+    private static final int HEALTH = 15;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

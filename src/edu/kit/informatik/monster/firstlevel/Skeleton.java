@@ -18,7 +18,8 @@ public class Skeleton extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.LIGHTNING;
     private static final String NAME = "Skeleton";
-    private int health = 14;
+    private static final int HEALTH = 14;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

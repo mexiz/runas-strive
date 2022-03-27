@@ -19,7 +19,8 @@ public class Snake extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.ICE;
     private static final String NAME = "Snake";
-    private int health = 31;
+    private static final int HEALTH = 31;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

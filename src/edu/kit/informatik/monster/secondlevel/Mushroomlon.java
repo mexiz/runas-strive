@@ -19,7 +19,8 @@ public class Mushroomlon extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "Mushroomlon";
-    private int health = 50;
+    private static final int HEALTH = 50;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

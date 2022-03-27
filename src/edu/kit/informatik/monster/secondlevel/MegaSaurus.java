@@ -21,7 +21,8 @@ public class MegaSaurus extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "MegaSaurus";
-    private int health = 100;
+    private static final int HEALTH = 100;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

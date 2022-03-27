@@ -18,7 +18,8 @@ public class Rat extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "Rat";
-    private int health = 14;
+    private static final int HEALTH = 14;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

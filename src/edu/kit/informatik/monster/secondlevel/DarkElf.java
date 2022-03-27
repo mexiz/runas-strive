@@ -19,7 +19,8 @@ public class DarkElf extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
     private static final String NAME = "Dark Elf";
-    private int health = 34;
+    private static final int HEALTH = 34;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

@@ -19,7 +19,8 @@ public class ShadomBlade extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.LIGHTNING;
     private static final String NAME = "Frog";
-    private int health = 27;
+    private static final int HEALTH = 27;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 

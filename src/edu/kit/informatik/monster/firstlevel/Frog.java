@@ -21,7 +21,8 @@ public class Frog extends Monster {
 
     private static final String NAME = "Frog";
 
-    private int health = 16;
+    private static final int HEALTH = 16;
+    private int health = HEALTH;
     private int countAbility = 0;
     private int focusPoint = 0;
 
