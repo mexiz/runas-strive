@@ -87,6 +87,10 @@ public class RewardPhase implements GamePhase {
         }
 
         heal();
+        if (input.quit()) {
+            game.setFinished(true);
+            return;
+        }
         game.setGamePhase(new ChangeStagePhase(game, input));
 
     }
