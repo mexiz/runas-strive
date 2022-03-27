@@ -2,6 +2,12 @@ package edu.kit.informatik.model;
 
 import edu.kit.informatik.Runa;
 
+/**
+ * Klasse für die magischen Fähigkeiten
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class MagicAbility extends Ability {
 
     private static final int MULTIPLIER = 2;
@@ -10,14 +16,17 @@ public class MagicAbility extends Ability {
     private int valueTwo;
     private MonsterType preferredMonster;
 
+    /**
+     * Setzt die Werte für die Berechnung des Schadens
+     * 
+     * @param preferredMonster das bevorzugte Monster
+     * @param valueOne         der erste Wert
+     * @param valueTwo         der zweite Wert
+     */
     public void setValue(MonsterType preferredMonster, int valueOne, int valueTwo) {
         this.preferredMonster = preferredMonster;
         this.valueOne = valueOne;
         this.valueTwo = valueTwo;
-    }
-
-    public AttackType getType() {
-        return ATTACK_TYPE;
     }
 
     @Override
