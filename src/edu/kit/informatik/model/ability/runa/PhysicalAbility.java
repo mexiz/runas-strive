@@ -31,7 +31,7 @@ public class PhysicalAbility extends Ability {
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
         int damage = (valueOne * super.getLevel()) + dice;
-        return dice >= DICE_LIMIT ? damage : damage + (valueTWO * super.getLevel());
+        return dice >= DICE_LIMIT ? damage : (damage + (valueTWO * super.getLevel()));
     }
 
     @Override

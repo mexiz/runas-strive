@@ -27,4 +27,4 @@ public class RunaThrust extends PhysicalAbility {
         super.setValue(ABILITY_VALUE, ABILITY_VALUE_DICE);
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Thrust");
     }
-}
+} 
