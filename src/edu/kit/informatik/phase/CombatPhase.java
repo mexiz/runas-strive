@@ -104,6 +104,7 @@ public class CombatPhase implements GamePhase {
         }
         return true;
     }
+
     /**
      * Führt die Züge der Monster aus
      *
