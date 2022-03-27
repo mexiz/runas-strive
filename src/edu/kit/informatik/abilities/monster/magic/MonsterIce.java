@@ -23,8 +23,6 @@ public class MonsterIce extends Ability {
 
     @Override
     public int execute(int dice, Runa runa, Monster monster) {
-            int damage = 10 * super.getLevel();
-            damage += 2;
-            return damage;
+        return (10 * super.getLevel()) + 2;
     }
 }
