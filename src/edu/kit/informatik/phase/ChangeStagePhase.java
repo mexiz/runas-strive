@@ -21,7 +21,6 @@ public class ChangeStagePhase implements GamePhase {
     private Game game;
     private UserInterface input;
     private int maxLevel = 2;
-    private int MAX_STAGE = 4;
 
     private GameData data = GameData.getInstance();
 
