@@ -13,6 +13,7 @@ import edu.kit.informatik.ui.UserInterface;
 
 public class Game {
 
+
     private GamePhase gamePhase;
 
     private Runa runa;

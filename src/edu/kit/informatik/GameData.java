@@ -92,7 +92,7 @@ public final class GameData {
         monsterPerStage.put(1, 1);
         monsterPerStage.put(2, 2);
         monsterPerStage.put(3, 2);
-        monsterPerStage.put(maxStage, 1);
+        monsterPerStage.put(4, 1);
     }
 
     /**
@@ -137,7 +137,7 @@ public final class GameData {
      * @return die Anzahl der Monster
      */
     public int getMonsterCount(int stage) {
-        if (stage <= monsterPerStage.size()) {
+        if (stage <= monsterPerStage.size() && stage >= 1) {
             return monsterPerStage.get(stage);
         }
         return 0;
