@@ -36,7 +36,7 @@ import edu.kit.informatik.monster.secondlevel.WildBoar;
  * @version 1.0.0
  */
 
-public class GameData {
+public final class GameData {
 
     private static List<HeroClass> heroclass = new ArrayList<>(List.of(new Warrior(),
             new Mage(),
@@ -71,7 +71,7 @@ public class GameData {
     private static final GameData GAME_DATA = new GameData();
 
     /**
-     *
+     * Konstruktor
      * 
      */
     private GameData() {
@@ -90,6 +90,11 @@ public class GameData {
         monsterPerStage.put(4, 1);
     }
 
+    /**
+     * Gibt das Objekt aus
+     * 
+     * @return das Objekt der GameData Klasse
+     */
     public static GameData getInstance() {
         return GAME_DATA;
     }
