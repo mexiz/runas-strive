@@ -6,10 +6,10 @@ package edu.kit.informatik;
  * @author uwlhp
  * @version 1.0.0
  */
-public class Session {
+public final class Session {
 
-    private Session(){
-        
+    private Session() {
+
     }
 
     /**
