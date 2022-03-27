@@ -19,7 +19,7 @@ public class Runa {
     private HeroClass hero;
 
     private int dice;
-    GameData data = GameData.getInstance();
+    private GameData data = GameData.getInstance();
 
     private int health = data.getMaxHealth();
     private int focus = 1;
