@@ -19,9 +19,13 @@ public class Runa {
     private HeroClass hero;
 
     private int dice;
+    GameData data = GameData.getInstance();
 
-    private int health = 50;
+    private int health = data.getMaxHealth();
     private int focus = 1;
+
+    private int diceUpgradeValue = data.getUpgradeDice();
+    private int maxDice = data.getMaxDice();
 
     private Ability currentAbility;
 
@@ -32,7 +36,7 @@ public class Runa {
      * @param startLevel das Startlevel
      */
     public Runa(HeroClass runaClass, int startLevel) {
-        dice = 4;
+        dice = data.getStartDice();
         this.hero = runaClass;
         this.abilities = new ArrayList<>();
         this.abilities = runaClass.getAbilities(startLevel);
@@ -44,8 +48,8 @@ public class Runa {
      * 
      */
     public void changeDice() {
-        if (dice < 12) {
-            dice += 2;
+        if (dice < maxDice) {
+            dice += diceUpgradeValue;
         }
     }
 
@@ -55,7 +59,7 @@ public class Runa {
      * @return true wenn der Würfel maximal groß ist
      */
     public boolean upgradeDice() {
-        return dice < 12;
+        return dice < maxDice;
     }
 
     /**

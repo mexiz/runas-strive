@@ -45,6 +45,9 @@ public final class GameData {
             new Paladin()));
 
     private final int maxHealth = 50;
+    private final int startDice = 4;
+    private final int maxDice = 12;
+    private final int upgradeDice = 2;
     private final int maxLevel = 2;
     private final int maxStage = 4;
     private final int healPerCard = 10;
@@ -92,7 +95,7 @@ public final class GameData {
         monsterPerStage.put(1, 1);
         monsterPerStage.put(2, 2);
         monsterPerStage.put(3, 2);
-        monsterPerStage.put(4, 1);
+        monsterPerStage.put(maxStage, 1);
     }
 
     /**
@@ -188,4 +191,31 @@ public final class GameData {
         return healPerCard;
     }
 
+    /**
+     * Getter für den Startwert des Würfels
+     * 
+     * @return dem Startwert
+     */
+    public int getStartDice() {
+        return startDice;
+    }
+
+    /**
+     * Getter für die maximale Würfelzahl
+     * 
+     * @return die maximale Würfelzahl
+     */
+    public int getMaxDice() {
+        return maxDice;
+    }
+
+    /**
+     * Getter für den der Verbesserung des Würfels
+     * 
+     * @return der Wert
+     */
+    public int getUpgradeDice() {
+        return upgradeDice;
+    }
+    
 }

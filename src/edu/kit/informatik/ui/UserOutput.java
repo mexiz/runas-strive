@@ -2,6 +2,7 @@ package edu.kit.informatik.ui;
 
 import java.util.List;
 
+import edu.kit.informatik.GameData;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.AttackType;
@@ -93,7 +94,7 @@ public class UserOutput {
      */
     public void printStatus(List<Monster> enemies, int runahealth, int runaFocus, int runaMaxFocus) {
         print(Message.MESSAGE_LINE_SEPERATOR.toString());
-        printRuna(runahealth, 50, runaFocus, runaMaxFocus);
+        printRuna(runahealth, GameData.getInstance().getMaxHealth(), runaFocus, runaMaxFocus);
         print(Message.MESSAGE_VERSUS.toString());
         for (Monster monster : enemies) {
             printMonster(monster.getName(), monster.getCurrentAbility(),
