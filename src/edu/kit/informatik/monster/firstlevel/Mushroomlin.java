@@ -28,6 +28,7 @@ public class Mushroomlin extends Monster {
 
     private Ability currentAbility = abilities.get(countAbility);
 
+    
     @Override
     public String getName() {
         return NAME;

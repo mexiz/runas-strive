@@ -30,6 +30,13 @@ public class Ghost extends Monster {
 
     private Ability currentAbility = abilities.get(countAbility);
 
+    /**
+     * no
+     */
+    public Ghost() {
+        super.init(NAME, HEALTH, abilities, MONSTER_TYPE);
+    }
+
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;

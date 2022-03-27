@@ -23,11 +23,10 @@ public class Frog extends Monster {
 
     private static final int HEALTH = 16;
 
-    private List<Ability> abilities = List.of(new MonsterFocus(1),
-            new MonsterWater(1));
-
-    public Frog(){
-
+    public Frog() {
+        List<Ability> abilities = List.of(new MonsterFocus(1),
+                new MonsterWater(1));
+        super.init(NAME, HEALTH, abilities, MONSTER_TYPE);
     }
 
 }
