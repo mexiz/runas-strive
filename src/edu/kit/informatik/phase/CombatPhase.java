@@ -27,8 +27,8 @@ public class CombatPhase implements GamePhase {
     /**
      * Konstruktor
      * 
-     * @param game  das Spiel
-     * @param input das Inputobjekt
+     * @param game   das Spiel
+     * @param input  das Inputobjekt
      * @param combat der Kampf
      */
     public CombatPhase(Game game, UserInterface input, Combat combat) {
@@ -123,6 +123,9 @@ public class CombatPhase implements GamePhase {
             if (focus > 0) {
                 input.printFocusPoint(combat.getEnemies().get(i).getName(), focus);
             }
+        }
+
+        for (int i = 0; i < combat.getEnemies().size(); i++) {
 
             int damageToRuna = combat.attackFromMonster(i);
             if (input.quit()) {
