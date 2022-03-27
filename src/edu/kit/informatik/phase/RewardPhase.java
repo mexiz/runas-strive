@@ -24,7 +24,7 @@ public class RewardPhase implements GamePhase {
     private UserInterface input;
     private int maxLevel = 2;
     private int maxStage = 4;
-    
+
     private GameData data = GameData.getInstance();
 
     public RewardPhase(Game game, UserInterface input) {
@@ -37,7 +37,7 @@ public class RewardPhase implements GamePhase {
         if (game.getLevel() == maxLevel && game.getStage() == maxStage) {
             game.setFinished(true);
             return;
-        }else if (game.getStage() == 4) {
+        } else if (game.getStage() == 4) {
             List<Ability> upgradeAbility = game.getRuna().getHeroClass().getAbilities(game.getLevel() + 1);
             for (Ability ability : upgradeAbility) {
                 input.printNewAbility(ability);
@@ -80,11 +80,9 @@ public class RewardPhase implements GamePhase {
                 break;
         }
 
-        
-
         heal();
         game.setGamePhase(new ChangeStagePhase(game, input));
-        
+
     }
 
     /**
