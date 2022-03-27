@@ -13,8 +13,6 @@ import edu.kit.informatik.ui.UserInterface;
 
 public class Game {
 
-    private GameData data;
-
     private GamePhase gamePhase;
 
     private Runa runa;
@@ -26,16 +24,14 @@ public class Game {
 
     private boolean finished;
 
+    /**
+     * Konstruktor
+     */
     public Game() {
-        data = new GameData();
         this.gamePhase = new StartPhase(this, new UserInterface());
         this.currentLevel = 1;
         this.currentStage = 0;
         finished = false;
-    }
-
-    public GameData getData() {
-        return data;
     }
 
     /**

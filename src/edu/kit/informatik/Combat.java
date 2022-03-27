@@ -22,6 +22,12 @@ public class Combat {
 
     private boolean done;
 
+    /**
+     * Konstruktor
+     * 
+     * @param runa Runa
+     * @param enemies die Gegener
+     */
     public Combat(Runa runa, List<Monster> enemies) {
         this.enemies = enemies;
         this.runa = runa;

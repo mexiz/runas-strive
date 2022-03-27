@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.informatik.Game;
+import edu.kit.informatik.GameData;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
@@ -23,6 +24,8 @@ public class RewardPhase implements GamePhase {
     private UserInterface input;
     private int maxLevel = 2;
     private int maxStage = 4;
+    
+    private GameData data = GameData.getInstance();
 
     public RewardPhase(Game game, UserInterface input) {
         this.game = game;
@@ -56,7 +59,7 @@ public class RewardPhase implements GamePhase {
         }
         switch (rewardNumber) {
             case 1:
-                int countCards = game.getData().getMonsterCount(game.getStage());
+                int countCards = data.getMonsterCount(game.getStage());
                 List<Ability> newAbility = game.getCard().pullAbility(2 * countCards);
                 int[] choosed = input.selectReward(newAbility, countCards);
                 if (input.quit()) {

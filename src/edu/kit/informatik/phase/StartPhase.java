@@ -1,6 +1,7 @@
 package edu.kit.informatik.phase;
 
 import edu.kit.informatik.Game;
+import edu.kit.informatik.GameData;
 import edu.kit.informatik.Level;
 import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.GamePhase;
@@ -20,6 +21,8 @@ public class StartPhase implements GamePhase {
     private Game game;
     private UserInterface input;
 
+    private GameData data = GameData.getInstance();
+
     public StartPhase(Game game, UserInterface input) {
         this.game = game;
         this.input = input;
@@ -27,18 +30,18 @@ public class StartPhase implements GamePhase {
 
     @Override
     public void start() {
-        int choosedNumber = input.getStartHero(1, game.getData().getHeroclass().size(), game.getData().getHeroclass());
+        int choosedNumber = input.getStartHero(1, data.getHeroclass().size(), data.getHeroclass());
         if (input.quit()) {
             game.setFinished(true);
             return;
         }
-        game.setRuna(new Runa(game.getData().getHeroclass().get(choosedNumber - 1), 1));
+        game.setRuna(new Runa(data.getHeroclass().get(choosedNumber - 1), 1));
         int[] seeds = input.getSeed();
         if (input.quit()) {
             game.setFinished(true);
             return;
         }
-        Level levelCards = new Level(seeds, game.getLevel(),game.getRuna().getHeroClass() ,game.getData());
+        Level levelCards = new Level(seeds, game.getLevel(), game.getRuna().getHeroClass(), data);
         game.setCard(levelCards);
         game.setGamePhase(new ChangeStagePhase(game, input));
     }

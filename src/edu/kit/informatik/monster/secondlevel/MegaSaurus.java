@@ -7,15 +7,20 @@ import edu.kit.informatik.abilities.monster.defence.MonsterFocus;
 import edu.kit.informatik.abilities.monster.magic.MonsterFire;
 import edu.kit.informatik.abilities.monster.magic.MonsterLightning;
 import edu.kit.informatik.abilities.monster.phys.MonsterBite;
-import edu.kit.informatik.abilities.monster.phys.MonsterScratch;
+import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.model.MonsterType;
-import edu.kit.informatik.model.Ability;
 
+/**
+ * Das Monster
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class MegaSaurus extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
-    private static final String name = "MegaSaurus";
+    private static final String NAME = "MegaSaurus";
     private int health = 100;
     private int countAbility = 0;
     private int focusPoint = 0;
@@ -27,72 +32,42 @@ public class MegaSaurus extends Monster {
             new MonsterLightning(1));
 
     private Ability currentAbility = abilities.get(countAbility);
-    
-    /** 
-     * @return String
-     */
+
     @Override
     public String getName() {
-        return name;
+        return NAME;
     }
-    
-    /** 
-     * @return MonsterType
-     */
+
     @Override
     public MonsterType getMonsterType() {
         return MONSTER_TYPE;
     }
 
-    
-    /** 
-     * @return int
-     */
     @Override
     public int getFocusPoints() {
         return focusPoint;
     }
 
-    
-    /** 
-     * @param focusPoint
-     */
     @Override
     public void setFocusPoints(int focusPoint) {
         this.focusPoint = focusPoint;
     }
 
-    
-    /** 
-     * @return int
-     */
     @Override
     public int getHealth() {
         return health;
     }
 
-    
-    /** 
-     * @return Ability
-     */
     @Override
     public Ability getCurrentAbility() {
         return currentAbility;
     }
 
-    
-    /** 
-     * @param health
-     */
     @Override
     public void setHealth(int health) {
         this.health = health;
     }
 
-    
-    /** 
-     * @param abilities
-     */
     @Override
     public void setCurrentAbility(Ability abilities) {
         this.currentAbility = abilities;
@@ -108,4 +83,3 @@ public class MegaSaurus extends Monster {
         currentAbility = abilities.get(countAbility);
     }
 }
-

@@ -66,7 +66,13 @@ public class GameData {
     private List<List<Monster>> allMonster;
     private List<Monster> bossLevel;
 
-    public GameData() {
+    private static final GameData GAME_DATA = new GameData();
+
+    /**
+     *
+     * 
+     */
+    private GameData() {
         bossLevel = new ArrayList<>();
         bossLevel.add(bossLevelOne);
         bossLevel.add(bossLevelTwo);
@@ -80,6 +86,10 @@ public class GameData {
         monsterPerStage.put(2, 2);
         monsterPerStage.put(3, 2);
         monsterPerStage.put(4, 1);
+    }
+
+    public static GameData getInstance(){
+        return GAME_DATA;
     }
 
     /**

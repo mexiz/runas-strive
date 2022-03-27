@@ -2,6 +2,7 @@ package edu.kit.informatik.phase;
 
 import edu.kit.informatik.Combat;
 import edu.kit.informatik.Game;
+import edu.kit.informatik.GameData;
 import edu.kit.informatik.Level;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
@@ -21,6 +22,8 @@ public class ChangeStagePhase implements GamePhase {
     private UserInterface input;
     private int maxLevel = 2;
 
+    private GameData data = GameData.getInstance();
+
     public ChangeStagePhase(Game game, UserInterface input) {
         this.game = game;
         this.input = input;
@@ -37,7 +40,7 @@ public class ChangeStagePhase implements GamePhase {
             game.setGamePhase(null);
             return;
         }
-        int monsterCount = game.getData().getMonsterCount(game.getStage());
+        int monsterCount = data.getMonsterCount(game.getStage());
         switch (game.getStage()) {
             case 1:
                 combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
@@ -64,9 +67,9 @@ public class ChangeStagePhase implements GamePhase {
                     return;
                 }
                 Level levelCards = new Level(seeds, game.getLevel(), game.getRuna().getHeroClass(),
-                        game.getData());
+                        data);
                 game.setCard(levelCards);
-                monsterCount = game.getData().getMonsterCount(game.getStage());
+                monsterCount = data.getMonsterCount(game.getStage());
                 Combat newCombat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
                 game.setGamePhase(new CombatPhase(game, input, newCombat));
                 break;
