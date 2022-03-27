@@ -174,7 +174,7 @@ public class UserInterface extends UserOutput {
      */
     public int selectRewardType() {
         print(Message.MESSAGE_REWARD.toString());
-        return getUserInput(Message.ENTER_NUMBER, 1, 2);
+        return getUserInput(Message.MESSAGE_NUMBER, 1, 2);
     }
 
     /**
