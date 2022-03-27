@@ -46,44 +46,29 @@ public class ChangeStagePhase implements GamePhase {
             return;
         }
         int monsterCount = data.getMonsterCount(game.getStage());
-        switch (game.getStage()) {
-            case 1:
-                combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
-                game.setGamePhase(new CombatPhase(game, input, combat));
-                break;
-            case 2:
-                combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
-                game.setGamePhase(new CombatPhase(game, input, combat));
-                break;
-            case 3:
-                combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
-                game.setGamePhase(new CombatPhase(game, input, combat));
-                break;
-            case 4:
-                combat = new Combat(game.getRuna(), game.getCard().pullBoss());
-                game.setGamePhase(new CombatPhase(game, input, combat));
-                break;
-            case 5:
-                game.setStage(1);
-                game.setLevel(game.getLevel() + 1);
-                int[] seeds = input.getSeed();
-                if (input.quit()) {
-                    game.setFinished(true);
-                    return;
-                }
-                Level levelCards = new Level(seeds, game.getLevel(), game.getRuna().getHeroClass(),
-                        data);
-                game.setCard(levelCards);
-                monsterCount = data.getMonsterCount(game.getStage());
-                Combat newCombat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
-                game.setGamePhase(new CombatPhase(game, input, newCombat));
-                break;
-            default:
-                break;
+        if (game.getStage() < data.getMaxStage()) {
+            combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
+            game.setGamePhase(new CombatPhase(game, input, combat));
+        } else if (game.getStage() == data.getMaxStage()) {
+            combat = new Combat(game.getRuna(), game.getCard().pullBoss());
+            game.setGamePhase(new CombatPhase(game, input, combat));
+        } else {
+            game.setStage(1);
+            game.setLevel(game.getLevel() + 1);
+            int[] seeds = input.getSeed();
+            if (input.quit()) {
+                game.setFinished(true);
+                return;
+            }
+            Level levelCards = new Level(seeds, game.getLevel(), game.getRuna().getHeroClass(),
+                    data);
+            game.setCard(levelCards);
+            monsterCount = data.getMonsterCount(game.getStage());
+            Combat newCombat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
+            game.setGamePhase(new CombatPhase(game, input, newCombat));
         }
 
         input.printLevel(game.getStage(), game.getLevel());
 
     }
-
 }
