@@ -6,6 +6,12 @@ import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Monster;
 
+/**
+ * Die leere Fähigkeitsklasse
+ * 
+ * @author uwlhp
+ * @version 1.0.0
+ */
 public class EmptyAbility extends Ability {
 
     /**

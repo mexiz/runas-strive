@@ -33,6 +33,14 @@ public class Level {
     private List<Ability> runaAbility;
     private Monster boss;
 
+    /**
+     * Konstruktor
+     * 
+     * @param seed      die Nummer zum Mischen
+     * @param level     das Level
+     * @param heroClass die Klasse der Heldin
+     * @param data      die Spieldaten
+     */
     public Level(int[] seed, int level, HeroClass heroClass, GameData data) {
 
         monsterLevel = data.getMonster(level);
