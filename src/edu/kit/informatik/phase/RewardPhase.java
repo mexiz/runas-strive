@@ -22,8 +22,6 @@ public class RewardPhase implements GamePhase {
 
     private Game game;
     private UserInterface input;
-    private int maxLevel = 2;
-    private int maxStage = 4;
 
     private GameData data = GameData.getInstance();
 
@@ -40,10 +38,10 @@ public class RewardPhase implements GamePhase {
 
     @Override
     public void start() {
-        if (game.getLevel() == maxLevel && game.getStage() == maxStage) {
+        if (game.getLevel() == data.getMaxLevel() && game.getStage() == data.getMaxStage()) {
             game.setFinished(true);
             return;
-        } else if (game.getStage() == 4) {
+        } else if (game.getStage() == data.getMaxStage()) {
             List<Ability> upgradeAbility = game.getRuna().getHeroClass().getAbilities(game.getLevel() + 1);
             for (Ability ability : upgradeAbility) {
                 input.printNewAbility(ability);
@@ -101,10 +99,11 @@ public class RewardPhase implements GamePhase {
      * @return ob die Heilung ausgeführt wurde
      */
     private boolean heal() {
-        if (game.getRuna().getHealth() == 50) {
+        if (game.getRuna().getHealth() == data.getMaxHealth()) {
             return false;
         }
-        int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), 50, game.getRuna().getAbilities());
+        int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), data.getMaxHealth(),
+                game.getRuna().getAbilities());
         if (remove.length == 0) {
             return true;
         }
@@ -118,7 +117,7 @@ public class RewardPhase implements GamePhase {
             test.add(game.getRuna().getAbilities().get(remove[i] - 1));
         }
         game.getRuna().getAbilities().removeAll(test);
-        int heal = remove.length * 10;
+        int heal = remove.length * data.getHealPerCard();
         game.getRuna().setHealth(game.getRuna().getHealth() + heal);
         input.printHeal(heal);
         return true;
