@@ -4,7 +4,7 @@ import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Monster;
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.ability.runa.PhysicalAbility;
 
 /**
  * 
@@ -15,9 +15,10 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaSwing extends Ability {
+public class RunaSwing extends PhysicalAbility {
 
     private static final int ABILITY_VALUE = 5;
+    private static final int ABILITY_VALUE_DICE = 0;
 
     /**
      * Konstruktor
@@ -25,11 +26,7 @@ public class RunaSwing extends Ability {
      * @param level das Level
      */
     public RunaSwing(int level) {
+        super.setValue(ABILITY_VALUE, ABILITY_VALUE_DICE);
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, true, "Swing");
-    }
-
-    @Override
-    public int execute(int dice, Runa runa, Monster monster) {
-        return (ABILITY_VALUE * super.getLevel()) + dice;
     }
 }

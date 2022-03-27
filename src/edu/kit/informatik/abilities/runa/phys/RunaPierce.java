@@ -4,7 +4,7 @@ import edu.kit.informatik.Runa;
 import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.Monster;
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.ability.runa.PhysicalAbility;
 
 /**
  * 
@@ -15,10 +15,9 @@ import edu.kit.informatik.model.Ability;
  * 
  */
 
-public class RunaPierce extends Ability {
+public class RunaPierce extends PhysicalAbility {
 
     private static final int ABILITY_VALUE = 7;
-    private static final int DICE_LIMIT = 5;
     private static final int ABILITY_VALUE_DICE = 5;
 
     /**
@@ -27,15 +26,7 @@ public class RunaPierce extends Ability {
      * @param level das Level
      */
     public RunaPierce(int level) {
+        super.setValue(ABILITY_VALUE, ABILITY_VALUE_DICE);
         super.init(level, AttackType.PHYS, CardType.OFFENSIVE, false, "Pierce");
-    }
-
-    @Override
-    public int execute(int dice, Runa runa, Monster monster) {
-        int damage = (ABILITY_VALUE * super.getLevel()) + dice;
-        if (dice > DICE_LIMIT) {
-            damage += (ABILITY_VALUE_DICE * super.getLevel());
-        }
-        return damage;
     }
 }

@@ -1,6 +1,10 @@
-package edu.kit.informatik.model;
+package edu.kit.informatik.model.ability.runa;
 
 import edu.kit.informatik.Runa;
+import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.AttackType;
+import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.MonsterType;
 
 /**
  * Klasse für die magischen Fähigkeiten
