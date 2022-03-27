@@ -1,5 +1,7 @@
 package edu.kit.informatik.model;
 
+import java.util.List;
+
 import edu.kit.informatik.abilities.EmptyAbility;
 
 /**
@@ -12,7 +14,34 @@ import edu.kit.informatik.abilities.EmptyAbility;
 
 public abstract class Monster {
 
-    private Ability prevAbility = new EmptyAbility();
+    private String name;
+
+    private int health;
+    private int countAbility;
+    private int focusPoint;
+
+    private MonsterType monsterType;
+    private List<Ability> abilities;
+
+    private Ability currentAbility;
+    private Ability prevAbility;
+
+    /**
+     * Initialisierung des Monsters
+     * 
+     * @param name      der Name
+     * @param health    die Leben
+     * @param abilities die Fähigkeiten
+     * @param type      der Monstertyp
+     */
+    public void init(String name, int health, List<Ability> abilities, MonsterType type) {
+        this.name = name;
+        this.health = health;
+        this.abilities = abilities;
+        this.monsterType = type;
+        this.prevAbility = new EmptyAbility();
+        currentAbility = abilities.get(countAbility);
+    }
 
     /**
      * Gibt die vorherige Fähigkeit aus
@@ -60,62 +89,84 @@ public abstract class Monster {
      * Ändert die Fähigkeit zur nächsten in der Liste
      * 
      */
-    public abstract void changeAbility();
+    public void changeAbility() {
+        countAbility++;
+        if (countAbility > abilities.size() - 1) {
+            countAbility = 0;
+        }
+        currentAbility = abilities.get(countAbility);
+    }
 
     /**
      * Setzt die aktuelle Fähikeit
      * 
      * @param abilities die Fähigkeit
      */
-    public abstract void setCurrentAbility(Ability abilities);
+    public void setCurrentAbility(Ability abilities) {
+        this.currentAbility = abilities;
+    }
 
     /**
      * Gibt den Typ des Monsters zurück
      * 
      * @return den Typ des Monsters
      */
-    public abstract MonsterType getMonsterType();
+    public MonsterType getMonsterType() {
+        return monsterType;
+    }
 
     /**
      * Gibt die aktuelle Fähigkeit zurück
      * 
      * @return gibt die Fähigkeit
      */
-    public abstract Ability getCurrentAbility();
+    public Ability getCurrentAbility() {
+        return currentAbility;
+    }
 
     /**
      * Gibt die Fokuspunkte zurück
      * 
      * @return die Fokuspunkte
      */
-    public abstract int getFocusPoints();
+    public int getFocusPoints() {
+        return focusPoint;
+    }
 
     /**
      * Setzt die Fokuspunkte
      * 
      * @param focusPoint die Fokuspunkte
      */
-    public abstract void setFocusPoints(int focusPoint);
+    public void setFocusPoints(int focusPoint) {
+        this.focusPoint = focusPoint;
+    }
 
     /**
      * Gitb die Leben zurück
      * 
      * @return die Leben
      */
-    public abstract int getHealth();
+    public int getHealth() {
+        return health;
+    }
 
     /**
      * Setzt die Leben
      * 
      * @param health die Leben
      */
-    public abstract void setHealth(int health);
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     /**
      * Gibt den Namen zurück
      * 
      * @return den Namen
      */
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
 
 }
