@@ -132,7 +132,7 @@ public class UserInterface extends UserOutput {
      * @param end   Ende des Eingabebereichs
      * @return die gewürfelte Zahl
      */
-    public int getDice(int start, int end) throws QuitException{
+    public int getDice(int start, int end) throws QuitException {
         return getUserInput(Message.MESSAGE_DICE, start, end);
     }
 
@@ -141,7 +141,7 @@ public class UserInterface extends UserOutput {
      * 
      * @return den Seed
      */
-    public int[] getSeed() throws QuitException{
+    public int[] getSeed() throws QuitException {
         print(Message.MESSAGE_START_SECOND.toString());
         return getNumbersSeparated(Message.ENTER_SEEDS, 2, 2, 1, Integer.MAX_VALUE, true);
     }
@@ -152,7 +152,7 @@ public class UserInterface extends UserOutput {
      * @param ability die Fähigkeiten von Runa
      * @return die gewählte Zahl der Fähigkeit
      */
-    public int selectRunasAbility(List<Ability> ability) throws QuitException{
+    public int selectRunasAbility(List<Ability> ability) throws QuitException {
         print(Message.COMBAT_RUNA_ABILITY.toString());
         for (int i = 0; i < ability.size(); i++) {
             print((i + 1) + ") " + ability.get(i).getName() + "(" + ability.get(i).getLevel() + ")");
@@ -166,7 +166,7 @@ public class UserInterface extends UserOutput {
      * @param enemies List mit den enemies
      * @return die Nummer des Ziels
      */
-    public int selectTarget(List<Monster> enemies) throws QuitException{
+    public int selectTarget(List<Monster> enemies) throws QuitException {
         print(Message.MESSAGE_RUNA_TARGET.toString());
         for (int i = 0; i < enemies.size(); i++) {
             print((i + 1) + ") " + enemies.get(i).getName());
@@ -179,7 +179,7 @@ public class UserInterface extends UserOutput {
      * 
      * @return die Zahl der Belohnung
      */
-    public int selectRewardType() throws QuitException{
+    public int selectRewardType() throws QuitException {
         print(Message.MESSAGE_REWARD.toString());
         return getUserInput(Message.MESSAGE_NUMBER, 1, 2);
     }
@@ -191,7 +191,7 @@ public class UserInterface extends UserOutput {
      * @param number       Anzahl der Karten
      * @return array mit den ausgewählten Karten
      */
-    public int[] selectReward(List<Ability> newAbilities, int number) throws QuitException{
+    public int[] selectReward(List<Ability> newAbilities, int number) throws QuitException {
         String output = String.format(Message.PICK_CARD.toString(), number);
         print(output);
         for (int i = 0; i < newAbilities.size(); i++) {
@@ -211,7 +211,7 @@ public class UserInterface extends UserOutput {
      * @param runasAbility Runas Fähigkeitskarten
      * @return array mit den ausgewählten Karten
      */
-    public int[] selectCardsToHeal(int health, int maxHealth, List<Ability> runasAbility) throws QuitException{
+    public int[] selectCardsToHeal(int health, int maxHealth, List<Ability> runasAbility) throws QuitException {
         String message = String.format(Message.REWARD_RUNA_HEALING.toString(), health, maxHealth);
         print(message);
         for (int i = 0; i < runasAbility.size(); i++) {

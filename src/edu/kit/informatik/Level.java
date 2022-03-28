@@ -5,17 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import edu.kit.informatik.abilities.runa.defence.RunaFocus;
-import edu.kit.informatik.abilities.runa.defence.RunaParry;
-import edu.kit.informatik.abilities.runa.defence.RunaReflect;
-import edu.kit.informatik.abilities.runa.magic.RunaFire;
-import edu.kit.informatik.abilities.runa.magic.RunaIce;
-import edu.kit.informatik.abilities.runa.magic.RunaLightning;
-import edu.kit.informatik.abilities.runa.magic.RunaWater;
-import edu.kit.informatik.abilities.runa.phys.RunaPierce;
-import edu.kit.informatik.abilities.runa.phys.RunaSlash;
-import edu.kit.informatik.abilities.runa.phys.RunaSwing;
-import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
@@ -95,6 +84,5 @@ public class Level {
         }
         return returnList;
     }
-
 
 }
