@@ -66,7 +66,7 @@ public class UserInterface extends UserOutput {
                     if (inputNumber <= numberRangeEnd && inputNumber >= numberRangeStart) {
                         return inputNumber;
                     }
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
                 }
 
             }
