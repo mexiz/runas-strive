@@ -60,29 +60,40 @@ public class UserInterface extends UserOutput {
                 scanner.close();
                 throw new QuitException();
             }
-            if (strgInput.matches("[0-9]+")) {
-                try {
-                    int inputNumber = Integer.parseInt(strgInput);
-                    if (inputNumber <= numberRangeEnd && inputNumber >= numberRangeStart) {
-                        return inputNumber;
-                    }
-                } catch (NumberFormatException e) {
+            if (isInt(strgInput)) {
+                int inputNumber = Integer.parseInt(strgInput);
+                if (inputNumber <= numberRangeEnd && inputNumber >= numberRangeStart) {
+                    return inputNumber;
                 }
-
             }
         }
         return 0;
     }
 
     /**
+     * Überprüft ob der String in int umgewandelt werden kann
+     * 
+     * @param number String der Nummer
+     * @return true wenn es umgewandelt werden kann
+     */
+    private boolean isInt(String number) {
+        try {
+            Integer.parseInt(number);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    /**
      * Die Methode wird solange aufgerufen bis quit oder eine richtige Zahl
      * eingegeben wird
      * 
-     * @param message die Nachricht
-     * @param min     Mindestanzahl an ausgewählten Zahlen
-     * @param max     maximale Anzahl an ausgewählten Zahlen
-     * @param start   Start des Eingabebereichs
-     * @param end     Ende des Eingabebereichs
+     * @param message       die Nachricht
+     * @param min           Mindestanzahl an ausgewählten Zahlen
+     * @param max           maximale Anzahl an ausgewählten Zahlen
+     * @param start         Start des Eingabebereichs
+     * @param end           Ende des Eingabebereichs
      * @param allowDuplicat Ob doppelte Zahlen erlaubt sind
      * @return die eingegebenen Zahl
      */

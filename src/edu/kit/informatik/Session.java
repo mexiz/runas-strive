@@ -24,10 +24,7 @@ public final class Session {
             return;
         }
         Game game = new Game();
-        try {
-            game.nextGamePhase();
-        } catch (QuitException e) {
-        }
+        game.nextGamePhase();
 
     }
 }

@@ -107,14 +107,15 @@ public class Game {
     /**
      * Führt die nächste Phase des Spiels aus
      * 
-     * @return true wenn das Spiel eine nächste Phase hat
      */
-    public boolean nextGamePhase() throws QuitException {
+    public void nextGamePhase() {
         if (gamePhase != null) {
-            gamePhase.start();
-            return true;
+            try {
+                gamePhase.start();
+            } catch (Exception e) {
+                return;
+            }
         }
-        return false;
 
     }
 
