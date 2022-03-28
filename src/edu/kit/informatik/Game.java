@@ -112,7 +112,7 @@ public class Game {
         if (gamePhase != null) {
             try {
                 gamePhase.start();
-            } catch (Exception e) {
+            } catch (QuitException e) {
                 return;
             }
         }
