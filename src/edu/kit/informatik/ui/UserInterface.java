@@ -83,6 +83,7 @@ public class UserInterface extends UserOutput {
      * @param max     maximale Anzahl an ausgewählten Zahlen
      * @param start   Start des Eingabebereichs
      * @param end     Ende des Eingabebereichs
+     * @param allowDuplicat Ob doppelte Zahlen erlaubt sind
      * @return die eingegebenen Zahl
      */
     public int[] getNumbersSeparated(Message message, int min, int max, int start, int end, boolean allowDuplicat)
