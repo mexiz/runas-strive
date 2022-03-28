@@ -16,12 +16,18 @@ public final class Session {
      * Main-Methode
      * 
      * @param args Argumente
+     * @throws Exception
      */
     public static void main(String[] args) {
-        Game game = new Game();
-
-        while (!game.isFinished()) {
-            game.nextGamePhase();
+        if (args.length != 0) {
+            System.err.println("Error, Game does not allow inputs");
+            return;
         }
+        Game game = new Game();
+        try {
+            game.nextGamePhase();
+        } catch (QuitException e) {
+        }
+
     }
 }

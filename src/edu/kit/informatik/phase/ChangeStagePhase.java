@@ -4,6 +4,7 @@ import edu.kit.informatik.Combat;
 import edu.kit.informatik.Game;
 import edu.kit.informatik.GameData;
 import edu.kit.informatik.Level;
+import edu.kit.informatik.QuitException;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
 
@@ -35,16 +36,13 @@ public class ChangeStagePhase implements GamePhase {
     }
 
     @Override
-    public void start() {
+    public void start() throws QuitException {
         Combat combat;
-        game.setStage(game.getStage() + 1);
-
         if (game.getLevel() >= data.getMaxLevel() && game.getStage() == data.getMaxStage()) {
-            // game.setGamePhase(new GameOverPhase(game, input));
-            // game.nextGamePhase();
-            game.setGamePhase(null);
+            game.setGamePhase(new FinishedPhase());
             return;
         }
+        game.setStage(game.getStage() + 1);
         int monsterCount = data.getMonsterCount(game.getStage());
         if (game.getStage() < data.getMaxStage()) {
             combat = new Combat(game.getRuna(), game.getCard().pullMonster(monsterCount));
@@ -56,10 +54,6 @@ public class ChangeStagePhase implements GamePhase {
             game.setStage(1);
             game.setLevel(game.getLevel() + 1);
             int[] seeds = input.getSeed();
-            if (input.quit()) {
-                game.setFinished(true);
-                return;
-            }
             Level levelCards = new Level(seeds, game.getLevel(), game.getRuna().getHeroClass(),
                     data);
             game.setCard(levelCards);
@@ -69,6 +63,7 @@ public class ChangeStagePhase implements GamePhase {
         }
 
         input.printLevel(game.getStage(), game.getLevel());
+        game.nextGamePhase();
 
     }
 }

@@ -157,4 +157,13 @@ public class UserOutput {
     public void printHeal(int health) {
         print(Message.REWARD_HEAL.formatted(health));
     }
+
+    /**
+     * Runa hat gewonnen
+     * 
+     */
+
+    public void printWon() {
+        print(Message.RUNA_WON.toString());
+    }
 }

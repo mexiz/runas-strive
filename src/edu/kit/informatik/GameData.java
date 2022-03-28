@@ -5,10 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.kit.informatik.abilities.runa.defence.RunaFocus;
+import edu.kit.informatik.abilities.runa.defence.RunaParry;
+import edu.kit.informatik.abilities.runa.defence.RunaReflect;
+import edu.kit.informatik.abilities.runa.magic.RunaFire;
+import edu.kit.informatik.abilities.runa.magic.RunaIce;
+import edu.kit.informatik.abilities.runa.magic.RunaLightning;
+import edu.kit.informatik.abilities.runa.magic.RunaWater;
+import edu.kit.informatik.abilities.runa.phys.RunaPierce;
+import edu.kit.informatik.abilities.runa.phys.RunaSlash;
+import edu.kit.informatik.abilities.runa.phys.RunaSwing;
+import edu.kit.informatik.abilities.runa.phys.RunaThrust;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.hero.Mage;
 import edu.kit.informatik.hero.Paladin;
 import edu.kit.informatik.hero.Warrior;
+import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
 import edu.kit.informatik.monster.firstlevel.Frog;
 import edu.kit.informatik.monster.firstlevel.Ghost;
@@ -217,5 +229,29 @@ public final class GameData {
     public int getUpgradeDice() {
         return upgradeDice;
     }
-    
+
+    /**
+     * Gibt eine Liste mit den Fähigkeiten aus für die Level Klasse
+     * 
+     * @param level         das Level der Fähigkeiten
+     * @param removeAbility die Liste mit den Fähigkeiten der Klasse
+     * @return List<Ability> die Liste der Fähigkeiten
+     */
+    public List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
+        List<Ability> ability;
+        ability = new ArrayList<>(List.of(new RunaSlash(level),
+                new RunaSwing(level),
+                new RunaThrust(level),
+                new RunaPierce(level),
+                new RunaParry(level),
+                new RunaFocus(level),
+                new RunaReflect(level),
+                new RunaWater(level),
+                new RunaIce(level),
+                new RunaFire(level),
+                new RunaLightning(level)));
+        ability.removeAll(removeAbility);
+        return ability;
+    }
+
 }

@@ -95,7 +95,7 @@ public class Runa {
      * @return boolean true wenn Runa tot
      */
     public boolean dead() {
-        return this.getHealth() < 0;
+        return this.getHealth() <= 0;
     }
 
     /**
@@ -171,5 +171,4 @@ public class Runa {
     public void setFocus(int focus) {
         this.focus = focus;
     }
-
 }

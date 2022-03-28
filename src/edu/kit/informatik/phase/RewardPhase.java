@@ -5,6 +5,7 @@ import java.util.List;
 
 import edu.kit.informatik.Game;
 import edu.kit.informatik.GameData;
+import edu.kit.informatik.QuitException;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.ui.UserInterface;
@@ -37,39 +38,26 @@ public class RewardPhase implements GamePhase {
     }
 
     @Override
-    public void start() {
+    public void start() throws QuitException {
         if (game.getLevel() == data.getMaxLevel() && game.getStage() == data.getMaxStage()) {
-            game.setFinished(true);
-            return;
-        } else if (game.getStage() == data.getMaxStage()) {
-            List<Ability> upgradeAbility = game.getRuna().getHeroClass().getAbilities(game.getLevel() + 1);
-            for (Ability ability : upgradeAbility) {
-                input.printNewAbility(ability);
-                game.getRuna().addAbility(ability);
-            }
-            heal();
-            game.setGamePhase(new ChangeStagePhase(game, input));
+            input.printWon();
+            game.setGamePhase(new FinishedPhase());
             return;
         }
 
         int rewardNumber = 1;
 
-        if (game.getRuna().upgradeDice()) {
+        if (game.getStage() == data.getMaxStage()) {
+            rewardNumber = 3;
+        } else if (game.getRuna().upgradeDice()) {
             rewardNumber = input.selectRewardType();
-            if (input.quit()) {
-                game.setFinished(true);
-                return;
-            }
         }
+
         switch (rewardNumber) {
             case 1:
                 int countCards = data.getMonsterCount(game.getStage());
                 List<Ability> newAbility = game.getCard().pullAbility(2 * countCards);
                 int[] choosed = input.selectReward(newAbility, countCards);
-                if (input.quit()) {
-                    game.setFinished(true);
-                    return;
-                }
                 for (int i = 0; i < choosed.length; i++) {
                     Ability ability = newAbility.get(choosed[i] - 1);
                     game.getRuna().addAbility(ability);
@@ -80,17 +68,22 @@ public class RewardPhase implements GamePhase {
                 game.getRuna().changeDice();
                 input.print("Runa upgrades her die to a d" + game.getRuna().getDice());
                 break;
+            case 3:
+                List<Ability> upgradeAbility = game.getRuna().getHeroClass().getAbilities(game.getLevel() + 1);
+                for (Ability ability : upgradeAbility) {
+                    input.printNewAbility(ability);
+                    game.getRuna().addAbility(ability);
+                }
+                break;
             default:
                 break;
         }
 
-        heal();
-        if (input.quit()) {
-            game.setFinished(true);
-            return;
+        if (game.getRuna().getAbilities().size() > 1 && game.getRuna().getHealth() != data.getMaxHealth()) {
+            heal();
         }
         game.setGamePhase(new ChangeStagePhase(game, input));
-
+        game.nextGamePhase();
     }
 
     /**
@@ -98,29 +91,27 @@ public class RewardPhase implements GamePhase {
      * 
      * @return ob die Heilung ausgeführt wurde
      */
-    private boolean heal() {
-        if (game.getRuna().getHealth() == data.getMaxHealth()) {
-            return false;
-        }
+    private void heal() throws QuitException {
+
         int[] remove = input.selectCardsToHeal(game.getRuna().getHealth(), data.getMaxHealth(),
                 game.getRuna().getAbilities());
+
         if (remove.length == 0) {
-            return true;
+            return;
         }
 
-        if (input.quit()) {
-            game.setFinished(true);
-            return false;
-        }
         List<Ability> test = new ArrayList<>();
         for (int i = 0; i < remove.length; i++) {
             test.add(game.getRuna().getAbilities().get(remove[i] - 1));
         }
         game.getRuna().getAbilities().removeAll(test);
         int heal = remove.length * data.getHealPerCard();
+        int countToFullHealth = data.getMaxHealth() - game.getRuna().getHealth();
+        if (countToFullHealth < heal) {
+            heal = countToFullHealth;
+        }
+
         game.getRuna().setHealth(game.getRuna().getHealth() + heal);
         input.printHeal(heal);
-        return true;
-
     }
 }

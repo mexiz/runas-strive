@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import edu.kit.informatik.QuitException;
 import edu.kit.informatik.hero.HeroClass;
 import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
@@ -49,7 +50,7 @@ public class UserInterface extends UserOutput {
      * @param numberRangeEnd   Ende des Eingabebereichs
      * @return die eingegebene Zahl
      */
-    private int getUserInput(Message message, int numberRangeStart, int numberRangeEnd) {
+    private int getUserInput(Message message, int numberRangeStart, int numberRangeEnd) throws QuitException {
         String output = String.format(message.toString(), numberRangeStart, numberRangeEnd);
         while (!quit) {
             print(output);
@@ -57,13 +58,17 @@ public class UserInterface extends UserOutput {
             if (strgInput.matches("quit")) {
                 quit = true;
                 scanner.close();
-                return 0;
+                throw new QuitException();
             }
             if (strgInput.matches("[0-9]+")) {
-                int inputNumber = Integer.parseInt(strgInput);
-                if (inputNumber <= numberRangeEnd && inputNumber >= numberRangeStart) {
-                    return inputNumber;
+                try {
+                    int inputNumber = Integer.parseInt(strgInput);
+                    if (inputNumber <= numberRangeEnd && inputNumber >= numberRangeStart) {
+                        return inputNumber;
+                    }
+                } catch (Exception e) {
                 }
+
             }
         }
         return 0;
@@ -80,7 +85,8 @@ public class UserInterface extends UserOutput {
      * @param end     Ende des Eingabebereichs
      * @return die eingegebenen Zahl
      */
-    public int[] getNumbersSeparated(Message message, int min, int max, int start, int end) {
+    public int[] getNumbersSeparated(Message message, int min, int max, int start, int end, boolean allowDuplicat)
+            throws QuitException {
         String output = String.format(message.toString(), start, end);
         while (!quit) {
             print(output);
@@ -88,13 +94,13 @@ public class UserInterface extends UserOutput {
             if (seedString.matches("quit")) {
                 scanner.close();
                 quit = true;
-                return new int[0];
+                throw new QuitException();
             }
             String[] splited = seedString.split(",");
             if (seedString.matches("[0-9]+([,][0-9]+)*") && splited.length <= max && splited.length >= min
                     && isNumeric(splited, start, end)) {
                 int[] out = Stream.of(splited).mapToInt(Integer::parseInt).toArray();
-                if (!checkDubicate(out)) {
+                if (allowDuplicat || !checkDubicate(out)) {
                     return out;
                 }
             }
@@ -113,7 +119,7 @@ public class UserInterface extends UserOutput {
      * @param heroClass Die Heldenklassen
      * @return die eingegebene Zahl
      */
-    public int getStartHero(int start, int end, List<HeroClass> heroClass) {
+    public int getStartHero(int start, int end, List<HeroClass> heroClass) throws QuitException {
         print(Message.MESSAGE_START_FIRST.toString());
         printClass(heroClass);
         return getUserInput(Message.MESSAGE_NUMBER, start, end);
@@ -126,7 +132,7 @@ public class UserInterface extends UserOutput {
      * @param end   Ende des Eingabebereichs
      * @return die gewürfelte Zahl
      */
-    public int getDice(int start, int end) {
+    public int getDice(int start, int end) throws QuitException{
         return getUserInput(Message.MESSAGE_DICE, start, end);
     }
 
@@ -135,8 +141,9 @@ public class UserInterface extends UserOutput {
      * 
      * @return den Seed
      */
-    public int[] getSeed() {
-        return getNumbersSeparated(Message.MESSAGE_START_SECOND, 2, 2, 1, Integer.MAX_VALUE);
+    public int[] getSeed() throws QuitException{
+        print(Message.MESSAGE_START_SECOND.toString());
+        return getNumbersSeparated(Message.ENTER_SEEDS, 2, 2, 1, Integer.MAX_VALUE, true);
     }
 
     /**
@@ -145,7 +152,7 @@ public class UserInterface extends UserOutput {
      * @param ability die Fähigkeiten von Runa
      * @return die gewählte Zahl der Fähigkeit
      */
-    public int selectRunasAbility(List<Ability> ability) {
+    public int selectRunasAbility(List<Ability> ability) throws QuitException{
         print(Message.COMBAT_RUNA_ABILITY.toString());
         for (int i = 0; i < ability.size(); i++) {
             print((i + 1) + ") " + ability.get(i).getName() + "(" + ability.get(i).getLevel() + ")");
@@ -159,7 +166,7 @@ public class UserInterface extends UserOutput {
      * @param enemies List mit den enemies
      * @return die Nummer des Ziels
      */
-    public int selectTarget(List<Monster> enemies) {
+    public int selectTarget(List<Monster> enemies) throws QuitException{
         print(Message.MESSAGE_RUNA_TARGET.toString());
         for (int i = 0; i < enemies.size(); i++) {
             print((i + 1) + ") " + enemies.get(i).getName());
@@ -172,7 +179,7 @@ public class UserInterface extends UserOutput {
      * 
      * @return die Zahl der Belohnung
      */
-    public int selectRewardType() {
+    public int selectRewardType() throws QuitException{
         print(Message.MESSAGE_REWARD.toString());
         return getUserInput(Message.MESSAGE_NUMBER, 1, 2);
     }
@@ -184,16 +191,16 @@ public class UserInterface extends UserOutput {
      * @param number       Anzahl der Karten
      * @return array mit den ausgewählten Karten
      */
-    public int[] selectReward(List<Ability> newAbilities, int number) {
+    public int[] selectReward(List<Ability> newAbilities, int number) throws QuitException{
         String output = String.format(Message.PICK_CARD.toString(), number);
         print(output);
         for (int i = 0; i < newAbilities.size(); i++) {
             print((i + 1) + ") " + newAbilities.get(i).getName() + "(" + newAbilities.get(i).getLevel() + ")");
         }
         if (number == 1) {
-            return getNumbersSeparated(Message.MESSAGE_NUMBER, number, number, 1, newAbilities.size());
+            return getNumbersSeparated(Message.MESSAGE_NUMBER, number, number, 1, newAbilities.size(), false);
         }
-        return getNumbersSeparated(Message.ENTER_NUMBER, number, number, 1, newAbilities.size());
+        return getNumbersSeparated(Message.ENTER_NUMBER, number, number, 1, newAbilities.size(), false);
     }
 
     /**
@@ -204,16 +211,17 @@ public class UserInterface extends UserOutput {
      * @param runasAbility Runas Fähigkeitskarten
      * @return array mit den ausgewählten Karten
      */
-    public int[] selectCardsToHeal(int health, int maxHealth, List<Ability> runasAbility) {
+    public int[] selectCardsToHeal(int health, int maxHealth, List<Ability> runasAbility) throws QuitException{
         String message = String.format(Message.REWARD_RUNA_HEALING.toString(), health, maxHealth);
         print(message);
         for (int i = 0; i < runasAbility.size(); i++) {
             print((i + 1) + ") " + runasAbility.get(i).getName() + "(" + runasAbility.get(i).getLevel() + ")");
         }
         if (runasAbility.size() == 2) {
-            return getNumbersSeparated(Message.MESSAGE_NUMBER, 0, runasAbility.size() - 1, 1, runasAbility.size());
+            return getNumbersSeparated(Message.MESSAGE_NUMBER, 0, runasAbility.size() - 1, 1, runasAbility.size(),
+                    false);
         }
-        return getNumbersSeparated(Message.ENTER_NUMBER, 0, runasAbility.size() - 1, 1, runasAbility.size());
+        return getNumbersSeparated(Message.ENTER_NUMBER, 0, runasAbility.size() - 1, 1, runasAbility.size(), false);
     }
 
     /**
@@ -247,8 +255,12 @@ public class UserInterface extends UserOutput {
             if (!string.matches("[0-9]+")) {
                 return false;
             }
-            int number = Integer.parseInt(string);
-            if (number < start || number > end) {
+            try {
+                int number = Integer.parseInt(string);
+                if (number < start || number > end) {
+                    return false;
+                }
+            } catch (NumberFormatException e) {
                 return false;
             }
         }

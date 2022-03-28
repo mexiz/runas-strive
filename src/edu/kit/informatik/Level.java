@@ -45,7 +45,7 @@ public class Level {
 
         monsterLevel = data.getMonster(level);
         boss = data.getBoss(level);
-        runaAbility = initRunaAbiility(level, heroClass.getAbilities(level));
+        runaAbility = data.initRunaAbiility(level, heroClass.getAbilities(level));
 
         Collections.shuffle(monsterLevel, new Random(seed[1]));
         Collections.shuffle(runaAbility, new Random(seed[0]));
@@ -84,36 +84,17 @@ public class Level {
      * @return List<Ability> die Liste mit Fähigkeiten
      */
     public List<Ability> pullAbility(int count) {
+        int outputAbilities = count;
         List<Ability> returnList = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
+        if (runaAbility.size() <= count) {
+            outputAbilities = runaAbility.size();
+        }
+        for (int i = 0; i < outputAbilities; i++) {
             Ability ability = runaAbility.remove(0);
             returnList.add(ability);
         }
         return returnList;
     }
 
-    /**
-     * CHANGE LATER
-     * 
-     * @param level         d
-     * @param removeAbility d
-     * @return List<Ability> d
-     */
-    private List<Ability> initRunaAbiility(int level, List<Ability> removeAbility) {
-        List<Ability> ability;
-        ability = new ArrayList<>(List.of(new RunaSlash(level),
-                new RunaSwing(level),
-                new RunaThrust(level),
-                new RunaPierce(level),
-                new RunaParry(level),
-                new RunaFocus(level),
-                new RunaReflect(level),
-                new RunaWater(level),
-                new RunaIce(level),
-                new RunaFire(level),
-                new RunaLightning(level)));
-        ability.removeAll(removeAbility);
-        return ability;
-    }
 
 }

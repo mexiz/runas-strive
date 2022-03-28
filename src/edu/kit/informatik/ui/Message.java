@@ -17,7 +17,7 @@ public enum Message {
      * a
      */
     MESSAGE_START_SECOND(
-            "To shuffle ability cards and monsters, enter two seeds\nEnter seeds [%d--%d] separated by comma:"),
+            "To shuffle ability cards and monsters, enter two seeds"),
     /**
      * a
      */
@@ -82,6 +82,14 @@ public enum Message {
      * a
      */
     ENTER_NUMBER("Enter numbers [%d--%d] separated by comma:"),
+    /**
+     * a
+     */
+    ENTER_SEEDS("Enter seeds [%d--%d] separated by comma:"),
+    /**
+     * a
+     */
+    RUNA_WON("Runa won!"),
     /**
      * a
      */

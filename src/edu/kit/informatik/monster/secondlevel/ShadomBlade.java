@@ -18,7 +18,7 @@ import edu.kit.informatik.model.MonsterType;
 public class ShadomBlade extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.LIGHTNING;
-    private static final String NAME = "Frog";
+    private static final String NAME = "Shadow Blade";
     private static final int HEALTH = 27;
     private List<Ability> abilities = List.of(new MonsterScratch(2),
             new MonsterFocus(2),

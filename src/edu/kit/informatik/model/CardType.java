@@ -21,6 +21,10 @@ public enum CardType {
     /**
      * Fokuskarte
      */
+    DEFENSIV_REFLECT,
+    /**
+     * Fokuskarte
+     */
     FOCUS,
     /**
      * kein Typ

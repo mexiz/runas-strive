@@ -17,7 +17,7 @@ import edu.kit.informatik.model.MonsterType;
 public class WildBoar extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.ICE;
-    private static final String NAME = "WildBoar";
+    private static final String NAME = "Wild Boar";
     private static final int HEALTH = 27;
 
     private List<Ability> abilities = List.of(new MonsterScratch(2),

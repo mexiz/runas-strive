@@ -25,7 +25,7 @@ public class Combat {
     /**
      * Konstruktor
      * 
-     * @param runa Runa
+     * @param runa    Runa
      * @param enemies die Gegener
      */
     public Combat(Runa runa, List<Monster> enemies) {
@@ -43,6 +43,10 @@ public class Combat {
         int focusPoint = 0;
         if (runa.getCurrentAbility().getCardType().equals(CardType.FOCUS)) {
             focusPoint = runa.getCurrentAbility().execute(0, runa, null);
+            int untilMaxFocus = runa.getDice() - runa.getFocus();
+            if (untilMaxFocus < focusPoint) {
+                focusPoint = untilMaxFocus;
+            }
             runa.setFocus(runa.getFocus() + focusPoint);
         }
         return focusPoint;
@@ -51,9 +55,9 @@ public class Combat {
     /**
      * Führt Runaszug aus
      * 
-     * @param ability die ausgewählte Fähigkeit 
-     * @param target das Monster in der List
-     * @param dice der Würfelwert
+     * @param ability die ausgewählte Fähigkeit
+     * @param target  das Monster in der List
+     * @param dice    der Würfelwert
      * @return int Schaden von Runa auf das Monster
      */
     public int runaAttacks(Ability ability, int target, int dice) {
@@ -101,7 +105,7 @@ public class Combat {
      * @param monsterInList die Nummmer des Monster
      * @return int die Anzahl des verursachten Schadens
      */
-    public int attackFromMonster(int monsterInList) {
+    public int[] attackFromMonster(int monsterInList) {
         Monster monster = enemies.get(monsterInList);
 
         while (!monster.isAffordable()) {
@@ -113,27 +117,45 @@ public class Combat {
         monster.setPrevAbility(currentAbility);
 
         int damage = 0;
+        int blockedDamage = 0;
         if (currentAbility.getCardType().equals(CardType.OFFENSIVE)) {
             // Fokuspunkte abfragen
             if (currentAbility.getAttackType().equals(AttackType.MAGIC)) {
                 monster.setFocusPoints(monster.getFocusPoints() - currentAbility.getLevel());
             }
             damage = currentAbility.execute(0, runa, monster);
-            if (runa.getCurrentAbility().getCardType().equals(CardType.DEFENSIV)
-                    && currentAbility.getAttackType().equals(runa.getCurrentAbility().getAttackType())) {
-                damage += runa.getCurrentAbility().execute(0, null, null);
+            CardType abilityCardType = runa.getCurrentAbility().getCardType();
+            if (abilityCardType.equals(CardType.DEFENSIV) || abilityCardType.equals(CardType.DEFENSIV_REFLECT)) {
+                if (currentAbility.getAttackType().equals(runa.getCurrentAbility().getAttackType())) {
+                    blockedDamage = runa.getCurrentAbility().execute(0, null, null);
+                }
             }
         }
-
         if (currentAbility.isBreakFocus() && runa.getCurrentAbility().getCardType().equals(CardType.FOCUS)) {
             runa.setCurrentAbility(new EmptyAbility());
+        }
+        int[] out = new int[2];
+        if (runa.getCurrentAbility().getCardType().equals(CardType.DEFENSIV_REFLECT)) {
+            if (damage <= blockedDamage * (-1)) {
+                monster.setHealth(monster.getHealth() - damage);
+                out[0] = 0;
+                out[1] = damage;
+                return out;
+            }
+            monster.setHealth(monster.getHealth() + blockedDamage);
+            out[1] = blockedDamage * (-1);
+            damage += blockedDamage;
+
+        } else {
+            damage += blockedDamage;
         }
 
         if (damage > 0) {
             runa.setHealth(runa.getHealth() - damage);
+            out[0] = damage;
+            return out;
         }
-        return damage;
-
+        return out;
     }
 
     /**

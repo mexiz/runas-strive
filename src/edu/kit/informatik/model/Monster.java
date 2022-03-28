@@ -67,7 +67,7 @@ public abstract class Monster {
      * @return boolean true wenn das Monster tot ist
      */
     public boolean dead() {
-        return this.getHealth() < 0;
+        return this.getHealth() <= 0;
     }
 
     /**

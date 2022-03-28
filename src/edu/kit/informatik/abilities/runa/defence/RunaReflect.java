@@ -25,7 +25,7 @@ public class RunaReflect extends Ability {
      * @param level das Level
      */
     public RunaReflect(int level) {
-        super.init(level, AttackType.MAGIC, CardType.DEFENSIV, false, "Reflect");
+        super.init(level, AttackType.MAGIC, CardType.DEFENSIV_REFLECT, false, "Reflect");
     }
 
     @Override

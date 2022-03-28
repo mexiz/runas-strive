@@ -22,8 +22,6 @@ public class Game {
     private int currentLevel;
     private int currentStage;
 
-    private boolean finished;
-
     /**
      * Konstruktor
      */
@@ -31,25 +29,6 @@ public class Game {
         this.gamePhase = new StartPhase(this, new UserInterface());
         this.currentLevel = 1;
         this.currentStage = 0;
-        finished = false;
-    }
-
-    /**
-     * Abfrage ob das Spiel zuende ist
-     * 
-     * @return boolean true wenn das Spiel zuende ist
-     */
-    public boolean isFinished() {
-        return finished;
-    }
-
-    /**
-     * Setzt das Spiel
-     * 
-     * @param finished true wenn beendet
-     */
-    public void setFinished(boolean finished) {
-        this.finished = finished;
     }
 
     /**
@@ -130,7 +109,7 @@ public class Game {
      * 
      * @return true wenn das Spiel eine nächste Phase hat
      */
-    public boolean nextGamePhase() {
+    public boolean nextGamePhase() throws QuitException {
         if (gamePhase != null) {
             gamePhase.start();
             return true;

@@ -1,5 +1,7 @@
 package edu.kit.informatik.model;
 
+import edu.kit.informatik.QuitException;
+
 /**
  * GamePhase
  * 
@@ -13,6 +15,6 @@ public interface GamePhase {
     /**
      * Startet die Phase
      */
-    void start();
+    void start() throws QuitException;
 
 }

@@ -20,7 +20,7 @@ import edu.kit.informatik.model.MonsterType;
 public class MegaSaurus extends Monster {
 
     private static final MonsterType MONSTER_TYPE = MonsterType.NONE;
-    private static final String NAME = "MegaSaurus";
+    private static final String NAME = "Mega Saurus";
     private static final int HEALTH = 100;
 
     private List<Ability> abilities = List.of(new MonsterBite(2),
