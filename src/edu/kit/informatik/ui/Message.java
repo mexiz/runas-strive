@@ -10,88 +10,88 @@ package edu.kit.informatik.ui;
 
 public enum Message {
     /**
-     * a
+     * Startnachricht
      */
     MESSAGE_START_FIRST("Welcome to Runa's Strive\nSelect Runa's character class"),
     /**
-     * a
+     * zweite Startnachricht
      */
     MESSAGE_START_SECOND(
             "To shuffle ability cards and monsters, enter two seeds"),
     /**
-     * a
+     * Nachricht für die Nummerabfrage
      */
     MESSAGE_NUMBER("Enter number [%d--%d]:"),
     /**
-     * a
+     * Nachricht für die Würfelabfrage
      */
     MESSAGE_DICE("Enter dice roll [%d--%d]:"),
     /**
-     * a
+     * Nachricht für die Würfel verbesserung
      */
     MESSAGE_DICE_UPGRADE("Runa upgrades her die to a d%d"),
     /**
-     * a
+     * Nachricht für die Auswahl der Belohnungen
      */
     MESSAGE_REWARD("Choose Runa's reward\n1) new ability cards\n2) next player dice"),
     /**
-     * a
+     * Trennzeichen
      */
     MESSAGE_LINE_SEPERATOR("----------------------------------------"),
     /**
-     * a
+     * Versus
      */
     MESSAGE_VERSUS("vs."),
     /**
-     * a
+     * Nachricht für die Gegnerauswahl
      */
     MESSAGE_RUNA_TARGET("Select Runa's target."),
     /**
-     * a
+     * Nachricht für die Fokuspunkte
      */
     FOCUSPOINT("%s gains %d focus"),
     /**
-     * a
+     * Nachricht für die Karte die gespielt werden soll
      */
     COMBAT_RUNA_ABILITY("Select card to play"),
     /**
-     * a
+     * Nachricht für die Karte die gespielt wird
      */
     COMBAT_ABILITY_USE("%s uses %s"),
     /**
-     * a
+     * Nachricht für die erhaltene Karte
      */
     REWARD_NEW_ABILITY("Runa gets %s"),
     /**
-     * a
+     * Heilung von Runa
      */
     REWARD_HEAL("Runa gains %d health"),
     /**
-     * a
+     * Schadensausgabe
      */
     MESSAGE_TAKE_DAMAGE("%s takes %d %s damage"),
     /**
-     * a
+     * Raumbeitritts Nachricht
      */
     STAGE_START("Runa enters Stage %d of Level %d"),
     /**
-     * a
+     * Anzahl der Karten die gezogen werden dürfen
      */
     PICK_CARD("Pick %d card(s) as loot"),
     /**
-     * a
+     * Nummereingabe mit Komma
      */
     ENTER_NUMBER("Enter numbers [%d--%d] separated by comma:"),
     /**
-     * a
+     * Seedseingabe mit Komma
      */
     ENTER_SEEDS("Enter seeds [%d--%d] separated by comma:"),
     /**
-     * a
+     * Runa hat gewonnen
      */
     RUNA_WON("Runa won!"),
     /**
-     * a
+     * Ausgabe das man Karten abgeben kann
      */
     REWARD_RUNA_HEALING("Runa (%d/%d HP) can discard ability cards for healing (or none)");
 

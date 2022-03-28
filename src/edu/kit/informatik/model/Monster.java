@@ -3,6 +3,9 @@ package edu.kit.informatik.model;
 import java.util.List;
 
 import edu.kit.informatik.abilities.EmptyAbility;
+import edu.kit.informatik.model.ability.Ability;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.model.ability.CardType;
 
 /**
  * Abstrakteklasse für die Monster

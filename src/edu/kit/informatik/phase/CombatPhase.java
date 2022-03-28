@@ -4,12 +4,12 @@ import java.util.Iterator;
 
 import edu.kit.informatik.Combat;
 import edu.kit.informatik.Game;
-import edu.kit.informatik.QuitException;
-import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.model.AttackType;
-import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.GamePhase;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.QuitException;
+import edu.kit.informatik.model.ability.Ability;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.model.ability.CardType;
 import edu.kit.informatik.ui.UserInterface;
 
 /**

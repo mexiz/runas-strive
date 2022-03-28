@@ -5,7 +5,7 @@ import java.util.List;
 
 import edu.kit.informatik.abilities.runa.defence.RunaFocus;
 import edu.kit.informatik.abilities.runa.magic.RunaWater;
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.ability.Ability;
 
 /**
  * Die Mageklasse

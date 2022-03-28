@@ -1,7 +1,7 @@
 package edu.kit.informatik.abilities.runa.phys;
 
-import edu.kit.informatik.model.AttackType;
-import edu.kit.informatik.model.CardType;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.model.ability.CardType;
 import edu.kit.informatik.model.ability.runa.PhysicalAbility;
 
 /**

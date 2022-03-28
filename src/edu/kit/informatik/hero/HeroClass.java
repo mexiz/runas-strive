@@ -2,7 +2,7 @@ package edu.kit.informatik.hero;
 
 import java.util.List;
 
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.ability.Ability;
 
 /**
  * Die Vorlage für die Klassen des Heldens

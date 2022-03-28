@@ -2,11 +2,11 @@ package edu.kit.informatik.phase;
 
 import edu.kit.informatik.Combat;
 import edu.kit.informatik.Game;
-import edu.kit.informatik.GameData;
-import edu.kit.informatik.Level;
-import edu.kit.informatik.QuitException;
 import edu.kit.informatik.model.GamePhase;
+import edu.kit.informatik.model.QuitException;
 import edu.kit.informatik.ui.UserInterface;
+import edu.kit.informatik.util.GameData;
+import edu.kit.informatik.util.Level;
 
 /**
  * 

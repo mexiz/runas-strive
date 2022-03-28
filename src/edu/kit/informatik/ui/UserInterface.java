@@ -6,10 +6,10 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import edu.kit.informatik.QuitException;
 import edu.kit.informatik.hero.HeroClass;
-import edu.kit.informatik.model.Ability;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.QuitException;
+import edu.kit.informatik.model.ability.Ability;
 
 /**
  * Die Klasse kümmert sich um die Usereingaben

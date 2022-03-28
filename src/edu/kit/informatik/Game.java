@@ -1,8 +1,11 @@
 package edu.kit.informatik;
 
+import edu.kit.informatik.character.Runa;
 import edu.kit.informatik.model.GamePhase;
+import edu.kit.informatik.model.QuitException;
 import edu.kit.informatik.phase.StartPhase;
 import edu.kit.informatik.ui.UserInterface;
+import edu.kit.informatik.util.Level;
 
 /**
  * Das Spiel

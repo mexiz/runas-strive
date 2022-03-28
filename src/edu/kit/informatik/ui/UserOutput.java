@@ -2,11 +2,11 @@ package edu.kit.informatik.ui;
 
 import java.util.List;
 
-import edu.kit.informatik.GameData;
 import edu.kit.informatik.hero.HeroClass;
-import edu.kit.informatik.model.Ability;
-import edu.kit.informatik.model.AttackType;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.ability.Ability;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.util.GameData;
 
 /**
  * Klasse für die Konsolenausgabe

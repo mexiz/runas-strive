@@ -1,7 +1,7 @@
 package edu.kit.informatik.phase;
 
-import edu.kit.informatik.QuitException;
 import edu.kit.informatik.model.GamePhase;
+import edu.kit.informatik.model.QuitException;
 
 /**
  * Das Ende des Spiels

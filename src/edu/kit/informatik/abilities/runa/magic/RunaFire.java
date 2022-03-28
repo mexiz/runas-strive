@@ -1,8 +1,8 @@
 package edu.kit.informatik.abilities.runa.magic;
 
-import edu.kit.informatik.model.AttackType;
-import edu.kit.informatik.model.CardType;
 import edu.kit.informatik.model.MonsterType;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.model.ability.CardType;
 import edu.kit.informatik.model.ability.runa.MagicAbility;
 
 /**

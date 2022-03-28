@@ -1,7 +1,5 @@
 package edu.kit.informatik.model;
 
-import edu.kit.informatik.QuitException;
-
 /**
  * GamePhase
  * 

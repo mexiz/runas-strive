@@ -5,7 +5,7 @@ import java.util.List;
 
 import edu.kit.informatik.abilities.runa.defence.RunaReflect;
 import edu.kit.informatik.abilities.runa.phys.RunaSlash;
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.model.ability.Ability;
 
 /**
  * Die Paladinklasse

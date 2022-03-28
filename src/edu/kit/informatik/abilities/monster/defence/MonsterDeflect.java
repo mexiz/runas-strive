@@ -1,10 +1,10 @@
 package edu.kit.informatik.abilities.monster.defence;
 
-import edu.kit.informatik.Runa;
-import edu.kit.informatik.model.AttackType;
-import edu.kit.informatik.model.CardType;
-import edu.kit.informatik.model.Ability;
+import edu.kit.informatik.character.Runa;
 import edu.kit.informatik.model.Monster;
+import edu.kit.informatik.model.ability.Ability;
+import edu.kit.informatik.model.ability.AttackType;
+import edu.kit.informatik.model.ability.CardType;
 
 /**
  * 
